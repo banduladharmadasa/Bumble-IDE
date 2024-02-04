@@ -30,6 +30,7 @@ This is a fully functional code editor and Integrated Development Environment (I
 - [Ace Code Editor](https://ace.c9.io/)
 - [ CivetWeb](https://github.com/civetweb/civetweb)
 - [TinyXML-2](https://github.com/leethomason/tinyxml2)
+- [ReadDirectoryChanges](https://github.com/jimbeveridge/readdirectorychanges)
 
 ## Development Status
 
