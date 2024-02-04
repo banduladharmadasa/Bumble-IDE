@@ -1,0 +1,546 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{74DAAE0E-22B7-43CA-8AD1-369381D4F2C3}</ProjectGuid>
+    <Keyword>MFCProj</Keyword>
+    <RootNamespace>AvailEdit</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Bumble</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgEnableManifest>true</VcpkgEnableManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <AdditionalIncludeDirectories>./;include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>./;./Color;./include;./src/ReadDirectoryChanges;C:\Library\TinyXML2\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>.\lib\x64_debug;C:\Program Files\MySQL\mysql-connector-c++-8.0.16-winx64\lib64\vs14;C:\Library\boost_1_71_0\stage\lib;C:\Library\TinyXML2\bin\x64-Debug-Dll</AdditionalLibraryDirectories>
+      <AdditionalDependencies>civetweb.lib;tinyxml2.lib</AdditionalDependencies>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy "$(ProjectDir)scripts" "$(TargetDir)scripts" /s /i /y
+xcopy "$(ProjectDir)xmlconfig" "$(TargetDir)xmlconfig" /s /i /y
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>./;include;..\scintilla\include;..\scintilla\lexers;..\scintilla\lexlib;..\scintilla\src</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Library\boost_1_71_0;C:\Program Files\MySQL\mysql-connector-c++-8.0.16-winx64\include\jdbc;./;./Color;./include;C:\Program Files\Python37\include;./src/ReadDirectoryChanges;C:\Library\TinyXML2\include;.\CGridListCtrlEx</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>civetweb.lib;mysqlcppconn.lib;tinyxml2.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>.\lib\x64_debug;C:\Program Files\MySQL\mysql-connector-c++-8.0.16-winx64\lib64\vs14;C:\Library\boost_1_71_0\stage\lib;C:\Library\TinyXML2\bin\x64-Release-Dll</AdditionalLibraryDirectories>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="include\BumbleEdit.h" />
+    <ClInclude Include="include\include\BumbleEditDoc.h" />
+    <ClInclude Include="include\BumbleEditView.h" />
+    <ClInclude Include="include\BlankOperations.h" />
+    <ClInclude Include="include\BuildAndRunPropPage.h" />
+    <ClInclude Include="include\BuiltInServer.h" />
+    <ClInclude Include="include\BumbleExtInterface.h" />
+    <ClInclude Include="include\ButtonEx.h" />
+    <ClInclude Include="include\CaptionButton.h" />
+    <ClInclude Include="include\CBumbleButton.h" />
+    <ClInclude Include="include\CBumbleDialog.h" />
+    <ClInclude Include="include\CBumbleMessageBox.h" />
+    <ClInclude Include="include\CBumblePropertyPage.h" />
+    <ClInclude Include="include\CBumblePropertySheet.h" />
+    <ClInclude Include="include\CFileBrowserDockPane.h" />
+    <ClInclude Include="include\CFileBrowserOptionWnd.h" />
+    <ClInclude Include="include\CFindFilesResult.h" />
+    <ClInclude Include="include\CFindResultWnd.h" />
+    <ClInclude Include="include\CGotoLine.h" />
+    <ClInclude Include="include\ChildFrm.h" />
+    <ClInclude Include="include\CInsertAtNumber.h" />
+    <ClInclude Include="include\CInsertAtPropSheet.h" />
+    <ClInclude Include="include\CInsertTextAt.h" />
+    <ClInclude Include="include\CMessageWnd.h" />
+    <ClInclude Include="include\CMFCPropertyGridMultiFileProperty.h" />
+    <ClInclude Include="include\CNewFolderNameDlg.h" />
+    <ClInclude Include="include\CntrItem.h" />
+    <ClInclude Include="include\CodeEditor.h" />
+    <ClInclude Include="include\ColorPalette.h" />
+    <ClInclude Include="include\ComType.h" />
+    <ClInclude Include="include\Config.h" />
+    <ClInclude Include="include\CPluginManager.h" />
+    <ClInclude Include="include\CProjectDoc.h" />
+    <ClInclude Include="include\CRenameDialog.h" />
+    <ClInclude Include="include\CShellThread.h" />
+    <ClInclude Include="include\CStaticEx.h" />
+    <ClInclude Include="include\CTabBuild.h" />
+    <ClInclude Include="include\CTabSource.h" />
+    <ClInclude Include="include\CUpdateCheck.h" />
+    <ClInclude Include="include\CXmlConfigManager.h" />
+    <ClInclude Include="include\DirectoryWatcher.h" />
+    <ClInclude Include="include\DirTreeCtrl.h" />
+    <ClInclude Include="include\DocManagerEx.h" />
+    <ClInclude Include="include\FileDialogEx.h" />
+    <ClInclude Include="include\GenaricWebView.h" />
+    <ClInclude Include="include\GUI.h" />
+    <ClInclude Include="include\helper.h" />
+    <ClInclude Include="include\HistoryObj.h" />
+    <ClInclude Include="include\KeyHelper.h" />
+    <ClInclude Include="include\MainFrm.h" />
+    <ClInclude Include="include\MenuBarEx.h" />
+    <ClInclude Include="include\MFCPopupMenuEx.h" />
+    <ClInclude Include="include\MultiDocTemplateEx.h" />
+    <ClInclude Include="include\ObjectTree.h" />
+    <ClInclude Include="include\OptionDock.h" />
+    <ClInclude Include="include\OutputWnd.h" />
+    <ClInclude Include="include\PopupMenuEx.h" />
+    <ClInclude Include="include\ProjectTabCtrl.h" />
+    <ClInclude Include="include\ProjectTree.h" />
+    <ClInclude Include="include\ProjectTreeCtrl.h" />
+    <ClInclude Include="include\ProjectView.h" />
+    <ClInclude Include="include\QuickEdit.h" />
+    <ClInclude Include="include\resource3.h" />
+    <ClInclude Include="include\ScreenCaptureThread.h" />
+    <ClInclude Include="include\ServerManager.h" />
+    <ClInclude Include="include\SettingsDoc.h" />
+    <ClInclude Include="include\SettingsFormView.h" />
+    <ClInclude Include="include\SortStringArray.h" />
+    <ClInclude Include="include\SourceFolderList.h" />
+    <ClInclude Include="include\SqlConnection.h" />
+    <ClInclude Include="include\StatusBarEx.h" />
+    <ClInclude Include="include\Tokenizer.h" />
+    <ClInclude Include="include\ToolPane.h" />
+    <ClInclude Include="include\TutorialBrowser.h" />
+    <ClInclude Include="include\TutorialTextPane.h" />
+    <ClInclude Include="include\VisualManagerEx.h" />
+    <ClInclude Include="include\Resource.h" />
+    <ClInclude Include="include\stdafx.h" />
+    <ClInclude Include="include\targetver.h" />
+    <ClInclude Include="include\WebServer.h" />
+    <ClInclude Include="include\ZoomSlider.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\BumbleEdit.cpp" />
+    <ClCompile Include="src\BumbleEditDoc.cpp" />
+    <ClCompile Include="src\BumbleEditView.cpp" />
+    <ClCompile Include="src\BlankOperations.cpp" />
+    <ClCompile Include="src\BuildAndRunPropPage.cpp" />
+    <ClCompile Include="src\BuiltInServer.cpp" />
+    <ClCompile Include="src\ButtonEx.cpp" />
+    <ClCompile Include="src\CaptionButton.cpp" />
+    <ClCompile Include="src\CBumbleButton.cpp" />
+    <ClCompile Include="src\CBumbleDialog.cpp" />
+    <ClCompile Include="src\CBumbleMessageBox.cpp" />
+    <ClCompile Include="src\CBumblePropertyPage.cpp" />
+    <ClCompile Include="src\CBumblePropertySheet.cpp" />
+    <ClCompile Include="src\CFileBrowserDockPane.cpp" />
+    <ClCompile Include="src\CFileBrowserOptionWnd.cpp" />
+    <ClCompile Include="src\CFindFilesResult.cpp" />
+    <ClCompile Include="src\CFindResultWnd.cpp" />
+    <ClCompile Include="src\CGotoLine.cpp" />
+    <ClCompile Include="src\ChildFrm.cpp" />
+    <ClCompile Include="src\CInsertAtNumber.cpp" />
+    <ClCompile Include="src\CInsertAtPropSheet.cpp" />
+    <ClCompile Include="src\CInsertTextAt.cpp" />
+    <ClCompile Include="src\CMessageWnd.cpp" />
+    <ClCompile Include="src\CMFCPropertyGridMultiFileProperty.cpp" />
+    <ClCompile Include="src\CNewFolderNameDlg.cpp" />
+    <ClCompile Include="src\CntrItem.cpp" />
+    <ClCompile Include="src\CodeEditor.cpp" />
+    <ClCompile Include="src\ComType.cpp" />
+    <ClCompile Include="src\Config.cpp" />
+    <ClCompile Include="src\CPluginManager.cpp" />
+    <ClCompile Include="src\CProjectDoc.cpp" />
+    <ClCompile Include="src\CRenameDialog.cpp" />
+    <ClCompile Include="src\CShellThread.cpp" />
+    <ClCompile Include="src\CStaticEx.cpp" />
+    <ClCompile Include="src\CTabBuild.cpp" />
+    <ClCompile Include="src\CTabSource.cpp" />
+    <ClCompile Include="src\CUpdateCheck.cpp" />
+    <ClCompile Include="src\CXmlConfigManager.cpp" />
+    <ClCompile Include="src\DirectoryWatcher.cpp" />
+    <ClCompile Include="src\DirTreeCtrl.cpp" />
+    <ClCompile Include="src\DocManagerEx.cpp" />
+    <ClCompile Include="src\FileDialogEx.cpp" />
+    <ClCompile Include="src\GenaricWebView.cpp" />
+    <ClCompile Include="src\helper.cpp" />
+    <ClCompile Include="src\HistoryObj.cpp" />
+    <ClCompile Include="src\KeyHelper.cpp" />
+    <ClCompile Include="src\MainFrm.cpp" />
+    <ClCompile Include="src\MenuBarEx.cpp" />
+    <ClCompile Include="src\MFCPopupMenuEx.cpp" />
+    <ClCompile Include="src\MultiDocTemplateEx.cpp" />
+    <ClCompile Include="src\ObjectTree.cpp" />
+    <ClCompile Include="src\OptionDock.cpp" />
+    <ClCompile Include="src\OutputWnd.cpp" />
+    <ClCompile Include="src\PopupMenuEx.cpp" />
+    <ClCompile Include="src\ProjectTabCtrl.cpp" />
+    <ClCompile Include="src\ProjectTree.cpp" />
+    <ClCompile Include="src\ProjectTreeCtrl.cpp" />
+    <ClCompile Include="src\ProjectView.cpp" />
+    <ClCompile Include="src\QuickEdit.cpp" />
+    <ClCompile Include="src\QuickList.cpp" />
+    <ClCompile Include="src\ScreenCaptureThread.cpp" />
+    <ClCompile Include="src\ServerManager.cpp" />
+    <ClCompile Include="src\SettingsDoc.cpp" />
+    <ClCompile Include="src\SettingsFormView.cpp" />
+    <ClCompile Include="src\SortStringArray.cpp" />
+    <ClCompile Include="src\SourceFolderList.cpp" />
+    <ClCompile Include="src\SqlConnection.cpp" />
+    <ClCompile Include="src\StatusBarEx.cpp" />
+    <ClCompile Include="src\Tokenizer.cpp" />
+    <ClCompile Include="src\ToolPane.cpp" />
+    <ClCompile Include="src\TutorialBrowser.cpp" />
+    <ClCompile Include="src\TutorialTextPane.cpp" />
+    <ClCompile Include="src\VisualManagerEx.cpp" />
+    <ClCompile Include="src\stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\WebServer.cpp" />
+    <ClCompile Include="src\ZoomSlider.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\Downloads\logo_FLr_icon.ico" />
+    <Image Include="..\..\repos\AvailEdit\AvailEdit\res\system.png" />
+    <Image Include="..\..\repos\AvailEdit\AvailEdit\res\writelarge.bmp" />
+    <Image Include="..\..\repos\AvailEdit\AvailEdit\res\writesmall.bmp" />
+    <Image Include="res\AceEditorDoc.ico" />
+    <Image Include="res\bitmap.ico" />
+    <Image Include="res\bitmap1.bmp" />
+    <Image Include="res\bitmap2.bmp" />
+    <Image Include="res\bitmap3.bmp" />
+    <Image Include="res\bitmap4.bmp" />
+    <Image Include="res\bitmap4.png" />
+    <Image Include="res\bitmap5.bmp" />
+    <Image Include="res\bitmap5.png" />
+    <Image Include="res\bmp00001.bmp" />
+    <Image Include="res\bmp00001.png" />
+    <Image Include="res\bmp00002.bmp" />
+    <Image Include="res\bmp00002.png" />
+    <Image Include="res\bmp00003.bmp" />
+    <Image Include="res\bmp00003.png" />
+    <Image Include="res\bmp00004.bmp" />
+    <Image Include="res\bmp00004.png" />
+    <Image Include="res\bmp00005.bmp" />
+    <Image Include="res\bmp00005.png" />
+    <Image Include="res\bmp00006.bmp" />
+    <Image Include="res\bmp00006.png" />
+    <Image Include="res\bmp00007.bmp" />
+    <Image Include="res\bmp00007.png" />
+    <Image Include="res\bmp00008.bmp" />
+    <Image Include="res\bmp00008.png" />
+    <Image Include="res\bmp00009.bmp" />
+    <Image Include="res\bmp00009.png" />
+    <Image Include="res\bmp00010.bmp" />
+    <Image Include="res\bmp00010.png" />
+    <Image Include="res\bmp00011.bmp" />
+    <Image Include="res\bmp00011.png" />
+    <Image Include="res\bmp00012.bmp" />
+    <Image Include="res\bmp00012.png" />
+    <Image Include="res\bmp00013.bmp" />
+    <Image Include="res\bmp00013.png" />
+    <Image Include="res\bmp00014.bmp" />
+    <Image Include="res\bmp00014.png" />
+    <Image Include="res\bmp00015.bmp" />
+    <Image Include="res\bmp00015.png" />
+    <Image Include="res\bmp00016.bmp" />
+    <Image Include="res\bmp00016.png" />
+    <Image Include="res\bmp00017.bmp" />
+    <Image Include="res\bmp00017.png" />
+    <Image Include="res\bmp00018.bmp" />
+    <Image Include="res\bmp00018.png" />
+    <Image Include="res\bmp00019.bmp" />
+    <Image Include="res\bmp00019.png" />
+    <Image Include="res\bmp00020.bmp" />
+    <Image Include="res\bmp00020.png" />
+    <Image Include="res\bmp00021.bmp" />
+    <Image Include="res\bmp00021.png" />
+    <Image Include="res\bmp00022.bmp" />
+    <Image Include="res\bmp00022.png" />
+    <Image Include="res\buttons.bmp" />
+    <Image Include="res\CaptionBtns.bmp" />
+    <Image Include="res\checkboxes.bmp" />
+    <Image Include="res\coldtool.bmp" />
+    <Image Include="res\ditto\chevron_bottom_10_10.png" />
+    <Image Include="res\ditto\chevron_bottom_12_12.png" />
+    <Image Include="res\ditto\chevron_bottom_16_16.png" />
+    <Image Include="res\ditto\chevron_bottom_8_8.png" />
+    <Image Include="res\ditto\chevron_left_10_10.png" />
+    <Image Include="res\ditto\chevron_left_12_12.png" />
+    <Image Include="res\ditto\chevron_left_16_16.png" />
+    <Image Include="res\ditto\chevron_left_8_8.png" />
+    <Image Include="res\ditto\chevron_right_10_10.png" />
+    <Image Include="res\ditto\chevron_right_12_12.png" />
+    <Image Include="res\ditto\chevron_right_16_16.png" />
+    <Image Include="res\ditto\chevron_right_8_8.png" />
+    <Image Include="res\ditto\chevron_top_10_10.png" />
+    <Image Include="res\ditto\chevron_top_12_12.png" />
+    <Image Include="res\ditto\chevron_top_16_16.png" />
+    <Image Include="res\ditto\chevron_top_8_8.png" />
+    <Image Include="res\ditto\close_10_10.png" />
+    <Image Include="res\ditto\close_12_12.png" />
+    <Image Include="res\ditto\close_16_16.png" />
+    <Image Include="res\ditto\close_8_8.png" />
+    <Image Include="res\ditto\maximize_10_10.png" />
+    <Image Include="res\ditto\maximize_12_12.png" />
+    <Image Include="res\ditto\maximize_16_16.png" />
+    <Image Include="res\ditto\maximize_8_8.png" />
+    <Image Include="res\File.gif" />
+    <Image Include="res\filelarge.bmp" />
+    <Image Include="res\filesmal.bmp" />
+    <Image Include="res\filesmall.bmp" />
+    <Image Include="res\Folder.gif" />
+    <Image Include="res\hottoolb.bmp" />
+    <Image Include="res\icon1.ico" />
+    <Image Include="res\icon2.ico" />
+    <Image Include="res\icons8-close-window-26.bmp" />
+    <Image Include="res\icons8-close-window-26.png" />
+    <Image Include="res\icons8-maximize-window-26.bmp" />
+    <Image Include="res\icons8-maximize-window-26.png" />
+    <Image Include="res\icons8-minimize-window-26.bmp" />
+    <Image Include="res\icons8-minimize-window-26.png" />
+    <Image Include="res\icons8-restore-window-26.bmp" />
+    <Image Include="res\icons8-restore-window-26.png" />
+    <Image Include="res\icons8-tick-box-16.bmp" />
+    <Image Include="res\image_strip.png" />
+    <Image Include="res\image_strip_checked.bmp" />
+    <Image Include="res\image_strip_disabled.bmp" />
+    <Image Include="res\image_strip_disabled.png" />
+    <Image Include="res\logo_FLr_icon.ico" />
+    <Image Include="res\main.bmp" />
+    <Image Include="res\menu_img.bmp" />
+    <Image Include="res\opened_folder_16_16.png" />
+    <Image Include="res\PrevEnd.BMP" />
+    <Image Include="res\PreviewHome.BMP" />
+    <Image Include="res\PreviewNext.BMP" />
+    <Image Include="res\PreviewOne.BMP" />
+    <Image Include="res\PreviewTwo.BMP" />
+    <Image Include="res\PrevPrevious.BMP" />
+    <Image Include="res\PrevPrint.BMP" />
+    <Image Include="res\PrevZoomin.bmp" />
+    <Image Include="res\PrevZoomout.BMP" />
+    <Image Include="res\radio_of32.bmp" />
+    <Image Include="res\radio_on32.bmp" />
+    <Image Include="res\system.bmp" />
+    <Image Include="res\system.png" />
+    <Image Include="res\Toolbar.bmp" />
+    <Image Include="res\toolbar.png" />
+    <Image Include="res\toolbar1.bmp" />
+    <Image Include="res\toolbar2.bmp" />
+    <Image Include="res\toolbar2.png" />
+    <Image Include="res\Toolbar256.bmp" />
+    <Image Include="res\toolbar3.bmp" />
+    <Image Include="res\toolbar3.png" />
+    <Image Include="res\writelarge.bmp" />
+    <Image Include="res\writesmall.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include="CFindResultWnd.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="CSnippetWnd.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="CTutorialBrowser.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="GoToLineDlg.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="res\html\html6.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="res\ribbon.mfcribbon-ms" />
+    <None Include="res\ribbon1.mfcribbon-ms" />
+    <None Include="res\webresou.bin" />
+    <None Include="scripts\default1.bin" />
+    <None Include="scripts\ext-search.js" />
+    <None Include="scripts\main.js" />
+    <None Include="scripts\playground.js" />
+    <None Include="TextInsertDialog.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="vcpkg.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="BumbleEditor.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="AceEditor.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

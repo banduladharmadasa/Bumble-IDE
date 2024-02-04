@@ -1,0 +1,5 @@
+{
+  "name": "bumble",
+  "version-string": "0.0.1",
+  "dependencies": ["tinyxml2"]
+}

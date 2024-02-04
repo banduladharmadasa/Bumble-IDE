@@ -1,0 +1,1849 @@
+// Microsoft Visual C++ generated resource script.
+//
+#pragma code_page(65001)
+
+#include "include\resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "include\targetver.h"
+#endif
+#include "afxres.h"
+#include "verrsrc.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_MAIN                BITMAP                  "res\\main.bmp"
+
+IDB_FILELARGE           BITMAP                  "res\\filelarge.bmp"
+
+IDB_FILESMALL           BITMAP                  "res\\filesmall.bmp"
+
+IDB_BUTTONS             BITMAP                  "res\\buttons.bmp"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Close\tCtrl+W",              ID_FILE_CLOSE
+        MENUITEM "Close All\tCtrl+Shit+W",      ID_FILE_CLOSEALL
+        MENUITEM SEPARATOR
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...\tCtrl+Alt+S",     ID_FILE_SAVE_AS
+        MENUITEM "Save a Copy As...",           ID_FILE_SAVE_COPY_AS
+        MENUITEM "Save All\tShit+Ctrl+S",       ID_FILE_SAVEALL
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM "Redo\tCtrl+Y",                ID_EDIT_REDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM "Select A&ll\tCtrl+A",         ID_EDIT_SELECT_ALL
+        MENUITEM SEPARATOR
+        MENUITEM "&Find...\tCtrl+F",            ID_EDIT_FIND
+        MENUITEM "Find Previous\tCtrl+Shift+K", ID_EDIT_FINDPREVIOUS
+        MENUITEM "F&ind Next\tCtrl+K",          ID_EDIT_REPEAT
+        MENUITEM "R&eplace\tCtrl+H",            ID_EDIT_REPLACE
+        MENUITEM "Go to Line...",               ID_EDIT_GOTOLINE
+        MENUITEM SEPARATOR
+        MENUITEM "Word Wrap",                   ID_EDIT_WORDWRAP, CHECKED
+        MENUITEM SEPARATOR
+        POPUP "Format.."
+        BEGIN
+            MENUITEM "Toggle Comments\tCtrl+/",     ID_EDIT_TOGGLECOMMENTS
+            MENUITEM "Toggle Block Comments\tCtrl+Shift+/", ID_EDIT_TOGGLEBLOCKCOMMENTS
+            MENUITEM SEPARATOR
+            MENUITEM "Fold Selection\tAlt+L",       ID_CODEFOLD_SELECTION
+            MENUITEM "Unfold Selection\tAlt+Shift+L", ID_CODEFOLD_UNFOLD
+            MENUITEM "Fold all\tAlt+O",             ID_CODEFOLD_FOLDALL
+            MENUITEM "Unfold All\tAlt+Shift+O",     ID_CODEFOLD_UNFOLDALL
+            MENUITEM SEPARATOR
+            MENUITEM "Make Upper Case\tCtrl+U",     ID_ADVANCED_MAKEUPPERCASE
+            MENUITEM "Make Lower Case\tCtrl+Shift+U", ID_ADVANCED_MAKELOWERCASE
+            MENUITEM SEPARATOR
+            MENUITEM "Indent\tTab",                 ID_WITHSELECTION_INDENT
+            MENUITEM "Outdent\tShift+Tab",          ID_WITHSELECTION_OUTDENT
+        END
+        POPUP "Advanced"
+        BEGIN
+            MENUITEM "Remove Leading Spaces",       ID_SANITIZE_REMOVELEADINGSPACES
+            MENUITEM "Remove Trailing Spaces",      ID_SANITIZE_REMOVETRAILINGSPACES
+            MENUITEM "Remove Leading and Trailing Spaces", ID_SANITIZE_REMOVELEADINGTRAILINGSPACES
+            MENUITEM "Remove only Extra Spaces",    ID_SANITIZE_REMOVEONLYEXTRASPACES
+            MENUITEM "Transform to a Single Line",  ID_SANITIZE_TRANSFORMTOASINGLELINE
+            MENUITEM SEPARATOR
+            MENUITEM "Multi Line Text Insertion",   ID_STRING_IN_FRONT
+        END
+        MENUITEM "Open Inline Editor",          ID_OPEN_INLINE_EDITOR
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM SEPARATOR
+        MENUITEM "Show All Characters",         ID_EDIT_SHOWALLCHARACTERS, CHECKED
+        MENUITEM "Show Indent Guid",            ID_EDIT_SHOWINDENTGUID, CHECKED
+        POPUP "Other Windows"
+        BEGIN
+            MENUITEM "File Browser",                ID_OTHERWINDOWS_FILEBROWSER
+            MENUITEM "Option Window",               ID_OPTIONS_OPEN
+            MENUITEM "Output Window",               ID_OTHERWINDOWS_OUTPUTWINDOW
+        END
+    END
+    POPUP "Run"
+    BEGIN
+        MENUITEM "Run",                         ID_DEBUG_RUN
+        MENUITEM "Stop",                        ID_ACTION_STOP
+        MENUITEM SEPARATOR
+        MENUITEM "Test on Browser",             ID_RUN_TESTONBROWSER
+        POPUP "Server"
+        BEGIN
+            MENUITEM "Start",                       ID_SERVER_START
+            MENUITEM "Stop",                        ID_SERVER_STOP
+        END
+    END
+    POPUP "Window"
+    BEGIN
+        MENUITEM "New Window",                  ID_WINDOW_NEW
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About Bumble...",            ID_APP_ABOUT
+    END
+END
+
+IDR_TYPE_BUMBLEEDIT MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Close\tCtrl+W",              ID_FILE_CLOSE
+        MENUITEM "Close All\tCtrl+Shit+W",      ID_FILE_CLOSEALL
+        MENUITEM SEPARATOR
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...\tCtrl+Alt+S",     ID_FILE_SAVE_AS
+        MENUITEM "Save a Copy As...",           ID_FILE_SAVE_COPY_AS
+        MENUITEM "Save All\tShit+Ctrl+S",       ID_FILE_SAVEALL
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM "Redo\tCtrl+Y",                ID_EDIT_REDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM "Select A&ll\tCtrl+A",         ID_EDIT_SELECT_ALL
+        MENUITEM SEPARATOR
+        MENUITEM "&Find...\tCtrl+F",            ID_EDIT_FIND
+        MENUITEM "Find Previous\tCtrl+Shift+K", ID_EDIT_FINDPREVIOUS
+        MENUITEM "F&ind Next\tCtrl+K",          ID_EDIT_REPEAT
+        MENUITEM "R&eplace\tCtrl+H",            ID_EDIT_REPLACE
+        MENUITEM "Go to Line...",               ID_EDIT_GOTOLINE
+        MENUITEM SEPARATOR
+        MENUITEM "Word Wrap",                   ID_EDIT_WORDWRAP, CHECKED
+        MENUITEM SEPARATOR
+        POPUP "Format.."
+        BEGIN
+            MENUITEM "Toggle Comments\tCtrl+/",     ID_EDIT_TOGGLECOMMENTS
+            MENUITEM "Toggle Block Comments\tCtrl+Shift+/", ID_EDIT_TOGGLEBLOCKCOMMENTS
+            MENUITEM SEPARATOR
+            MENUITEM "Fold Selection\tAlt+L",       ID_CODEFOLD_SELECTION
+            MENUITEM "Unfold Selection\tAlt+Shift+L", ID_CODEFOLD_UNFOLD
+            MENUITEM "Fold all\tAlt+O",             ID_CODEFOLD_FOLDALL
+            MENUITEM "Unfold All\tAlt+Shift+O",     ID_CODEFOLD_UNFOLDALL
+            MENUITEM SEPARATOR
+            MENUITEM "Make Upper Case\tCtrl+U",     ID_ADVANCED_MAKEUPPERCASE
+            MENUITEM "Make Lower Case\tCtrl+Shift+U", ID_ADVANCED_MAKELOWERCASE
+            MENUITEM SEPARATOR
+            MENUITEM "Indent\tTab",                 ID_WITHSELECTION_INDENT
+            MENUITEM "Outdent\tShift+Tab",          ID_WITHSELECTION_OUTDENT
+        END
+        POPUP "Advanced"
+        BEGIN
+            MENUITEM "Remove Leading Spaces",       ID_SANITIZE_REMOVELEADINGSPACES
+            MENUITEM "Remove Trailing Spaces",      ID_SANITIZE_REMOVETRAILINGSPACES
+            MENUITEM "Remove Leading and Trailing Spaces", ID_SANITIZE_REMOVELEADINGTRAILINGSPACES
+            MENUITEM "Remove only Extra Spaces",    ID_SANITIZE_REMOVEONLYEXTRASPACES
+            MENUITEM "Transform to a Single Line",  ID_SANITIZE_TRANSFORMTOASINGLELINE
+            MENUITEM SEPARATOR
+            MENUITEM "Multi Line Text Insertion",   ID_STRING_IN_FRONT
+        END
+        MENUITEM "Open Inline Editor",          ID_OPEN_INLINE_EDITOR
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM SEPARATOR
+        MENUITEM "Show All Characters",         ID_EDIT_SHOWALLCHARACTERS, CHECKED
+        MENUITEM "Show Indent Guid",            ID_EDIT_SHOWINDENTGUID, CHECKED
+        POPUP "Other Windows"
+        BEGIN
+            MENUITEM "File Browser",                ID_OTHERWINDOWS_FILEBROWSER
+            MENUITEM "Option Window",               ID_OPTIONS_OPEN
+            MENUITEM "Output Window",               ID_OTHERWINDOWS_OUTPUTWINDOW
+        END
+    END
+    POPUP "Debug"
+    BEGIN
+        MENUITEM "Run",                         ID_DEBUG_RUN
+        MENUITEM "Stop",                        ID_ACTION_STOP
+        MENUITEM SEPARATOR
+        MENUITEM "Test on Browser",             ID_RUN_TESTONBROWSER
+        POPUP "Server"
+        BEGIN
+            MENUITEM "Start",                       ID_SERVER_START
+            MENUITEM "Stop",                        ID_SERVER_STOP
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Configure",                   ID_RUN_CONFIGURE
+    END
+    POPUP "Tools"
+    BEGIN
+        MENUITEM "Functions",                   ID_TOOLS_FUNCTIONS
+    END
+    POPUP "Window"
+    BEGIN
+        MENUITEM "New Window",                  ID_WINDOW_NEW
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "Tutorials...",                ID_HELP_TUTORIALS
+        MENUITEM "&About Bumble...",            ID_APP_ABOUT
+    END
+END
+
+IDR_TYPE_BUMBLEEDIT_CNTR_IP MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Close",                      ID_FILE_CLOSE
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...\tCtrl+Alt+S",     ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    MENUITEM SEPARATOR
+    MENUITEM SEPARATOR
+    POPUP "&Window"
+    BEGIN
+        MENUITEM "&New Window",                 ID_WINDOW_NEW
+        MENUITEM "&Cascade",                    ID_WINDOW_CASCADE
+        MENUITEM "&Tile",                       ID_WINDOW_TILE_HORZ
+        MENUITEM "&Arrange Icons",              ID_WINDOW_ARRANGE
+    END
+END
+
+IDR_POPUP_EDIT MENU
+BEGIN
+    POPUP "Edit"
+    BEGIN
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM SEPARATOR
+        MENUITEM "Select A&ll\tCtrl+A",         ID_EDIT_SELECT_ALL
+    END
+END
+
+IDR_PASTE_MENU MENU
+BEGIN
+    MENUITEM "&Paste",                      ID_EDIT_PASTE
+    MENUITEM "Paste &Special...",           ID_EDIT_PASTE_SPECIAL
+    MENUITEM "Paste as &Hyperlink",         ID_WRITE_PASTEASHYPERLINK
+END
+
+IDR_WINDOWS_MENU MENU
+BEGIN
+    MENUITEM "&New Window",                 ID_WINDOW_NEW
+END
+
+IDR_HELP_MENU MENU
+BEGIN
+    MENUITEM "&About Bumble...",            ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS
+BEGIN
+    "U",            ID_ADVANCED_MAKELOWERCASE, VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "U",            ID_ADVANCED_MAKEUPPERCASE, VIRTKEY, CONTROL, NOINVERT
+    "Q",            ID_APP_EXIT,            VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "O",            ID_CODEFOLD_FOLDALL,    VIRTKEY, ALT, NOINVERT
+    "L",            ID_CODEFOLD_SELECTION,  VIRTKEY, ALT, NOINVERT
+    "L",            ID_CODEFOLD_UNFOLD,     VIRTKEY, SHIFT, ALT, NOINVERT
+    "O",            ID_CODEFOLD_UNFOLDALL,  VIRTKEY, SHIFT, ALT, NOINVERT
+    "R",            ID_DEBUG_RUN,           VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "F",            ID_EDIT_FIND,           VIRTKEY, CONTROL, NOINVERT
+    "K",            ID_EDIT_FINDPREVIOUS,   VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "G",            ID_EDIT_GOTOLINE,       VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
+    "K",            ID_EDIT_REPEAT,         VIRTKEY, CONTROL, NOINVERT
+    "H",            ID_EDIT_REPLACE,        VIRTKEY, CONTROL, NOINVERT
+    "A",            ID_EDIT_SELECT_ALL,     VIRTKEY, CONTROL, NOINVERT
+    VK_OEM_2,       ID_EDIT_TOGGLEBLOCKCOMMENTS, VIRTKEY, SHIFT, CONTROL, NOINVERT
+    VK_OEM_2,       ID_EDIT_TOGGLECOMMENTS, VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    "W",            ID_FILE_CLOSE,          VIRTKEY, CONTROL, NOINVERT
+    "W",            ID_FILE_CLOSEALL,       VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "W",            ID_FILE_CLOSEALL,       VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE_AS,        VIRTKEY, CONTROL, ALT, NOINVERT
+    "S",            ID_FILE_SAVEALL,        VIRTKEY, SHIFT, CONTROL, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    "R",            ID_RUN_TESTONBROWSER,   VIRTKEY, CONTROL, NOINVERT
+    VK_TAB,         ID_WITHSELECTION_INDENT, VIRTKEY, CONTROL, NOINVERT
+    VK_TAB,         ID_WITHSELECTION_OUTDENT, VIRTKEY, SHIFT, NOINVERT
+    "Q",            ID_UITHREADTOCAPTURE_SENDSTOPMESSAGE, VIRTKEY, CONTROL, NOINVERT
+END
+
+IDR_BUMBLEEDITTYPE_CNTR_IP ACCELERATORS
+BEGIN
+    "K",            ID_EDIT_FINDPREVIOUS,   VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "K",            ID_EDIT_REPEAT,         VIRTKEY, CONTROL, NOINVERT
+    VK_OEM_2,       ID_EDIT_TOGGLECOMMENTS, VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE_AS,        VIRTKEY, CONTROL, ALT, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 243, 119
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Bumble"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,21,20
+    LTEXT           "Bumble (64-bit)",IDC_STATIC,46,21,114,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) Hexonian Labs 2020",IDC_STATIC,20,73,180,8
+    CONTROL         "OK",IDOK,"Button",BS_OWNERDRAW | WS_GROUP | WS_TABSTOP,186,98,50,14
+    LTEXT           "Author:",IDC_STATIC,46,45,26,8
+    LTEXT           "Bandula Dharmadasa - Hexonian Labs",IDC_STATIC,83,45,122,8
+    LTEXT           "Website:",IDC_STATIC,46,57,30,8
+    LTEXT           "Version:",IDC_STATIC,46,33,27,8
+    LTEXT           "1.1.0",IDC_STATIC,80,33,18,8
+    PUSHBUTTON      "https://www.hexonianlabs.com",IDC_SYSLINK1,81,57,155,9
+END
+
+IDD_SETTINGSVIEW DIALOGEX 0, 0, 628, 385
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+END
+
+IDD_PROPPAGE_THEMES DIALOGEX 0, 0, 363, 236
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Themes"
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+END
+
+IDD_PROPPAGE_TEXTEDITOR DIALOGEX 0, 0, 235, 156
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Text Editor"
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+END
+
+IDD_BUILDANDRUNPROPPAGE DIALOGEX 0, 0, 210, 154
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Property Page"
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    LTEXT           "TODO: layout property page",IDC_STATIC,60,73,90,8
+END
+
+IDD_INSERT_NUMBER_AT_PAGE DIALOGEX 0, 0, 235, 156
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Insert Number"
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_START_NUMBER,7,16,61,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_INCREMENT_BY,7,47,61,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_LEADING_ZEROS,7,78,61,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Start Number:",IDC_STATIC,7,7,46,8
+    LTEXT           "Increment by:",IDC_STATIC,7,37,46,8
+    LTEXT           "Leading Zeros:",IDC_STATIC,7,68,48,8
+END
+
+IDD_INSERT_TEXT_AT_PAGE DIALOGEX 0, 0, 235, 156
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Insert Text"
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    LTEXT           "Text:",IDC_STATIC,7,7,18,8
+    EDITTEXT        IDC_INSER_TEXT,7,17,221,14,ES_AUTOHSCROLL
+    GROUPBOX        "Insert At",IDC_STATIC,7,49,221,52
+    CONTROL         "Cursor Position",IDC_RAD_INSERTATFRONT,"Button",BS_AUTORADIOBUTTON,11,65,87,23
+    CONTROL         "End of Line",IDC_RAD_INSERTATBACK,"Button",BS_AUTORADIOBUTTON,104,65,87,23
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "Hexonian Labs"
+            VALUE "FileDescription", "Bumble"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "Bumble.exe"
+            VALUE "LegalCopyright", "(c) Bandula Dharmadasa - Hexonian Labs.  All rights reserved."
+            VALUE "OriginalFilename", "Bumble.exe"
+            VALUE "ProductName", "Bumble"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 236
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 112
+    END
+
+    IDD_SETTINGSVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 621
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 378
+    END
+
+    IDD_PROPPAGE_THEMES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 356
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 229
+    END
+
+    IDD_PROPPAGE_TEXTEDITOR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 149
+    END
+
+    IDD_BUILDANDRUNPROPPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 203
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 147
+    END
+
+    IDD_INSERT_NUMBER_AT_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 149
+    END
+
+    IDD_INSERT_TEXT_AT_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 149
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_SETTINGSVIEW AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_PROPPAGE_THEMES AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_PROPPAGE_TEXTEDITOR AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_ABOUTBOX AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_INSERT_NUMBER_AT_PAGE AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_INSERT_TEXT_AT_PAGE AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDR_MAINFRAME           "Bumble"
+    IDR_TYPE_BUMBLEEDIT     "\nSource\nSource File\n\n\nBumbleEdit.Document\nBumbleEdit.Document"
+    ID_WINDOW_MANAGER       "&Windows..."
+END
+
+STRINGTABLE
+BEGIN
+    IDP_OLE_INIT_FAILED     "OLE initialization failed.  Make sure that the OLE libraries are the correct version."
+    IDR_TYPE_PHP            "\nPHP\nPHP File\nPHP Files (*.php)\n.php\nPHP.Document\nPHP Document"
+    IDP_FAILED_TO_CREATE    "Failed to create object.  Make sure the object is entered in the system registry."
+    IDR_TYPE_PYTHON         "\nPython\nPython File\nPython Files (*.py)\n.py\nPython.Document\nPython Document"
+    ID_FUNCTION_TEAROFF     "<ID_FUNCTION_TEAROFF>"
+END
+
+STRINGTABLE
+BEGIN
+    IDR_TYPE_HTML           "\nHTML\nHTML File\nHTML Files (*.html;*.htm)\n.html;.htm\nHTML.Document\nHTML Document"
+    IDR_MAINFRAME_DATABASEVIEW 
+                            "\nDB View\nDatabase View\nSQLVW Files (*.sqlvw)\n.sqlvw\nSQLVW.Document\nSQLVW Document"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_APP_TITLE       "Bumble"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_DIRECT    "Print the active document using current options\nQuick Print"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+    ID_FILE_SAVE_COPY_AS    "Save the active document with a new name, but keep the current document for editing\nSave As"
+END
+
+STRINGTABLE
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE
+BEGIN
+    ID_WINDOW_NEW           "Open another window for the active document\nNew Window"
+    ID_WINDOW_ARRANGE       "Arrange icons at the bottom of the window\nArrange Icons"
+    ID_WINDOW_CASCADE       "Arrange windows so they overlap\nCascade Windows"
+    ID_WINDOW_TILE_HORZ     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_TILE_VERT     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_PASTE_LINK      "Insert Clipboard contents and a link to its source\nPaste Link"
+    ID_EDIT_PASTE_SPECIAL   "Insert Clipboard contents with options\nPaste Special"
+    ID_EDIT_REPEAT          "Find the next key word\nFind Next"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle Status Bar"
+END
+
+STRINGTABLE
+BEGIN
+    ID_OLE_INSERT_NEW       "Insert new embedded object\nNew Object"
+    ID_OLE_EDIT_LINKS       "Edit linked objects\nEdit Links"
+    ID_OLE_EDIT_CONVERT     "Convert object to different type\nConvert Object"
+END
+
+STRINGTABLE
+BEGIN
+    ID_OLE_VERB_FIRST       "Activate embedded or linked object"
+    57873                   "Activate embedded or linked object"
+    57874                   "Activate embedded or linked object"
+    57875                   "Activate embedded or linked object"
+END
+
+STRINGTABLE
+BEGIN
+    ID_OLE_VERB_POPUP       "Activate embedded or linked object"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+    AFX_IDS_MDICHILD        "Activate this window"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STATUS_PANE1        "Pane 1"
+    IDS_STATUS_PANE2        "Pane 2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_EDIT_MENU           "Edit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_SAVEALL         "Save all documents in the IDE"
+    ID_FILE_CLOSEALL        "Close all documents\nClose All"
+END
+
+STRINGTABLE
+BEGIN
+    ID_COLORPICKER          "Open the color picker\nColor picker"
+    ID_EDIT_FINDPREVIOUS    "Find the previous key word\nFind Previous"
+END
+
+STRINGTABLE
+BEGIN
+    IDR_TYPE_PROJECT        "\n\n\n\n\nBumbleEdit.Document\nBumbleEdit Document"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EDIT_SHOWALLCHARACTERS 
+                            "Show all non-readable characters\nShow all symbols"
+    ID_EDIT_SHOWINDENTGUID  "Show/hide the indent guides\nIndent guides"
+    ID_EDIT_WORDWRAP        "Fit text to the view\nWord wrap"
+END
+
+STRINGTABLE
+BEGIN
+    ID_OPTIONS_OPEN         "Show/hide the options window\nShow options"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Australia) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENA)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_AUS
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_SYSTEM              BITMAP                  "res\\bitmap1.bmp"
+
+IDR_TOOLBAR2            BITMAP                  "res\\toolbar2.bmp"
+
+IDB_CLOSE               BITMAP                  "res\\icons8-close-window-26.bmp"
+
+IDB_MAXIMIZE            BITMAP                  "res\\icons8-maximize-window-26.bmp"
+
+IDB_MINIMIZE            BITMAP                  "res\\icons8-minimize-window-26.bmp"
+
+IDB_RESTORE             BITMAP                  "res\\icons8-restore-window-26.bmp"
+
+IDB_CHECKBOX            BITMAP                  "res\\icons8-tick-box-16.bmp"
+
+IDB_WEB_BUTTON          BITMAP                  "res\\bitmap2.bmp"
+
+IDB_WRITELARGE          BITMAP                  "res\\writelarge.bmp"
+
+IDB_WRITESMALL          BITMAP                  "res\\writesmall.bmp"
+
+IDB_TOOLBAR_DISABLED    BITMAP                  "res\\image_strip_disabled.bmp"
+
+IDB_CAPTION_BTNS        BITMAP                  "res\\system.bmp"
+
+IDB_CHECKBOXES          BITMAP                  "res\\checkboxes.bmp"
+
+IDB_PROJECT_FILES       BITMAP                  "res\\bitmap4.bmp"
+
+IDB_RADIO_OFF           BITMAP                  "res\\radio_of32.bmp"
+
+IDB_RADIO_ON            BITMAP                  "res\\radio_on32.bmp"
+
+IDR_BROWSERTOOLBAR      BITMAP                  "res\\toolbar1.bmp"
+
+IDB_COLDTOOLBAR         BITMAP                  "res\\coldtool.bmp"
+
+IDB_HOTTOOLBAR          BITMAP                  "res\\hottoolb.bmp"
+
+IDB_MENU_IMAGES         BITMAP                  "res\\menu_img.bmp"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_ADVANCEDMENU MENU
+BEGIN
+    POPUP "Tools"
+    BEGIN
+        MENUITEM "Options",                     ID_TOOLS_OPTIONS
+    END
+END
+
+IDR_STATUSBAR MENU
+BEGIN
+    POPUP "StatusBar"
+    BEGIN
+        MENUITEM "Line Number",                 ID_CURSORPOS
+        MENUITEM "Zoom Slider",                 ID_STATUSBAR_ZOOMSLIDER
+        MENUITEM "Zoom",                        ID_STATUSBAR_ZOOM
+    END
+END
+
+IDR_OptionTYPE MENU
+BEGIN
+    POPUP "Options"
+    BEGIN
+        MENUITEM "Apply",                       ID_OPTIONS_APPLY
+        MENUITEM "Cancel",                      ID_OPTIONS_CANCEL
+    END
+END
+
+IDR_OUTPUTPOPUP MENU
+BEGIN
+    POPUP "Popup"
+    BEGIN
+        MENUITEM "&Copy",                       ID_EDIT_COPY
+        MENUITEM "&Clear",                      ID_EDIT_CLEAR
+        MENUITEM SEPARATOR
+        MENUITEM "&Hide",                       32887
+    END
+END
+
+IDR_MAINFRAME_DATABASEVIEW MENU
+BEGIN
+    POPUP "Edit"
+    BEGIN
+        MENUITEM "Cut",                         ID_EDIT_CUT
+        MENUITEM "Copy",                        ID_EDIT_COPY
+        MENUITEM "Paste",                       ID_EDIT_PASTE
+    END
+END
+
+ID_COLOR_STUFF MENU
+BEGIN
+    POPUP "Color Stuff"
+    BEGIN
+        MENUITEM "Edit Box",                    ID_COLOREDITBOX
+        MENUITEM "Tear-Off",                    ID_COLORTEAROFF
+        MENUITEM "Color Picker",                ID_COLORPICKER
+    END
+END
+
+IDR_MESSAGE MENU
+BEGIN
+    POPUP "Message"
+    BEGIN
+        MENUITEM "MSG From Shell",              ID_MSG_FROM_SHELL
+        MENUITEM "Shell Completed",             ID_MESSAGE_SHELL_EXITED
+    END
+    POPUP "Color Ready"
+    BEGIN
+        POPUP "Insert As.."
+        BEGIN
+            MENUITEM "HTML",                        ID_INSERT_AS_HTML
+            MENUITEM "RGB",                         ID_INSERT_AS_RGB
+            MENUITEM "HSV",                         ID_INSERT_AS_HSV
+            MENUITEM "HSL",                         ID_INSERT_AS_HSL
+            MENUITEM "CMYK",                        ID_INSERT_AS_CMYK
+        END
+        POPUP "Copy As.."
+        BEGIN
+            MENUITEM "HTML",                        ID_COPY_AS_HTML
+            MENUITEM "RGB",                         ID_COPY_AS_RGB
+            MENUITEM "HSV",                         ID_COPY_AS_HSV
+            MENUITEM "HSL",                         ID_COPY_AS_HSL
+            MENUITEM "CMYK",                        ID_COPY_AS_CMYK
+        END
+    END
+    POPUP "File Monitor"
+    BEGIN
+        MENUITEM "File Changed",                ID_FILEMONITOR_FILECHANGED
+    END
+    POPUP "Screen Capture"
+    BEGIN
+        MENUITEM "Send Stop Message",           ID_UITHREADTOCAPTURE_SENDSTOPMESSAGE
+    END
+END
+
+IDR_TAB_CLOSE_METHOD MENU
+BEGIN
+    POPUP "Tab Close Method"
+    BEGIN
+        MENUITEM "Close",                       ID_FILE_CLOSE
+        MENUITEM "Close All",                   ID_FILE_CLOSEALL
+        MENUITEM "Close All But This",          ID_FILE_CLOSEALLBUTTHIS
+    END
+END
+
+IDR_PATH_FILTER MENU
+BEGIN
+    POPUP "Select Filter"
+    BEGIN
+        MENUITEM "No Filter",                   ID_SELECTFILTER_NOFILTER
+        MENUITEM "Current Selection",           ID_SELECTFILTER_CURRENTSELECTION
+        MENUITEM "Bumble Projects",             ID_SELECTFILTER_BUMBLEEDIT
+        MENUITEM "Desktop",                     ID_SELECTFILTER_DESKTOP
+        MENUITEM "Document",                    ID_SELECTFILTER_DOCUMENT
+        MENUITEM "Program Files",               ID_SELECTFILTER_PROGRAMFILES
+        MENUITEM "Program Files(86)",           ID_SELECTFILTER_PROGRAMFILES32980
+    END
+END
+
+IDR_FILE_BROWSER_CTX MENU
+BEGIN
+    POPUP "File Browser Ctx"
+    BEGIN
+        MENUITEM "Open",                        ID_FILEBROWSERCTX_OPEN
+        MENUITEM "Open with Default Application", ID_FILEBROWSERCTX_OPENWITHDEFAULTAPPLICATION
+        MENUITEM SEPARATOR
+        MENUITEM "New Folder",                  ID_FILEBROWSERCTX_NEWFOLDER
+        MENUITEM "New File",                    ID_FILEBROWSERCTX_NEWFILE
+        MENUITEM "Rename",                      ID_FILEBROWSERCTX_RENAME
+        MENUITEM "Delete",                      ID_FILEBROWSERCTX_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Print",                       ID_FILEBROWSERCTX_PRINT
+    END
+END
+
+IDR_TOOLS MENU
+BEGIN
+    POPUP "Tools"
+    BEGIN
+        MENUITEM "Run",                         ID_TOOLS_RUN
+    END
+END
+
+IDR_TYPE_PROJECT MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "New Project",                 ID_FILE_NEWPROJECT
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Close\tCtrl+W",              ID_FILE_CLOSE
+        MENUITEM "Close All\tCtrl+Shit+W",      ID_FILE_CLOSEALL
+        MENUITEM SEPARATOR
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...\tCtrl+Alt+S",     ID_FILE_SAVE_AS
+        MENUITEM "Save a Copy As...",           ID_FILE_SAVE_COPY_AS
+        MENUITEM "Save All\tShit+Ctrl+S",       ID_FILE_SAVEALL
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM SEPARATOR
+        MENUITEM "Show All Characters",         ID_EDIT_SHOWALLCHARACTERS, CHECKED
+        MENUITEM "Show Indent Guid",            ID_EDIT_SHOWINDENTGUID, CHECKED
+        POPUP "Other Windows"
+        BEGIN
+            MENUITEM "Output Window",               ID_OTHERWINDOWS_OUTPUTWINDOW
+            MENUITEM "Option Window",               ID_OPTIONS_OPEN
+        END
+    END
+    POPUP "&Window"
+    BEGIN
+        MENUITEM "&New Window",                 ID_WINDOW_NEW
+        MENUITEM SEPARATOR
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About Bumble...",            ID_APP_ABOUT
+    END
+END
+
+IDR_PROJECT_SOURCE_MENU MENU
+BEGIN
+    POPUP "Project Source Files"
+    BEGIN
+        MENUITEM "Add Item",                    ID_PROJECTSOURCEFILES_ADDITEM
+    END
+END
+
+IDR_CODE_EDITOR_CTX MENU
+BEGIN
+    POPUP "Code Editor Context Menu"
+    BEGIN
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM "Select A&ll\tCtrl+A",         ID_EDIT_SELECT_ALL
+        MENUITEM SEPARATOR
+        POPUP "Format.."
+        BEGIN
+            MENUITEM "Toggle Comments\tCtrl+/",     ID_EDIT_TOGGLECOMMENTS
+            MENUITEM "Toggle Block Comments\tCtrl+Shift+/", ID_EDIT_TOGGLEBLOCKCOMMENTS
+            MENUITEM SEPARATOR
+            MENUITEM "Fold Selection\tAlt+L",       ID_CODEFOLD_SELECTION
+            MENUITEM "Unfold Selection\tAlt+Shift+L", ID_CODEFOLD_UNFOLD
+            MENUITEM "Fold all\tAlt+O",             ID_CODEFOLD_FOLDALL
+            MENUITEM "Unfold All\tAlt+Shift+O",     ID_CODEFOLD_UNFOLDALL
+            MENUITEM SEPARATOR
+            MENUITEM "Make Upper Case\tCtrl+U",     ID_ADVANCED_MAKEUPPERCASE
+            MENUITEM "Make Lower Case\tCtrl+Shift+U", ID_ADVANCED_MAKELOWERCASE
+            MENUITEM SEPARATOR
+            MENUITEM "Indent\tTab",                 ID_WITHSELECTION_INDENT
+            MENUITEM "Outdent\tShift+Tab",          ID_WITHSELECTION_OUTDENT
+        END
+        POPUP "Advanced"
+        BEGIN
+            MENUITEM "Remove Leading Spaces",       ID_SANITIZE_REMOVELEADINGSPACES
+            MENUITEM "Remove Trailing Spaces",      ID_SANITIZE_REMOVETRAILINGSPACES
+            MENUITEM "Remove Leading and Trailing Spaces", ID_SANITIZE_REMOVELEADINGTRAILINGSPACES
+            MENUITEM "Remove only Extra Spaces",    ID_SANITIZE_REMOVEONLYEXTRASPACES
+            MENUITEM "Transform to a Single Line",  ID_SANITIZE_TRANSFORMTOASINGLELINE
+            MENUITEM SEPARATOR
+            MENUITEM "Multi Line Text Insertion",   ID_STRING_IN_FRONT
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Open Inline Editor",          ID_OPEN_INLINE_EDITOR
+        MENUITEM SEPARATOR
+        MENUITEM "Beautify",                    ID_CODEEDITORCONTEXTMENU_BEAUTIFY
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CODE_EDITOR DIALOGEX 0, 0, 320, 200
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+END
+
+IDD_THEME_BROWSER DIALOGEX 0, 0, 309, 176
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+END
+
+IDD_OPTIONGRID DIALOGEX 0, 0, 309, 176
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",ID_PROPERTGRID,"MfcPropertyGrid",0x0,7,7,295,162
+END
+
+IDD_TOOLPANE DIALOGEX 0, 0, 309, 176
+STYLE DS_LOCALEDIT | DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Static",IDC_COLORBAR_CONTAINER,7,7,295,162
+END
+
+IDD_BUMBLEEDITDIALOG DIALOG 0, 0, 320, 200
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,209,179,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,263,179,50,14
+END
+
+IDD_TEXTINSERTDIALOG DIALOGEX 0, 0, 222, 250
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+END
+
+IDD_GOTOLINE DIALOGEX 0, 0, 205, 84
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Go To Line"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "",IDC_GOTOLINE_LABEL,7,7,191,8
+    LTEXT           "Line:",IDC_STATIC,7,24,16,8
+    LTEXT           "Col:",IDC_STATIC,53,24,14,8
+    EDITTEXT        IDC_GOTO_LINE_EDIT,7,34,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_GOTOLINE_COL_EDIT,53,34,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "OK",IDOK,98,63,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,148,63,50,14
+END
+
+IDD_FIND_RESULT DIALOGEX 0, 0, 309, 176
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+END
+
+IDD_OUTPUT_WND DIALOGEX 0, 0, 309, 176
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,198,155,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,252,155,50,14
+END
+
+IDD_MESSAGE_WND DIALOGEX 0, 0, 309, 176
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,198,155,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,252,155,50,14
+END
+
+IDD_FILE_BROWSER_DOCK_PANE DIALOGEX 0, 0, 309, 176
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_FILE_TREE,"SysTreeView32",WS_BORDER | WS_HSCROLL | WS_TABSTOP,7,7,296,144
+    LTEXT           "Static",IDC_PATHNAME,7,149,296,21
+END
+
+IDD_FILE_BROWSER_OPT DIALOGEX 0, 0, 309, 35
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Display Path..",IDC_FOLDER_OPT_BTN,107,7,58,21
+    EDITTEXT        IDC_FILE_FILTER_EDIT,7,7,100,12,ES_AUTOHSCROLL
+END
+
+IDD_NEW_FOLDER_NAME DIALOGEX 0, 0, 227, 73
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "New Folder Name"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,119,52,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,169,52,50,14
+    EDITTEXT        IDC_NEW_FOLDER_NAME,56,14,163,14,ES_AUTOHSCROLL
+    LTEXT           "Folder Name:",IDC_STATIC,8,17,46,8
+END
+
+IDD_BUMBLE_MSG_BOX DIALOGEX 0, 0, 275, 100
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Message"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,168,79,50,14
+    DEFPUSHBUTTON   "Cancel",IDCANCEL,218,79,50,14
+    LTEXT           "Static",IDC_MSG_REASON,7,7,261,67
+END
+
+IDD_RENAME DIALOGEX 0, 0, 227, 65
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Rename"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,120,44,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,170,44,50,14
+    EDITTEXT        IDC_RENAME_EDIT,46,20,174,14,ES_AUTOHSCROLL
+    LTEXT           "New Name:",IDC_STATIC,7,23,38,8
+END
+
+IDD_SERVER_SETTINGS DIALOGEX 0, 0, 269, 128
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Server Settings"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,163,107,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,213,107,50,14
+    LTEXT           "Listening Port:",IDC_STATIC,7,9,47,8
+    EDITTEXT        IDC_EDIT_PORT,73,7,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "CGI Pattern:",IDC_STATIC,7,32,42,8
+    LTEXT           "Index Files:",IDC_STATIC,7,55,38,8
+    LTEXT           "CGI Interpreter:",IDC_STATIC,7,78,54,8
+    EDITTEXT        IDC_EDIT_CGI_INTERPRETER,73,76,170,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON_BROWS_FOLDERS,243,75,19,16
+    EDITTEXT        IDC_EDIT_INDEX_FILES,73,53,189,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_CGI_PATTERN,73,30,189,14,ES_AUTOHSCROLL
+END
+
+IDD_SOURCE_FILE_DLG DIALOGEX 0, 0, 33, 18
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+END
+
+IDD_PROJECT_VIEW DIALOGEX 0, 0, 320, 200
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+END
+
+IDD_TAB_SOURCE DIALOGEX 0, 0, 309, 176
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+END
+
+IDD_TAB_BUILD DIALOGEX 0, 0, 310, 177
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU | WS_THICKFRAME
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Button1",IDC_BUTTON1,63,36,133,57
+END
+
+IDD_CBumblePropertyPage DIALOG 0, 0, 320, 200
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,209,179,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,263,179,50,14
+END
+
+IDD_SCN_CAP_FEEDBACK_DLG DIALOGEX 0, 0, 208, 80
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+END
+
+IDD_TUTORIAL_WND DIALOGEX 0, 0, 309, 176
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,198,155,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,252,155,50,14
+END
+
+IDD_TUTORIALBROWSER DIALOGEX 0, 0, 320, 200
+STYLE DS_SETFONT | DS_SETFOREGROUND | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Bumble - Tutorials"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_CODE_EDITOR, DIALOG
+    BEGIN
+    END
+
+    IDD_THEME_BROWSER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 302
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 169
+    END
+
+    IDD_OPTIONGRID, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 302
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 169
+    END
+
+    IDD_TOOLPANE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 302
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 169
+    END
+
+    IDD_BUMBLEEDITDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
+    END
+
+    IDD_TEXTINSERTDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 215
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 243
+    END
+
+    IDD_GOTOLINE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 198
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 77
+    END
+
+    IDD_FIND_RESULT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 302
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 169
+    END
+
+    IDD_OUTPUT_WND, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 302
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 169
+    END
+
+    IDD_MESSAGE_WND, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 302
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 169
+    END
+
+    IDD_FILE_BROWSER_DOCK_PANE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 302
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 169
+    END
+
+    IDD_FILE_BROWSER_OPT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 302
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 28
+    END
+
+    IDD_NEW_FOLDER_NAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 220
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 66
+    END
+
+    IDD_BUMBLE_MSG_BOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 268
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 93
+    END
+
+    IDD_RENAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 220
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 58
+    END
+
+    IDD_SERVER_SETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 262
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 121
+    END
+
+    IDD_SOURCE_FILE_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 26
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 11
+    END
+
+    IDD_PROJECT_VIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
+    END
+
+    IDD_TAB_SOURCE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 302
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 169
+    END
+
+    IDD_TAB_BUILD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 303
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 170
+    END
+
+    IDD_CBumblePropertyPage, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
+    END
+
+    IDD_SCN_CAP_FEEDBACK_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 201
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 73
+    END
+
+    IDD_TUTORIAL_WND, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 302
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 169
+    END
+
+    IDD_TUTORIALBROWSER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_CODE_EDITOR AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_THEME_BROWSER AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_OPTIONGRID AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_TOOLPANE AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_TEXTINSERTDIALOG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_GOTOLINE AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_FIND_RESULT AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_OUTPUT_WND AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_MESSAGE_WND AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_FILE_BROWSER_DOCK_PANE AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_FILE_BROWSER_OPT AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_NEW_FOLDER_NAME AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_BUMBLE_MSG_BOX AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_RENAME AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_SERVER_SETTINGS AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_SOURCE_FILE_DLG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_PROJECT_VIEW AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_TAB_SOURCE AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_TAB_BUILD AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_SCN_CAP_FEEDBACK_DLG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_TUTORIAL_WND AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_TUTORIALBROWSER AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\bitmap.ico"
+
+IDR_TYPE_BUMBLEEDIT     ICON                    "res\\bitmap.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_TOOLBAR2 TOOLBAR 26, 26
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    BUTTON      ID_FILE_SAVEALL
+    BUTTON      ID_FILE_CLOSE
+    BUTTON      ID_FILE_CLOSEALL
+    BUTTON      ID_FILE_PRINT
+    SEPARATOR
+    BUTTON      ID_EDIT_SELECT_ALL
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    BUTTON      ID_EDIT_UNDO
+    BUTTON      ID_EDIT_REDO
+    SEPARATOR
+    BUTTON      ID_EDIT_FIND
+    BUTTON      ID_EDIT_REPLACE
+    BUTTON      ID_EDIT_REPEAT
+    SEPARATOR
+    BUTTON      ID_EDIT_WORDWRAP
+    BUTTON      ID_EDIT_SHOWALLCHARACTERS
+    BUTTON      ID_EDIT_SHOWINDENTGUID
+    SEPARATOR
+    BUTTON      ID_OPTIONS_OPEN
+    BUTTON      ID_COLORPICKER
+    BUTTON      ID_TOOLS_FUNCTIONS
+END
+
+IDR_BROWSERTOOLBAR TOOLBAR 23, 23
+BEGIN
+    BUTTON      ID_GO_BACK
+    BUTTON      ID_GO_FORWARD
+    BUTTON      ID_GO_START_PAGE
+    BUTTON      ID_VIEW_REFRESH
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "#include ""verrsrc.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#include ""res\\BumbleEdit.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""      // Standard components\r\n"
+    "#include ""afxprint.rc""    // printing/print preview resources\r\n"
+    "#include ""afxolecl.rc""    // OLE container resources\r\n"
+    "#if !defined(_AFXDLL)\r\n"
+    "#include ""afxribbon.rc""        // MFC ribbon and control bar resources\r\n"
+    "#endif\r\n"
+    "#endif\r\n"
+    "\r\n"
+    "#include ""BumbleScript.rc""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// PNG
+//
+
+IDB_SYSTEM              PNG                     "res\\system.png"
+
+IDB_TOOLBAR             PNG                     "res\\image_strip.png"
+
+IDB_CLOSE_16_16         PNG                     "res\\icons8-close-window-26.png"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_OPTIONGRID DLGINIT
+BEGIN
+    ID_PROPERTGRID, 0x37c, 413, 0
+0x4d3c, 0x4346, 0x7250, 0x706f, 0x7265, 0x7974, 0x7247, 0x6469, 0x485f, 
+0x6165, 0x6564, 0x4372, 0x7274, 0x3e6c, 0x5254, 0x4555, 0x2f3c, 0x464d, 
+0x5043, 0x6f72, 0x6570, 0x7472, 0x4779, 0x6972, 0x5f64, 0x6548, 0x6461, 
+0x7265, 0x7443, 0x6c72, 0x3c3e, 0x464d, 0x5043, 0x6f72, 0x6570, 0x7472, 
+0x4779, 0x6972, 0x5f64, 0x6544, 0x6373, 0x6972, 0x7470, 0x6f69, 0x416e, 
+0x6572, 0x3e61, 0x5254, 0x4555, 0x2f3c, 0x464d, 0x5043, 0x6f72, 0x6570, 
+0x7472, 0x4779, 0x6972, 0x5f64, 0x6544, 0x6373, 0x6972, 0x7470, 0x6f69, 
+0x416e, 0x6572, 0x3e61, 0x4d3c, 0x4346, 0x7250, 0x706f, 0x7265, 0x7974, 
+0x7247, 0x6469, 0x415f, 0x706c, 0x6168, 0x6562, 0x6974, 0x4d63, 0x646f, 
+0x3e65, 0x4146, 0x534c, 0x3c45, 0x4d2f, 0x4346, 0x7250, 0x706f, 0x7265, 
+0x7974, 0x7247, 0x6469, 0x415f, 0x706c, 0x6168, 0x6562, 0x6974, 0x4d63, 
+0x646f, 0x3e65, 0x4d3c, 0x4346, 0x7250, 0x706f, 0x7265, 0x7974, 0x7247, 
+0x6469, 0x4d5f, 0x646f, 0x6669, 0x6569, 0x5064, 0x6f72, 0x6570, 0x7472, 
+0x6569, 0x3e73, 0x4146, 0x534c, 0x3c45, 0x4d2f, 0x4346, 0x7250, 0x706f, 
+0x7265, 0x7974, 0x7247, 0x6469, 0x4d5f, 0x646f, 0x6669, 0x6569, 0x5064, 
+0x6f72, 0x6570, 0x7472, 0x6569, 0x3e73, 0x4d3c, 0x4346, 0x7250, 0x706f, 
+0x7265, 0x7974, 0x7247, 0x6469, 0x565f, 0x4453, 0x746f, 0x654e, 0x4c74, 
+0x6f6f, 0x3e6b, 0x5254, 0x4555, 0x2f3c, 0x464d, 0x5043, 0x6f72, 0x6570, 
+0x7472, 0x4779, 0x6972, 0x5f64, 0x5356, 0x6f44, 0x4e74, 0x7465, 0x6f4c, 
+0x6b6f, 0x3c3e, 0x464d, 0x5043, 0x6f72, 0x6570, 0x7472, 0x4779, 0x6972, 
+0x5f64, 0x6544, 0x6373, 0x6972, 0x7470, 0x6f69, 0x526e, 0x776f, 0x3e73, 
+0x3c33, 0x4d2f, 0x4346, 0x7250, 0x706f, 0x7265, 0x7974, 0x7247, 0x6469, 
+0x445f, 0x7365, 0x7263, 0x7069, 0x6974, 0x6e6f, 0x6f52, 0x7377, "\076" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Ribbon
+//
+
+IDR_RIBBON              RT_RIBBON_XML           "res\\ribbon.mfcribbon-ms"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// HTML
+//
+
+IDR_TEXT_INSERT         HTML                    "res\\html\\TextInsertDialog.htm"
+
+IDR_GO_TO_LINE          HTML                    "res\\html\\GoToLineDlg.htm"
+
+IDR_HTML_CFINDRESULTWND HTML                    "res\\html\\CFindResultWnd.htm"
+
+IDR_HTML_CTutorialBrowser HTML                    "res\\html\\CTutorialBrowser.htm"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 2110
+//
+
+FOLDER.GIF              2110                    "res\\Folder.gif"
+
+FILE.GIF                2110                    "res\\File.gif"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    ID_GO_BACK              "Goes back one step.\nBack"
+    ID_GO_FORWARD           "Goes forward one step.\nForward"
+    ID_VIEW_STOP            "Stops opening a file\nStop"
+    ID_VIEW_REFRESH         "Refreshes the contents of the current page\nRefresh"
+    ID_GO_START_PAGE        "Opens your start page.\nStart Page"
+    ID_GO_SEARCH_THE_WEB    "Opens your search page.\nSearch"
+    ID_FONT_DROPDOWN        "Change font size.\nFonts"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_PRINT           "Print the active document\nPrint"
+END
+
+#endif    // English (Australia) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#include "res\BumbleEdit.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"      // Standard components
+#include "afxprint.rc"    // printing/print preview resources
+#include "afxolecl.rc"    // OLE container resources
+#if !defined(_AFXDLL)
+#include "afxribbon.rc"        // MFC ribbon and control bar resources
+#endif
+#endif
+
+#include "BumbleScript.rc"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

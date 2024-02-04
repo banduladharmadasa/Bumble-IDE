@@ -1,0 +1,1390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bumble>
+<!--ABAP-->
+<config mode = "abap" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--ABC-->
+<config mode = "abc" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--ADA-->
+<config mode = "ada" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--ASL-->
+<config mode = "asl" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--ActionScript-->
+<config mode = "actionscript" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Apache Conf-->
+<config mode = "apache_conf" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Apex-->
+<config mode = "apex" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--AsciiDoc-->
+<config mode = "asciidoc" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Assembly x86-->
+<config mode = "assembly_x86" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--AutoHotkey / AutoIt-->
+<config mode = "autohotkey" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--BatchFile-->
+<config mode = "batchfile" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Bro-->
+<config mode = "bro" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--C and C++-->
+<config mode = "c_cpp" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--C#-->
+<config mode = "csharp" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--C9Search-->
+<config mode = "c9search" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--CSS-->
+<config mode = "css" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Cirru-->
+<config mode = "cirru" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Clojure-->
+<config mode = "clojure" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Cobol-->
+<config mode = "cobol" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--CoffeeScript-->
+<config mode = "coffee" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--ColdFusion-->
+<config mode = "coldfusion" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Csound-->
+<config mode = "csound_orchestra" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Csound Document-->
+<config mode = "csound_document" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Csound Score-->
+<config mode = "csound_score" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Curly-->
+<config mode = "curly" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--D-->
+<config mode = "d" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Dart-->
+<config mode = "dart" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Diff-->
+<config mode = "diff" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Django-->
+<config mode = "django" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Dockerfile-->
+<config mode = "dockerfile" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Dot-->
+<config mode = "dot" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Drools-->
+<config mode = "drools" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--EJS-->
+<config mode = "ejs" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Edifact-->
+<config mode = "edifact" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Eiffel-->
+<config mode = "eiffel" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Elixir-->
+<config mode = "elixir" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Elm-->
+<config mode = "elm" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Erlang-->
+<config mode = "erlang" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--FSL-->
+<config mode = "fsl" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--FSharp-->
+<config mode = "fsharp" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Forth-->
+<config mode = "forth" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Fortran-->
+<config mode = "fortran" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--FreeMarker-->
+<config mode = "ftl" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Gcode-->
+<config mode = "gcode" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Gherkin-->
+<config mode = "gherkin" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Gitignore-->
+<config mode = "gitignore" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Glsl-->
+<config mode = "glsl" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Go-->
+<config mode = "golang" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Gobstones-->
+<config mode = "gobstones" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--GraphQLSchema-->
+<config mode = "graphqlschema" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Groovy-->
+<config mode = "groovy" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--HAML-->
+<config mode = "haml" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--HTML-->
+<config mode = "html" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--HTML (Elixir)-->
+<config mode = "html_elixir" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--HTML (Ruby)-->
+<config mode = "html_ruby" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Handlebars-->
+<config mode = "handlebars" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Haskell-->
+<config mode = "haskell" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Haskell Cabal-->
+<config mode = "haskell_cabal" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Hjson-->
+<config mode = "hjson" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--INI-->
+<config mode = "ini" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Io-->
+<config mode = "io" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--JSON-->
+<config mode = "json" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--JSONiq-->
+<config mode = "jsoniq" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--JSP-->
+<config mode = "jsp" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--JSSM-->
+<config mode = "jssm" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--JSX-->
+<config mode = "jsx" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Jack-->
+<config mode = "jack" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Jade-->
+<config mode = "jade" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Java-->
+<config mode = "java" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--JavaScript-->
+<config mode = "javascript" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Julia-->
+<config mode = "julia" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Kotlin-->
+<config mode = "kotlin" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--LESS-->
+<config mode = "less" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--LSL-->
+<config mode = "lsl" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--LaTeX-->
+<config mode = "latex" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Liquid-->
+<config mode = "liquid" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Lisp-->
+<config mode = "lisp" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--LiveScript-->
+<config mode = "livescript" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--LogiQL-->
+<config mode = "logiql" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Lua-->
+<config mode = "lua" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--LuaPage-->
+<config mode = "luapage" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Lucene-->
+<config mode = "lucene" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--MATLAB-->
+<config mode = "matlab" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--MEL-->
+<config mode = "mel" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--MIXAL-->
+<config mode = "mixal" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--MUSHCode-->
+<config mode = "mushcode" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Makefile-->
+<config mode = "makefile" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Markdown-->
+<config mode = "markdown" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Mask-->
+<config mode = "mask" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Maze-->
+<config mode = "maze" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--MySQL-->
+<config mode = "mysql" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--NSIS-->
+<config mode = "nsis" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Nix-->
+<config mode = "nix" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--OCaml-->
+<config mode = "ocaml" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Objective-C-->
+<config mode = "objectivec" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--PHP-->
+<config mode = "php" >
+<executable>php</executable>
+<preoptions>-f</preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--PHP (Blade Template)-->
+<config mode = "php_laravel_blade" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Pascal-->
+<config mode = "pascal" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Perl-->
+<config mode = "perl" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Perl 6-->
+<config mode = "perl6" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Pig-->
+<config mode = "pig" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Powershell-->
+<config mode = "powershell" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Praat-->
+<config mode = "praat" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Prolog-->
+<config mode = "prolog" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Properties-->
+<config mode = "properties" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Protobuf-->
+<config mode = "protobuf" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Puppet-->
+<config mode = "puppet" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Python-->
+<config mode = "python" >
+<executable>pythonw</executable>
+<preoptions>-u</preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--R-->
+<config mode = "r" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--RDoc-->
+<config mode = "rdoc" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--RHTML-->
+<config mode = "rhtml" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--RST-->
+<config mode = "rst" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Razor-->
+<config mode = "razor" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Red-->
+<config mode = "red" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Ruby-->
+<config mode = "ruby" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Rust-->
+<config mode = "rust" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--SASS-->
+<config mode = "sass" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--SCAD-->
+<config mode = "scad" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--SCSS-->
+<config mode = "scss" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--SH-->
+<config mode = "sh" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--SJS-->
+<config mode = "sjs" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--SQL-->
+<config mode = "sql" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--SQLServer-->
+<config mode = "sqlserver" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--SVG-->
+<config mode = "svg" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Scala-->
+<config mode = "scala" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Scheme-->
+<config mode = "scheme" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Slim-->
+<config mode = "slim" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Smarty-->
+<config mode = "smarty" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Soy Template-->
+<config mode = "soy_template" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Space-->
+<config mode = "space" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Stylus-->
+<config mode = "stylus" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Swift-->
+<config mode = "swift" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--TSX-->
+<config mode = "tsx" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Tcl-->
+<config mode = "tcl" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Terraform-->
+<config mode = "terraform" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Tex-->
+<config mode = "tex" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Text-->
+<config mode = "text" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Textile-->
+<config mode = "textile" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Toml-->
+<config mode = "toml" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Twig-->
+<config mode = "twig" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Typescript-->
+<config mode = "typescript" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--VBScript-->
+<config mode = "vbscript" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--VHDL-->
+<config mode = "vhdl" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Vala-->
+<config mode = "vala" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Velocity-->
+<config mode = "velocity" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Verilog-->
+<config mode = "verilog" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Visualforce-->
+<config mode = "visualforce" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--Wollok-->
+<config mode = "wollok" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--XML-->
+<config mode = "xml" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--XQuery-->
+<config mode = "xquery" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--YAML-->
+<config mode = "yaml" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--haXe-->
+<config mode = "haxe" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--pgSQL-->
+<config mode = "pgsql" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+<!--snippets-->
+<config mode = "snippets" >
+<executable></executable>
+<preoptions></preoptions>
+<postoptions></postoptions>
+<theme></theme>
+</config>
+
+
+
+</bumble>
