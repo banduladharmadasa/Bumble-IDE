@@ -25,6 +25,9 @@ This is a fully functional code editor and Integrated Development Environment (I
 - Allows compilation and running of code while editing.
 - Offers a color palette for selecting known HTML colors in HTML, RGB, HSL, HSV, and CMYK formats.
 
+## Download Installer
+https://www.hexonianlabs.com/products/bumble
+
 ## Third-party tools:
 
 - [Ace Code Editor](https://ace.c9.io/)
