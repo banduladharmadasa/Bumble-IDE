@@ -13,7 +13,7 @@
 #include <cppconn/statement.h>
 #include <winsvc.h>
 
-const TCHAR* MYSQLDPath = L"C:\\wamp\\bin\\mysql\\mysql5.7.24\\bin\\mysqld.exe";
+const TCHAR *MYSQLDPath = L"C:\\wamp\\bin\\mysql\\mysql5.7.24\\bin\\mysqld.exe";
 // CMySqlConnection
 
 CMySqlConnection::CMySqlConnection()
@@ -23,24 +23,22 @@ CMySqlConnection::CMySqlConnection()
 
 CMySqlConnection::~CMySqlConnection()
 {
-	//CloseHandle(m_mySqlHandle);
+	// CloseHandle(m_mySqlHandle);
 }
 
 void CMySqlConnection::Start()
 {
-	//Test();
+	// Test();
 	CString ExePath = L"C:\\wamp\\bin\\mysql\\mysql5.7.24\\bin\\mysqld.exe";
 
-	
 	CString sResult = L"";
 
-	CString strCommandLine = ExePath/* + " " + arg1 + " " + arg2*/;
+	CString strCommandLine = ExePath /* + " " + arg1 + " " + arg2*/;
 
 	theApp.AddMessage(L"Starting MySQL...");
 
 	sResult = RunMySqlD(strCommandLine);
 
-	
 	theApp.AddMessage(sResult);
 }
 
@@ -57,7 +55,7 @@ CString CMySqlConnection::RunMySqlD(const CString &csExecute)
 
 	HANDLE rPipe, wPipe;
 
-	//Create pipes to write and read data
+	// Create pipes to write and read data
 	CreatePipe(&rPipe, &wPipe, &secattr, 0);
 	//
 	STARTUPINFO sInfo;
@@ -74,8 +72,9 @@ CString CMySqlConnection::RunMySqlD(const CString &csExecute)
 
 	CString command(csExecute);
 
-	//Create the process here.
-	if (!CreateProcess(0, command.GetBuffer(), 0, 0, TRUE, NORMAL_PRIORITY_CLASS | CREATE_NO_WINDOW, 0, 0, &sInfo, &pInfo)) {
+	// Create the process here.
+	if (!CreateProcess(0, command.GetBuffer(), 0, 0, TRUE, NORMAL_PRIORITY_CLASS | CREATE_NO_WINDOW, 0, 0, &sInfo, &pInfo))
+	{
 
 		CString strError(theApp.GetLastErrorAsString().c_str());
 		strError.Insert(0, L"mysqld.exe error: ");
@@ -83,7 +82,7 @@ CString CMySqlConnection::RunMySqlD(const CString &csExecute)
 	}
 	CloseHandle(wPipe);
 
-	//now read the output pipe here.
+	// now read the output pipe here.
 
 	char buf[100];
 	DWORD reDword;
@@ -96,7 +95,6 @@ CString CMySqlConnection::RunMySqlD(const CString &csExecute)
 		m_csOutput += csTemp.Left(reDword);
 	} while (res);
 
-
 	CloseHandle(pInfo.hProcess);
 	CloseHandle(pInfo.hThread);
 
@@ -104,13 +102,10 @@ CString CMySqlConnection::RunMySqlD(const CString &csExecute)
 	{
 		m_csOutput = L"MySQL server started.";
 	}
-	return  m_csOutput;
+	return m_csOutput;
 }
 
-
-
-
-//int CMySqlConnection::Test(void)
+// int CMySqlConnection::Test(void)
 //{
 //	if (!m_mySqlHandle) {
 //		SHELLEXECUTEINFO info;
@@ -124,7 +119,7 @@ CString CMySqlConnection::RunMySqlD(const CString &csExecute)
 //		info.lpParameters = NULL;
 //		info.lpDirectory = MYSQLDPath;
 //		info.nShow = SW_SHOWNORMAL;
-//		
+//
 //		try {
 //			ShellExecuteEx(&info);
 //			m_mySqlHandle = info.hProcess;
@@ -143,7 +138,7 @@ CString CMySqlConnection::RunMySqlD(const CString &csExecute)
 //			break;
 //		}*/
 //	}
-//	
+//
 //
 //	return EXIT_SUCCESS;
-//}
+// }

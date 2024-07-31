@@ -3,39 +3,35 @@
 class CProjectView;
 // CProjectTabCtrl
 
-class   CProjectTabCtrl : public   CTabCtrl
+class CProjectTabCtrl : public CTabCtrl
 {
-	//   Construction/destruction 
+	//   Construction/destruction
 public:
 	CProjectTabCtrl(CProjectView *pParent);
-	virtual   ~CProjectTabCtrl();
+	virtual ~CProjectTabCtrl();
 
 public:
-
+public:
+	void SetColours(COLORREF bSelColour, COLORREF bUnselColour);
 
 public:
-	void   SetColours(COLORREF   bSelColour, COLORREF   bUnselColour);
-
-
-public:
-	virtual   void   DrawItem(LPDRAWITEMSTRUCT   lpDrawItemStruct);
-protected:
-	virtual   void   PreSubclassWindow();
+	virtual void DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct);
 
 protected:
-	COLORREF   m_crSelColour, m_crUnselColour;
-
+	virtual void PreSubclassWindow();
 
 protected:
+	COLORREF m_crSelColour, m_crUnselColour;
 
-	afx_msg   int   OnCreate(LPCREATESTRUCT   lpCreateStruct);
+protected:
+	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 
 	DECLARE_MESSAGE_MAP()
 
-	CProjectView* m_pParent;
+	CProjectView *m_pParent;
+
 public:
 	afx_msg void OnPaint();
-	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
-	afx_msg void OnTcnSelchange(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg BOOL OnEraseBkgnd(CDC *pDC);
+	afx_msg void OnTcnSelchange(NMHDR *pNMHDR, LRESULT *pResult);
 };
-

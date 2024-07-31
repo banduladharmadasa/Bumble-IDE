@@ -16,7 +16,7 @@
 
 #ifdef _DEBUG
 #undef THIS_FILE
-static char THIS_FILE[]=__FILE__;
+static char THIS_FILE[] = __FILE__;
 #define new DEBUG_NEW
 #endif
 
@@ -27,15 +27,14 @@ static char THIS_FILE[]=__FILE__;
 CTokenizer::CTokenizer()
 {
    m_nPosition = 0;
-
 }
 /////////////////////////////////////
 // @mfunc This is an constructor
 // @rvalue void | not used
 //
 CTokenizer::CTokenizer(
-                       const CString string, //@parm String to examine
-                       CString strDelim)     //@parm String with single char delimiters
+    const CString string, //@parm String to examine
+    CString strDelim)     //@parm String with single char delimiters
 {
    m_Copy = string;
    m_Delimiter = strDelim;
@@ -53,7 +52,7 @@ CTokenizer::~CTokenizer()
 // @rvalue void | not used
 //
 void CTokenizer::SetString(
-                           const CString string) //@parm String to examine
+    const CString string) //@parm String to examine
 {
    m_Copy = string;
    m_nPosition = 0;
@@ -66,20 +65,20 @@ CString CTokenizer::Next()
 {
    CString strReturn;
    int nLen = m_Copy.GetLength();
-// if we have more characters in string
+   // if we have more characters in string
    while (nLen > m_nPosition)
    {
-//    check all delimiters
-      for (int i=0;i<m_Delimiter.GetLength();i++)
+      //    check all delimiters
+      for (int i = 0; i < m_Delimiter.GetLength(); i++)
       {
-//       if we find a delimiter or we find end of string return
+         //       if we find a delimiter or we find end of string return
          if (m_Copy.GetAt(m_nPosition) == m_Delimiter.GetAt(i))
          {
             m_nPosition++;
             return strReturn;
          }
       }
-//    copy char
+      //    copy char
       strReturn += m_Copy.GetAt(m_nPosition);
       m_nPosition++;
    }
@@ -101,35 +100,35 @@ BOOL CTokenizer::HasMoreTokens()
 // @rvalue CString | next token as string
 //
 CString CTokenizer::NextString(
-                               BOOL bRemoveQuotes, 
-                               CString strDefault)
+    BOOL bRemoveQuotes,
+    CString strDefault)
 {
    CString strReturn;
    int nLen = m_Copy.GetLength();
-// at end - return default
+   // at end - return default
    if (nLen <= m_nPosition)
       return strDefault;
-// skip quotes if not wanted
+   // skip quotes if not wanted
    if (bRemoveQuotes)
    {
-//    skip to first quote
+      //    skip to first quote
       while (nLen > m_nPosition && m_Copy.GetAt(m_nPosition) != '\"')
          m_nPosition++;
       m_nPosition++; // skip quote
-//    copy
+                     //    copy
       while (nLen > m_nPosition && m_Copy.GetAt(m_nPosition) != '\"')
       {
          strReturn += m_Copy.GetAt(m_nPosition);
          m_nPosition++;
       }
       m_nPosition++; // skip quote
-//    skip to next delimiter
+                     //    skip to next delimiter
       while (nLen > m_nPosition)
       {
-//       check all delimiters
-         for (int i=0;i<m_Delimiter.GetLength();i++)
+         //       check all delimiters
+         for (int i = 0; i < m_Delimiter.GetLength(); i++)
          {
-//          if we find a delimiter or we find end of string return
+            //          if we find a delimiter or we find end of string return
             if (m_Copy.GetAt(m_nPosition) == m_Delimiter.GetAt(i))
             {
                m_nPosition++;
@@ -139,24 +138,24 @@ CString CTokenizer::NextString(
       }
       return strReturn;
    }
-// if we have more characters in string
+   // if we have more characters in string
    while (nLen > m_nPosition)
    {
-//    check all delimiters
-      for (int i=0;i<m_Delimiter.GetLength();i++)
+      //    check all delimiters
+      for (int i = 0; i < m_Delimiter.GetLength(); i++)
       {
-//       if we find a delimiter or we find end of string return
+         //       if we find a delimiter or we find end of string return
          if (m_Copy.GetAt(m_nPosition) == m_Delimiter.GetAt(i))
          {
             m_nPosition++;
             return strReturn;
          }
       }
-//    copy char 
+      //    copy char
       strReturn += m_Copy.GetAt(m_nPosition);
       m_nPosition++;
    }
-// we did not find any tokens simply return 
+   // we did not find any tokens simply return
    return strReturn;
 }
 /////////////////////////////////////
@@ -164,31 +163,31 @@ CString CTokenizer::NextString(
 // @rvalue int | next token converted to int - or default at error
 //
 int CTokenizer::NextInt(
-                        int nDefault)
+    int nDefault)
 {
    CString strReturn;
    int nLen = m_Copy.GetLength();
-// if we have more characters in string
+   // if we have more characters in string
    while (nLen > m_nPosition)
    {
-//    check all delimiters
-      for (int i=0;i<m_Delimiter.GetLength();i++)
+      //    check all delimiters
+      for (int i = 0; i < m_Delimiter.GetLength(); i++)
       {
-//       if we find a delimiter or we find end of string return
+         //       if we find a delimiter or we find end of string return
          if (m_Copy.GetAt(m_nPosition) == m_Delimiter.GetAt(i))
          {
             m_nPosition++;
             int nReturn = nDefault;
-            int nFields = ::swscanf_s ((LPCWSTR)strReturn, _T("%d"), &nReturn);
+            int nFields = ::swscanf_s((LPCWSTR)strReturn, _T("%d"), &nReturn);
             return nReturn;
          }
       }
-//    copy char
+      //    copy char
       strReturn += m_Copy.GetAt(m_nPosition);
       m_nPosition++;
    }
    int nReturn = nDefault;
-   int nFields = ::swscanf_s ((LPCWSTR)strReturn, _T("%d"), &nReturn);
+   int nFields = ::swscanf_s((LPCWSTR)strReturn, _T("%d"), &nReturn);
    return nReturn;
 }
 /////////////////////////////////////
@@ -196,31 +195,31 @@ int CTokenizer::NextInt(
 // @rvalue int | next token converted to long - or default at error
 //
 long CTokenizer::NextLong(
-                          long nDefault)
+    long nDefault)
 {
    CString strReturn;
    int nLen = m_Copy.GetLength();
-// if we have more characters in string
+   // if we have more characters in string
    while (nLen > m_nPosition)
    {
-//    check all delimiters
-      for (int i=0;i<m_Delimiter.GetLength();i++)
+      //    check all delimiters
+      for (int i = 0; i < m_Delimiter.GetLength(); i++)
       {
-//       if we find a delimiter or we find end of string return
+         //       if we find a delimiter or we find end of string return
          if (m_Copy.GetAt(m_nPosition) == m_Delimiter.GetAt(i))
          {
             m_nPosition++;
             long nReturn = nDefault;
-            int nFields = ::swscanf_s ((LPCWSTR)strReturn, _T("%ld"), &nReturn);
+            int nFields = ::swscanf_s((LPCWSTR)strReturn, _T("%ld"), &nReturn);
             return nReturn;
          }
       }
-//    copy char
+      //    copy char
       strReturn += m_Copy.GetAt(m_nPosition);
       m_nPosition++;
    }
    long nReturn = nDefault;
-   int nFields = ::swscanf_s ((LPCWSTR)strReturn, _T("%ld"), &nReturn);
+   int nFields = ::swscanf_s((LPCWSTR)strReturn, _T("%ld"), &nReturn);
    return nReturn;
 }
 /////////////////////////////////////
@@ -228,33 +227,33 @@ long CTokenizer::NextLong(
 // @rvalue float | next token converted to float - or default at error
 //
 float CTokenizer::NextFloat(
-                            float fDefault)
+    float fDefault)
 {
    CString strReturn;
    int nLen = m_Copy.GetLength();
-// if we have more characters in string
+   // if we have more characters in string
    while (nLen > m_nPosition)
    {
-//    check all delimiters
-      for (int i=0;i<m_Delimiter.GetLength();i++)
+      //    check all delimiters
+      for (int i = 0; i < m_Delimiter.GetLength(); i++)
       {
-//       if we find a delimiter or we find end of string return
+         //       if we find a delimiter or we find end of string return
          if (m_Copy.GetAt(m_nPosition) == m_Delimiter.GetAt(i))
          {
             m_nPosition++;
             float fReturn = fDefault;
-            strReturn.Replace(',','.'); // replace comma with dot for german numbers
-            int nFields = ::swscanf_s ((LPCWSTR)strReturn, _T("%g"), &fReturn);
+            strReturn.Replace(',', '.'); // replace comma with dot for german numbers
+            int nFields = ::swscanf_s((LPCWSTR)strReturn, _T("%g"), &fReturn);
             return fReturn;
          }
       }
-//    copy char
+      //    copy char
       strReturn += m_Copy.GetAt(m_nPosition);
       m_nPosition++;
    }
    float fReturn = fDefault;
-   strReturn.Replace(',','.'); // replace comma with dot for german numbers
-   int nFields = ::swscanf_s ((LPCWSTR)strReturn, _T("%g"), &fReturn);
+   strReturn.Replace(',', '.'); // replace comma with dot for german numbers
+   int nFields = ::swscanf_s((LPCWSTR)strReturn, _T("%g"), &fReturn);
    return fReturn;
 }
 /////////////////////////////////////
@@ -262,33 +261,33 @@ float CTokenizer::NextFloat(
 // @rvalue float | next token converted to double - or default at error
 //
 double CTokenizer::NextDouble(
-                              double fDefault)
+    double fDefault)
 {
    CString strReturn;
    int nLen = m_Copy.GetLength();
-// if we have more characters in string
+   // if we have more characters in string
    while (nLen > m_nPosition)
    {
-//    check all delimiters
-      for (int i=0;i<m_Delimiter.GetLength();i++)
+      //    check all delimiters
+      for (int i = 0; i < m_Delimiter.GetLength(); i++)
       {
-//       if we find a delimiter or we find end of string return
+         //       if we find a delimiter or we find end of string return
          if (m_Copy.GetAt(m_nPosition) == m_Delimiter.GetAt(i))
          {
             m_nPosition++;
             double fReturn = fDefault;
-            strReturn.Replace(',','.'); // replace comma with dot for german numbers
-            int nFields = ::swscanf_s ((LPCWSTR)strReturn, _T("%lg"), &fReturn);
+            strReturn.Replace(',', '.'); // replace comma with dot for german numbers
+            int nFields = ::swscanf_s((LPCWSTR)strReturn, _T("%lg"), &fReturn);
             return fReturn;
          }
       }
-//    copy char
+      //    copy char
       strReturn += m_Copy.GetAt(m_nPosition);
       m_nPosition++;
    }
    double fReturn = fDefault;
-   strReturn.Replace(',','.'); // replace comma with dot for german numbers
-   int nFields = ::swscanf_s ((LPCWSTR)strReturn, _T("%lg"), &fReturn);
+   strReturn.Replace(',', '.'); // replace comma with dot for german numbers
+   int nFields = ::swscanf_s((LPCWSTR)strReturn, _T("%lg"), &fReturn);
    return fReturn;
 }
 /////////////////////////////////////
@@ -297,23 +296,23 @@ double CTokenizer::NextDouble(
 // @rvalue BOOL | next token as boolean value or default if no token found
 //
 BOOL CTokenizer::NextBool(
-                          BOOL bDefault)
+    BOOL bDefault)
 {
    CString strReturn;
    int nLen = m_Copy.GetLength();
-// if we have more characters in string
+   // if we have more characters in string
    while (nLen > m_nPosition)
    {
-//    check all delimiters
-      for (int i=0;i<m_Delimiter.GetLength();i++)
+      //    check all delimiters
+      for (int i = 0; i < m_Delimiter.GetLength(); i++)
       {
-//       if we find a delimiter or we find end of string return
+         //       if we find a delimiter or we find end of string return
          if (m_Copy.GetAt(m_nPosition) == m_Delimiter.GetAt(i))
          {
             m_nPosition++;
             int nReturn = 0;
-            int nFields = ::swscanf_s ((LPCWSTR)strReturn, _T("%d"), &nReturn);
-//          if we cant translate to number try keyword
+            int nFields = ::swscanf_s((LPCWSTR)strReturn, _T("%d"), &nReturn);
+            //          if we cant translate to number try keyword
             if (nFields < 1)
             {
                if (strReturn.CompareNoCase(BOOL_TRUE) == 0)
@@ -329,13 +328,13 @@ BOOL CTokenizer::NextBool(
                return TRUE;
          }
       }
-//    copy char
+      //    copy char
       strReturn += m_Copy.GetAt(m_nPosition);
       m_nPosition++;
    }
    int nReturn = 0;
-   int nFields = ::swscanf_s ((LPCWSTR)strReturn, _T("%d"), &nReturn);
-// if we cant translate to number try keyword
+   int nFields = ::swscanf_s((LPCWSTR)strReturn, _T("%d"), &nReturn);
+   // if we cant translate to number try keyword
    if (nFields < 1)
    {
       if (strReturn.CompareNoCase(BOOL_TRUE) == 0)

@@ -30,7 +30,7 @@ namespace BumbleIDE {
 	/// </summary>
 	#define IN_BUMBLE_CONTENT_READY		0x7B00
 	#define IN_BUMBLE_CONTENT_APPEND	0x7B01
-	#define IN_LOCK_DOCUMENT			0x7B02
+	#define IN_LOCK_DOCUMENT			0x7B02F
 	#define OUT_OK						0x7B03
 	#define IN_CLOSE_CONNECTION			0x7B04
 		

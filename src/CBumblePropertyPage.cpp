@@ -5,7 +5,6 @@
 #include "BumbleEdit.h"
 #include "CBumblePropertyPage.h"
 
-
 // CBumblePropertyPage
 
 IMPLEMENT_DYNAMIC(CBumblePropertyPage, CMFCPropertyPage)
@@ -19,20 +18,14 @@ CBumblePropertyPage::~CBumblePropertyPage()
 {
 }
 
-
 BEGIN_MESSAGE_MAP(CBumblePropertyPage, CMFCPropertyPage)
-	ON_WM_CTLCOLOR()
-	ON_WM_DESTROY()
+ON_WM_CTLCOLOR()
+ON_WM_DESTROY()
 END_MESSAGE_MAP()
-
-
 
 // CBumblePropertyPage message handlers
 
-
-
-
-HBRUSH CBumblePropertyPage::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
+HBRUSH CBumblePropertyPage::OnCtlColor(CDC *pDC, CWnd *pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CMFCPropertyPage::OnCtlColor(pDC, pWnd, nCtlColor);
 
@@ -44,19 +37,14 @@ HBRUSH CBumblePropertyPage::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 		pDC->SetTextColor(RGB(0, 0, 0));
 		break;
 
-
 	default:
 		pDC->SetBkColor(RGB(43, 43, 43));
 		pDC->SetTextColor(RGB(255, 255, 255));
 		break;
 	}
 
-
-
-
 	return (HBRUSH)(m_pEditBkBrush->GetSafeHandle());
 }
-
 
 void CBumblePropertyPage::OnDestroy()
 {

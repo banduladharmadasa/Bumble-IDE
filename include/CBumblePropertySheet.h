@@ -1,6 +1,5 @@
 #pragma once
 
-
 // CBumblePropertySheet
 
 class CBumblePropertySheet : public CMFCPropertySheet
@@ -14,10 +13,11 @@ public:
 protected:
 	DECLARE_MESSAGE_MAP()
 
-	CBrush* m_pEditBkBrush;
+	CBrush *m_pEditBkBrush;
 	CRect m_rectLogo;
+
 public:
-	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+	afx_msg HBRUSH OnCtlColor(CDC *pDC, CWnd *pWnd, UINT nCtlColor);
 	afx_msg void OnDestroy();
 	LRESULT WindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 	BOOL LoadCaptionButtonsIcons(UINT nID);
@@ -39,7 +39,7 @@ protected:
 	SysMenuButton m_closeButton;
 
 	CImageList m_CaptionButtonIconst;
-	CSize	   m_CaptionButtonSize;
+	CSize m_CaptionButtonSize;
 };
 
-bool LoadBitmapFromPNG(UINT uResourceID, Gdiplus::Bitmap** ppBitmapOut, HINSTANCE hInstance);
+bool LoadBitmapFromPNG(UINT uResourceID, Gdiplus::Bitmap **ppBitmapOut, HINSTANCE hInstance);

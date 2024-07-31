@@ -1,6 +1,5 @@
 #pragma once
 
-
 // CObjectTree
 
 class CObjectTree : public CTreeCtrl
@@ -14,5 +13,3 @@ public:
 protected:
 	DECLARE_MESSAGE_MAP()
 };
-
-

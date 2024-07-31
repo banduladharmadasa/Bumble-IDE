@@ -5,8 +5,8 @@
 #include "ProjectView.h"
 // CProjectTabCtrl
 
-CProjectTabCtrl::CProjectTabCtrl(CProjectView* pParent)
-	:m_pParent(pParent)
+CProjectTabCtrl::CProjectTabCtrl(CProjectView *pParent)
+	: m_pParent(pParent)
 {
 	m_crSelColour = RGB(0, 0, 255);
 	m_crUnselColour = RGB(50, 50, 50);
@@ -17,103 +17,103 @@ CProjectTabCtrl::~CProjectTabCtrl()
 }
 
 BEGIN_MESSAGE_MAP(CProjectTabCtrl, CTabCtrl)
-	//{{AFX_MSG_MAP(CProjectTabCtrl) 
-	ON_WM_CREATE()
-	//}}AFX_MSG_MAP 
-	ON_WM_PAINT()
-	ON_WM_ERASEBKGND()
-	ON_NOTIFY_REFLECT(TCN_SELCHANGE, &CProjectTabCtrl::OnTcnSelchange)
+//{{AFX_MSG_MAP(CProjectTabCtrl)
+ON_WM_CREATE()
+//}}AFX_MSG_MAP
+ON_WM_PAINT()
+ON_WM_ERASEBKGND()
+ON_NOTIFY_REFLECT(TCN_SELCHANGE, &CProjectTabCtrl::OnTcnSelchange)
 END_MESSAGE_MAP()
 
-///////////////////////////////////////////////////////////////////////////// 
-//   CProjectTabCtrl   message   handlers 
+/////////////////////////////////////////////////////////////////////////////
+//   CProjectTabCtrl   message   handlers
 
-int   CProjectTabCtrl::OnCreate(LPCREATESTRUCT   lpCreateStruct)
+int CProjectTabCtrl::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
-	if (CTabCtrl::OnCreate(lpCreateStruct) == -1)   return   -1;
+	if (CTabCtrl::OnCreate(lpCreateStruct) == -1)
+		return -1;
 	ModifyStyle(0, TCS_OWNERDRAWFIXED);
 
-	return   0;
+	return 0;
 }
 
-void   CProjectTabCtrl::PreSubclassWindow()
+void CProjectTabCtrl::PreSubclassWindow()
 {
 	CTabCtrl::PreSubclassWindow();
 	ModifyStyle(0, TCS_OWNERDRAWFIXED);
 }
 
-void   CProjectTabCtrl::DrawItem(LPDRAWITEMSTRUCT   lpDrawItemStruct)
+void CProjectTabCtrl::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
 {
-	CRect   rect = lpDrawItemStruct->rcItem;
-	int   nTabIndex = lpDrawItemStruct->itemID;
-	if (nTabIndex < 0)   return;
-	BOOL   bSelected = (nTabIndex == GetCurSel());
+	CRect rect = lpDrawItemStruct->rcItem;
+	int nTabIndex = lpDrawItemStruct->itemID;
+	if (nTabIndex < 0)
+		return;
+	BOOL bSelected = (nTabIndex == GetCurSel());
 
-	WCHAR   label[64];
-	TC_ITEM   tci;
+	WCHAR label[64];
+	TC_ITEM tci;
 	tci.mask = TCIF_TEXT | TCIF_IMAGE;
 	tci.pszText = label;
 	tci.cchTextMax = 63;
-	if (!GetItem(nTabIndex, &tci))   return;
+	if (!GetItem(nTabIndex, &tci))
+		return;
 
-	CDC* pDC = CDC::FromHandle(lpDrawItemStruct->hDC);
-	if (!pDC)   return;
-	int   nSavedDC = pDC->SaveDC();
+	CDC *pDC = CDC::FromHandle(lpDrawItemStruct->hDC);
+	if (!pDC)
+		return;
+	int nSavedDC = pDC->SaveDC();
 
-	//   For   some   bizarre   reason   the   rcItem   you   get   extends   above   the   actual 
-	//   drawing   area.   We   have   to   workaround   this   "feature ". 
+	//   For   some   bizarre   reason   the   rcItem   you   get   extends   above   the   actual
+	//   drawing   area.   We   have   to   workaround   this   "feature ".
 	rect.top += ::GetSystemMetrics(SM_CYEDGE);
 
 	pDC->SetBkMode(TRANSPARENT);
 	pDC->FillSolidRect(rect, ::GetSysColor(COLOR_BTNFACE));
 
-	//   Draw   image 
-	CImageList* pImageList = GetImageList();
+	//   Draw   image
+	CImageList *pImageList = GetImageList();
 
 	if (pImageList != NULL && tci.iImage >= 0)
 	{
 
-		rect.left += pDC->GetTextExtent(_T("   ")).cx; //   Margin 
+		rect.left += pDC->GetTextExtent(_T("   ")).cx; //   Margin
 
-		//   Get   height   of   image   so   we   
-		IMAGEINFO   info;
+		//   Get   height   of   image   so   we
+		IMAGEINFO info;
 		pImageList->GetImageInfo(tci.iImage, &info);
-		CRect   ImageRect(info.rcImage);
-		int   nYpos = rect.top;
+		CRect ImageRect(info.rcImage);
+		int nYpos = rect.top;
 
 		pImageList->Draw(pDC, tci.iImage, CPoint(rect.left, nYpos), ILD_TRANSPARENT);
 		rect.left += ImageRect.Width();
 	}
 
-	if (bSelected) {
+	if (bSelected)
+	{
 
 		pDC->SetTextColor(m_crSelColour);
 		rect.top -= ::GetSystemMetrics(SM_CYEDGE);
 		pDC->DrawText(label, rect, DT_SINGLELINE | DT_VCENTER | DT_CENTER);
 	}
-	else {
+	else
+	{
 		pDC->SetTextColor(m_crUnselColour);
 		pDC->DrawText(label, rect, DT_SINGLELINE | DT_BOTTOM | DT_CENTER);
 	}
 
 	pDC->RestoreDC(nSavedDC);
-
 }
 
-///////////////////////////////////////////////////////////////////////////// 
-//   CProjectTabCtrl   operations 
+/////////////////////////////////////////////////////////////////////////////
+//   CProjectTabCtrl   operations
 
-void   CProjectTabCtrl::SetColours(COLORREF   bSelColour, COLORREF   bUnselColour)
+void CProjectTabCtrl::SetColours(COLORREF bSelColour, COLORREF bUnselColour)
 {
 	m_crSelColour = bSelColour;
 	m_crUnselColour = bUnselColour;
 	Invalidate();
 }
-
-
-
-
-
 
 void CProjectTabCtrl::OnPaint()
 {
@@ -169,7 +169,7 @@ void CProjectTabCtrl::OnPaint()
 			dc.LineTo(rcitem.right, rcitem.bottom - 1);
 		}
 
-		TCITEM item = { 0 };
+		TCITEM item = {0};
 		wchar_t buf[32];
 		item.pszText = buf;
 		item.cchTextMax = 32;
@@ -179,21 +179,17 @@ void CProjectTabCtrl::OnPaint()
 	}
 }
 
-
-BOOL CProjectTabCtrl::OnEraseBkgnd(CDC* pDC)
+BOOL CProjectTabCtrl::OnEraseBkgnd(CDC *pDC)
 {
 	// TODO: Add your message handler code here and/or call default
 
-	return TRUE;// CTabCtrl::OnEraseBkgnd(pDC);
+	return TRUE; // CTabCtrl::OnEraseBkgnd(pDC);
 }
 
-
-void CProjectTabCtrl::OnTcnSelchange(NMHDR* pNMHDR, LRESULT* pResult)
+void CProjectTabCtrl::OnTcnSelchange(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	// TODO: Add your control notification handler code here
 	*pResult = 0;
 
 	m_pParent->OnTabChanged();
 }
-
-

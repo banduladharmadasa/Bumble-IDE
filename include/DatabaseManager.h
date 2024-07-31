@@ -10,9 +10,6 @@ public:
 	void Start();
 	void Stop();
 
-
 protected:
 	CSqlConnection *m_pSqlConn;
 };
-
-

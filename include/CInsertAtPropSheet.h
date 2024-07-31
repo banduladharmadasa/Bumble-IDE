@@ -17,9 +17,7 @@ protected:
 
 	CInsertNumberAt m_numberPropSheet;
 	CInsertTextAt m_textPropSheet;
+
 public:
 	afx_msg void OnIdok();
-
 };
-
-

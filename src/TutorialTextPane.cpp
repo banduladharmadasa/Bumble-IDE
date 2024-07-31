@@ -6,14 +6,12 @@
 #include "TutorialTextPane.h"
 #define IsBitSet(val, bit) ((val) & (1 << (bit)))
 
-
 HHOOK CCommandHistoryPane::m_kbdHook;
 HHOOK CCommandHistoryPane::m_mouseHook;
 
-//CString CCommandHistoryPane::m_displayString;
+// CString CCommandHistoryPane::m_displayString;
 std::vector<CString> CCommandHistoryPane::m_messageQueue;
 CCommandHistoryPane *CCommandHistoryPane::m_pTutorialTextPane;
-
 
 // CCommandHistoryPane
 
@@ -21,31 +19,25 @@ IMPLEMENT_DYNAMIC(CCommandHistoryPane, CDockablePane)
 
 CCommandHistoryPane::CCommandHistoryPane()
 {
-
 }
 
 CCommandHistoryPane::~CCommandHistoryPane()
 {
 }
 
-
 BEGIN_MESSAGE_MAP(CCommandHistoryPane, CDockablePane)
-	ON_WM_PAINT()
-	ON_WM_CREATE()
-	ON_WM_DESTROY()
+ON_WM_PAINT()
+ON_WM_CREATE()
+ON_WM_DESTROY()
 END_MESSAGE_MAP()
-
-
 
 // CCommandHistoryPane message handlers
 
 using namespace Gdiplus;
 
-
 void CCommandHistoryPane::OnPaint()
 {
 	CPaintDC dc(this);
-
 
 	CRect rc;
 	RectF _rc;
@@ -61,32 +53,27 @@ void CCommandHistoryPane::OnPaint()
 	graphics.FillRectangle(&SolidBrush(Color::LightYellow), _rc);
 
 	int size = m_messageQueue.size();
-	for (int i = m_messageQueue.size() - 1; i > 0; i--) {
+	for (int i = m_messageQueue.size() - 1; i > 0; i--)
+	{
 		str = m_messageQueue.at(i);
 
-		
 		_rc = RectF(rc.left, rc.top + (size - i) * 32, rc.Width(), rc.Height());
 
-		if (i == (size - 1)) {
+		if (i == (size - 1))
+		{
 			graphics.DrawString(str.GetString(), str.GetLength(), &bigFont, _rc, &fmt, &SolidBrush(Color::Black));
 		}
-		else {
+		else
+		{
 			graphics.DrawString(str.GetString(), str.GetLength(), &smallFont, _rc, &fmt, &SolidBrush(Color::Black));
 		}
-
-
-
 	}
-	
-	
+
 	while (m_messageQueue.size() > 5)
 	{
 		m_messageQueue.erase(m_messageQueue.begin());
-	} 
-	
-
+	}
 }
-
 
 int CCommandHistoryPane::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
@@ -96,53 +83,51 @@ int CCommandHistoryPane::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	m_kbdHook = SetWindowsHook(WH_KEYBOARD, &CCommandHistoryPane::KeyBoardHookProc);
 	ASSERT(NULL != m_kbdHook);
 
-
 	m_mouseHook = SetWindowsHook(WH_MOUSE, &CCommandHistoryPane::MouseHookProc);
 	ASSERT(NULL != m_mouseHook);
-
-
 
 	m_pTutorialTextPane = this;
 
 	return 0;
 }
 
-
-
-
 LRESULT CCommandHistoryPane::KeyBoardHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 {
-	if (nCode < 0 || nCode != HC_ACTION)  // do not process message 
+	if (nCode < 0 || nCode != HC_ACTION) // do not process message
 		return ::CallNextHookEx(m_kbdHook, nCode, wParam, lParam);
 
-
-	if(isprint(wParam) && !IsBitSet(lParam, 30) && !IsBitSet(lParam, 31)) {
+	if (isprint(wParam) && !IsBitSet(lParam, 30) && !IsBitSet(lParam, 31))
+	{
 		CString str;
 		BOOL bUse = FALSE;
 		str.Format(L"[%c]", (TCHAR)wParam);
 
-		if (GetAsyncKeyState(VK_MENU) < 0) {
+		if (GetAsyncKeyState(VK_MENU) < 0)
+		{
 			str.Insert(0, L"[ALT] + ");
 			bUse = TRUE;
 		}
 
-		if (GetAsyncKeyState(VK_SHIFT) < 0) {
+		if (GetAsyncKeyState(VK_SHIFT) < 0)
+		{
 			str.Insert(0, L"[SHIFT] + ");
 			bUse = TRUE;
 		}
 
-		if (GetAsyncKeyState(VK_CONTROL) < 0) {
+		if (GetAsyncKeyState(VK_CONTROL) < 0)
+		{
 			str.Insert(0, L"[CTRL] + ");
 			bUse = TRUE;
 		}
 
-		if (bUse) {
+		if (bUse)
+		{
 			m_messageQueue.push_back(str);
 			m_pTutorialTextPane->Invalidate();
 		}
-		
 	}
-	else {
+	else
+	{
 		CString str;
 		switch (wParam)
 		{
@@ -152,18 +137,20 @@ LRESULT CCommandHistoryPane::KeyBoardHookProc(int nCode, WPARAM wParam, LPARAM l
 
 		case VK_SPACE:
 			str = L"[SPACE]";
-				break;
+			break;
 
 		case VK_CAPITAL:
 		{
-			if ((GetKeyState(VK_CAPITAL) & 0x0001) != 0) {
+			if ((GetKeyState(VK_CAPITAL) & 0x0001) != 0)
+			{
 				str = (L"[CAPS-LOCK ON]");
 			}
-			else {
+			else
+			{
 				str = (L"[CAPS-LOCK OFF]");
 			}
 		}
-			break;
+		break;
 
 		case VK_LEFT:
 			str = L"[LEFT-ARROW]";
@@ -197,41 +184,39 @@ LRESULT CCommandHistoryPane::KeyBoardHookProc(int nCode, WPARAM wParam, LPARAM l
 			str = L"[DELETE]";
 			break;
 
-
 		default:
 			break;
 		}
 
-		if (!str.IsEmpty()) {
+		if (!str.IsEmpty())
+		{
 
-			if (GetAsyncKeyState(VK_MENU) < 0) {
+			if (GetAsyncKeyState(VK_MENU) < 0)
+			{
 				str.Insert(0, L"[ALT] + ");
 			}
 
-			if (GetAsyncKeyState(VK_SHIFT) < 0) {
+			if (GetAsyncKeyState(VK_SHIFT) < 0)
+			{
 				str.Insert(0, L"[SHIFT] + ");
 			}
 
-			if (GetAsyncKeyState(VK_CONTROL) < 0) {
+			if (GetAsyncKeyState(VK_CONTROL) < 0)
+			{
 				str.Insert(0, L"[CTRL] + ");
 			}
 
 			m_messageQueue.push_back(str);
 			m_pTutorialTextPane->Invalidate();
 		}
-		
-
 	}
-
-	
-
 
 	return ::CallNextHookEx(m_kbdHook, nCode, wParam, lParam);
 }
 
 LRESULT CCommandHistoryPane::MouseHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 {
-	if (nCode < 0)  // do not process message 
+	if (nCode < 0) // do not process message
 		return ::CallNextHookEx(m_mouseHook, nCode, wParam, lParam);
 
 	CString str;
@@ -266,22 +251,24 @@ LRESULT CCommandHistoryPane::MouseHookProc(int nCode, WPARAM wParam, LPARAM lPar
 
 	case WM_MOUSEWHEEL:
 	{
-		MOUSEHOOKSTRUCTEX* info = reinterpret_cast<MOUSEHOOKSTRUCTEX*>(lParam);
-		if (static_cast<std::make_signed_t<WORD>>(HIWORD(info->mouseData)) > 0) {
+		MOUSEHOOKSTRUCTEX *info = reinterpret_cast<MOUSEHOOKSTRUCTEX *>(lParam);
+		if (static_cast<std::make_signed_t<WORD>>(HIWORD(info->mouseData)) > 0)
+		{
 			str = L"[MOUSE WHEEL FORWARD]";
 		}
-		else {
+		else
+		{
 			str = L"[MOUSE WHEEL BACKWARD]";
 		}
-			
 
-		
 		bDetected = TRUE;
 	}
-		
-		break;
-	case WM_MOUSEMOVE: {
-		if ((GetKeyState(VK_LBUTTON) & 0x100) != 0) {
+
+	break;
+	case WM_MOUSEMOVE:
+	{
+		if ((GetKeyState(VK_LBUTTON) & 0x100) != 0)
+		{
 			str = L"[MOUSE DRAG]";
 			bDetected = TRUE;
 		}
@@ -291,9 +278,8 @@ LRESULT CCommandHistoryPane::MouseHookProc(int nCode, WPARAM wParam, LPARAM lPar
 		break;
 	}
 
-
-
-	if (bDetected) {
+	if (bDetected)
+	{
 		SHORT ctrl = GetKeyState(VK_CONTROL);
 		SHORT shift = GetKeyState(VK_SHIFT);
 		SHORT alt = GetKeyState(VK_MENU);
@@ -301,44 +287,36 @@ LRESULT CCommandHistoryPane::MouseHookProc(int nCode, WPARAM wParam, LPARAM lPar
 
 		CString strChar((TCHAR)wParam);
 
-
-
-		if (ctrl < 0) {
+		if (ctrl < 0)
+		{
 			str.Insert(0, L"[CTRL] + ");
-			
 		}
 
-		if (shift < 0) {
+		if (shift < 0)
+		{
 			str.Insert(0, L"[SHIFT] + ");
-			
 		}
 
-		if (alt < 0) {
+		if (alt < 0)
+		{
 			str.Insert(0, L"[ALT] + ");
-			
 		}
 
-		if (ret < 0) {
+		if (ret < 0)
+		{
 			str.Insert(0, L"[RETURN]");
 		}
-
-
-
 
 		m_messageQueue.push_back(str);
 		m_pTutorialTextPane->Invalidate();
 	}
-	
-
 
 	return ::CallNextHookEx(m_mouseHook, nCode, wParam, lParam);
 }
 
-
 void CCommandHistoryPane::OnDestroy()
 {
 	CDockablePane::OnDestroy();
-
 
 	if (NULL != m_kbdHook)
 	{
@@ -349,5 +327,4 @@ void CCommandHistoryPane::OnDestroy()
 	{
 		::UnhookWindowsHookEx(m_mouseHook);
 	}
-
 }

@@ -38,7 +38,7 @@ class CivetServer;
  */
 class CIVETWEB_CXX_API CivetException : public std::runtime_error
 {
-  public:
+public:
 	CivetException(const std::string &msg) : std::runtime_error(msg)
 	{
 	}
@@ -50,7 +50,7 @@ class CIVETWEB_CXX_API CivetException : public std::runtime_error
  */
 class CIVETWEB_CXX_API CivetHandler
 {
-  public:
+public:
 	/**
 	 * Destructor
 	 */
@@ -128,7 +128,7 @@ class CIVETWEB_CXX_API CivetHandler
  */
 class CIVETWEB_CXX_API CivetAuthHandler
 {
-  public:
+public:
 	/**
 	 * Destructor
 	 */
@@ -153,7 +153,7 @@ class CIVETWEB_CXX_API CivetAuthHandler
  */
 class CIVETWEB_CXX_API CivetWebSocketHandler
 {
-  public:
+public:
 	/**
 	 * Destructor
 	 */
@@ -170,7 +170,7 @@ class CIVETWEB_CXX_API CivetWebSocketHandler
 	 * @returns true to keep socket open, false to close it
 	 */
 	virtual bool handleConnection(CivetServer *server,
-	                              const struct mg_connection *conn);
+								  const struct mg_connection *conn);
 
 	/**
 	 * Callback method for when websocket handshake is successfully completed,
@@ -180,7 +180,7 @@ class CIVETWEB_CXX_API CivetWebSocketHandler
 	 * @param conn - the connection information
 	 */
 	virtual void handleReadyState(CivetServer *server,
-	                              struct mg_connection *conn);
+								  struct mg_connection *conn);
 
 	/**
 	 * Callback method for when a data frame has been received from the client.
@@ -193,10 +193,10 @@ class CIVETWEB_CXX_API CivetWebSocketHandler
 	 * @returns true to keep socket open, false to close it
 	 */
 	virtual bool handleData(CivetServer *server,
-	                        struct mg_connection *conn,
-	                        int bits,
-	                        char *data,
-	                        size_t data_len);
+							struct mg_connection *conn,
+							int bits,
+							char *data,
+							size_t data_len);
 
 	/**
 	 * Callback method for when the connection is closed.
@@ -205,7 +205,7 @@ class CIVETWEB_CXX_API CivetWebSocketHandler
 	 * @param conn - the connection information
 	 */
 	virtual void handleClose(CivetServer *server,
-	                         const struct mg_connection *conn);
+							 const struct mg_connection *conn);
 };
 
 /**
@@ -213,7 +213,8 @@ class CIVETWEB_CXX_API CivetWebSocketHandler
  *
  * wrapper for mg_callbacks
  */
-struct CIVETWEB_CXX_API CivetCallbacks : public mg_callbacks {
+struct CIVETWEB_CXX_API CivetCallbacks : public mg_callbacks
+{
 	CivetCallbacks();
 };
 
@@ -224,7 +225,7 @@ struct CIVETWEB_CXX_API CivetCallbacks : public mg_callbacks {
  */
 class CIVETWEB_CXX_API CivetServer
 {
-  public:
+public:
 	/**
 	 * Constructor
 	 *
@@ -243,11 +244,11 @@ class CIVETWEB_CXX_API CivetServer
 	 * @throws CivetException
 	 */
 	CivetServer(const char **options,
-	            const struct CivetCallbacks *callbacks = 0,
-	            const void *UserContext = 0);
+				const struct CivetCallbacks *callbacks = 0,
+				const void *UserContext = 0);
 	CivetServer(std::vector<std::string> options,
-	            const struct CivetCallbacks *callbacks = 0,
-	            const void *UserContext = 0);
+				const struct CivetCallbacks *callbacks = 0,
+				const void *UserContext = 0);
 
 	/**
 	 * Destructor
@@ -304,7 +305,7 @@ class CIVETWEB_CXX_API CivetServer
 	 *  @param handler - handler instance to use.
 	 */
 	void addWebSocketHandler(const std::string &uri,
-	                         CivetWebSocketHandler *handler);
+							 CivetWebSocketHandler *handler);
 
 	void
 	addWebSocketHandler(const std::string &uri, CivetWebSocketHandler &handler)
@@ -391,8 +392,8 @@ class CIVETWEB_CXX_API CivetServer
 	 * @returns the size of the cookie value string read.
 	 */
 	static int getCookie(struct mg_connection *conn,
-	                     const std::string &cookieName,
-	                     std::string &cookieValue);
+						 const std::string &cookieName,
+						 std::string &cookieValue);
 
 	/**
 	 * getHeader(struct mg_connection *conn, const std::string &headerName)
@@ -401,7 +402,7 @@ class CIVETWEB_CXX_API CivetServer
 	 * @returns a char array which contains the header value as string
 	 */
 	static const char *getHeader(struct mg_connection *conn,
-	                             const std::string &headerName);
+								 const std::string &headerName);
 
 	/**
 	 * getParam(struct mg_connection *conn, const char *, std::string &, size_t)
@@ -427,9 +428,9 @@ class CIVETWEB_CXX_API CivetServer
 	 * @return true if key was found
 	 */
 	static bool getParam(struct mg_connection *conn,
-	                     const char *name,
-	                     std::string &dst,
-	                     size_t occurrence = 0);
+						 const char *name,
+						 std::string &dst,
+						 size_t occurrence = 0);
 
 	/**
 	 * getParam(const std::string &, const char *, std::string &, size_t)
@@ -447,9 +448,9 @@ class CIVETWEB_CXX_API CivetServer
 	 */
 	static bool
 	getParam(const std::string &data,
-	         const char *name,
-	         std::string &dst,
-	         size_t occurrence = 0)
+			 const char *name,
+			 std::string &dst,
+			 size_t occurrence = 0)
 	{
 		return getParam(data.c_str(), data.length(), name, dst, occurrence);
 	}
@@ -470,10 +471,10 @@ class CIVETWEB_CXX_API CivetServer
 	 * @return true if key was found
 	 */
 	static bool getParam(const char *data,
-	                     size_t data_len,
-	                     const char *name,
-	                     std::string &dst,
-	                     size_t occurrence = 0);
+						 size_t data_len,
+						 const char *name,
+						 std::string &dst,
+						 size_t occurrence = 0);
 
 	/**
 	 * getPostData(struct mg_connection *)
@@ -499,8 +500,8 @@ class CIVETWEB_CXX_API CivetServer
 	 */
 	static void
 	urlDecode(const std::string &src,
-	          std::string &dst,
-	          bool is_form_url_encoded = true)
+			  std::string &dst,
+			  bool is_form_url_encoded = true)
 	{
 		urlDecode(src.c_str(), src.length(), dst, is_form_url_encoded);
 	}
@@ -517,9 +518,9 @@ class CIVETWEB_CXX_API CivetServer
 	 *       http://ftp.ics.uci.edu/pub/ietf/html/rfc1866.txt
 	 */
 	static void urlDecode(const char *src,
-	                      size_t src_len,
-	                      std::string &dst,
-	                      bool is_form_url_encoded = true);
+						  size_t src_len,
+						  std::string &dst,
+						  bool is_form_url_encoded = true);
 
 	/**
 	 * urlDecode(const char *, std::string &, bool)
@@ -532,8 +533,8 @@ class CIVETWEB_CXX_API CivetServer
 	 *       http://ftp.ics.uci.edu/pub/ietf/html/rfc1866.txt
 	 */
 	static void urlDecode(const char *src,
-	                      std::string &dst,
-	                      bool is_form_url_encoded = true);
+						  std::string &dst,
+						  bool is_form_url_encoded = true);
 
 	/**
 	 * urlEncode(const std::string &, std::string &, bool)
@@ -567,9 +568,9 @@ class CIVETWEB_CXX_API CivetServer
 	 * @param append - true if string should not be cleared before encoding.
 	 */
 	static void urlEncode(const char *src,
-	                      size_t src_len,
-	                      std::string &dst,
-	                      bool append = false);
+						  size_t src_len,
+						  std::string &dst,
+						  bool append = false);
 
 	// generic user context which can be set/read,
 	// the server does nothing with this apart from keep it.
@@ -579,10 +580,10 @@ class CIVETWEB_CXX_API CivetServer
 		return UserContext;
 	}
 
-  protected:
+protected:
 	class CivetConnection
 	{
-	  public:
+	public:
 		char *postData;
 		unsigned long postDataLen;
 
@@ -597,7 +598,7 @@ class CIVETWEB_CXX_API CivetServer
 	// the server does nothing with this apart from keep it.
 	const void *UserContext;
 
-  private:
+private:
 	/**
 	 * requestHandler(struct mg_connection *, void *cbdata)
 	 *
@@ -610,15 +611,15 @@ class CIVETWEB_CXX_API CivetServer
 	static int requestHandler(struct mg_connection *conn, void *cbdata);
 
 	static int webSocketConnectionHandler(const struct mg_connection *conn,
-	                                      void *cbdata);
+										  void *cbdata);
 	static void webSocketReadyHandler(struct mg_connection *conn, void *cbdata);
 	static int webSocketDataHandler(struct mg_connection *conn,
-	                                int bits,
-	                                char *data,
-	                                size_t data_len,
-	                                void *cbdata);
+									int bits,
+									char *data,
+									size_t data_len,
+									void *cbdata);
 	static void webSocketCloseHandler(const struct mg_connection *conn,
-	                                  void *cbdata);
+									  void *cbdata);
 	/**
 	 * authHandler(struct mg_connection *, void *cbdata)
 	 *

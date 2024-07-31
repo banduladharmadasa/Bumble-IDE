@@ -5,7 +5,6 @@
 #include "BumbleEdit.h"
 #include "ProjectView.h"
 
-
 // CProjectView
 
 IMPLEMENT_DYNCREATE(CProjectView, CFormView)
@@ -22,18 +21,17 @@ CProjectView::~CProjectView()
 	m_pTabCtrl = nullptr;
 }
 
-void CProjectView::DoDataExchange(CDataExchange* pDX)
+void CProjectView::DoDataExchange(CDataExchange *pDX)
 {
 	CFormView::DoDataExchange(pDX);
 }
 
 BEGIN_MESSAGE_MAP(CProjectView, CFormView)
-	ON_WM_SIZE()
-	
-	//ON_COMMAND(ID_PROJECTSOURCEFILES_ADDNEWITEM, &CProjectView::OnAddNewItem)
-	//ON_COMMAND(ID_PROJECTSOURCEFILES_OPENITEM, &CProjectView::OnOpenItem)
-END_MESSAGE_MAP()
+ON_WM_SIZE()
 
+// ON_COMMAND(ID_PROJECTSOURCEFILES_ADDNEWITEM, &CProjectView::OnAddNewItem)
+// ON_COMMAND(ID_PROJECTSOURCEFILES_OPENITEM, &CProjectView::OnOpenItem)
+END_MESSAGE_MAP()
 
 // CProjectView diagnostics
 
@@ -44,16 +42,14 @@ void CProjectView::AssertValid() const
 }
 
 #ifndef _WIN32_WCE
-void CProjectView::Dump(CDumpContext& dc) const
+void CProjectView::Dump(CDumpContext &dc) const
 {
 	CFormView::Dump(dc);
 }
 #endif
 #endif //_DEBUG
 
-
 // CProjectView message handlers
-
 
 void CProjectView::OnTabChanged()
 {
@@ -65,21 +61,20 @@ void CProjectView::OnTabChanged()
 
 	int nIndex = m_pTabCtrl->GetCurSel();
 
+	for (int i = 0; i < m_tabPages.size(); i++)
+	{
 
-	for (int i = 0; i < m_tabPages.size(); i++) {
-
-
-		if (i == nIndex) {
+		if (i == nIndex)
+		{
 			m_tabPages[i]->SetWindowPos(NULL, 5, rcItem.bottom + 5, rcTab.Width() - 20, rcTab.Height() - rcItem.bottom - 40, SWP_NOZORDER | SWP_SHOWWINDOW);
 			m_tabPages[i]->SetFocus();
 		}
-		else {
+		else
+		{
 			m_tabPages[i]->ShowWindow(SW_HIDE);
 		}
 	}
-	
 }
-
 
 void CProjectView::OnInitialUpdate()
 {
@@ -87,25 +82,23 @@ void CProjectView::OnInitialUpdate()
 	GetDocument()->SetTitle(L"Project Settings");
 
 	m_pTabCtrl = new CProjectTabCtrl(this);
-	if (!m_pTabCtrl->Create(TCS_RAGGEDRIGHT | WS_CHILD | WS_VISIBLE, CRect(0,0, 400, 400), this, IDC_PROJECT_TAB_CTRL)) {
+	if (!m_pTabCtrl->Create(TCS_RAGGEDRIGHT | WS_CHILD | WS_VISIBLE, CRect(0, 0, 400, 400), this, IDC_PROJECT_TAB_CTRL))
+	{
 
 		return;
 	}
 
-	if (!m_tabSource.Create(IDD_TAB_SOURCE, m_pTabCtrl)) {
+	if (!m_tabSource.Create(IDD_TAB_SOURCE, m_pTabCtrl))
+	{
 
 		return;
 	}
 
-
-
-	if (!m_tabBuild.Create(IDD_TAB_SOURCE, m_pTabCtrl)) {
+	if (!m_tabBuild.Create(IDD_TAB_SOURCE, m_pTabCtrl))
+	{
 
 		return;
 	}
-
-
-	
 
 	m_tabPages.push_back(&m_tabSource);
 	m_tabPages.push_back(&m_tabBuild);
@@ -127,37 +120,28 @@ void CProjectView::OnInitialUpdate()
 	OnTabChanged();
 }
 
-
 void CProjectView::OnSize(UINT nType, int cx, int cy)
 {
 	CFormView::OnSize(nType, cx, cy);
 
-
 	if (m_pTabCtrl->GetSafeHwnd() == NULL)
-		return; 
+		return;
 
 	RECT rect;
 
-	
 	GetClientRect(&rect);
 
 	m_pTabCtrl->AdjustRect(FALSE, &rect);
 
-	
 	m_pTabCtrl->MoveWindow(&rect, TRUE);
 
 	OnTabChanged();
 }
 
-
-
-
-
 void CProjectView::OnAddNewItem()
 {
 	// TODO: Add your command handler code here
 }
-
 
 void CProjectView::OnOpenItem()
 {
@@ -188,23 +172,16 @@ void CProjectView::OnOpenItem()
 		// release buffer
 		strBuffer.ReleaseBuffer();
 	}
-	catch (CException * e)
+	catch (CException *e)
 	{
 		e->ReportError();
 		e->Delete();
 	}
 
+	CWnd *pParent = GetParent();
 
-	CWnd* pParent = GetParent();
-
-	if (!pParent) {
+	if (!pParent)
+	{
 		return;
 	}
-
-
-	
-	
-	
-		
-	
 }

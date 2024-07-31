@@ -1,6 +1,5 @@
 #pragma once
 
-
 // CFindFilesResultPane
 
 class CFindFilesResultPane : public CListCtrl
@@ -14,7 +13,4 @@ public:
 protected:
 	DECLARE_MESSAGE_MAP()
 public:
-	
 };
-
-

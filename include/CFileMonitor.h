@@ -12,12 +12,10 @@ struct Param
 	CString message;
 };
 
-
 // CFileMonitor
 
 class CFileMonitor : public CObject
 {
-	
 
 public:
 	CFileMonitor();
@@ -29,7 +27,4 @@ public:
 
 protected:
 	HANDLE m_hThread;
-	
 };
-
-

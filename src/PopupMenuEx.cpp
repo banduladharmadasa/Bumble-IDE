@@ -6,35 +6,30 @@ CPopupMenuEx::CPopupMenuEx()
 {
 }
 
-
 CPopupMenuEx::~CPopupMenuEx()
 {
 }
 BEGIN_MESSAGE_MAP(CPopupMenuEx, CMFCPopupMenu)
-	ON_WM_PAINT()
-	ON_WM_CREATE()
+ON_WM_PAINT()
+ON_WM_CREATE()
 END_MESSAGE_MAP()
-
-
-
 
 void CPopupMenuEx::OnPaint()
 {
 	CPaintDC dc(this); // device context for painting
 					   // TODO: Add your message handler code here
-					// Do not call CMFCPopupMenu::OnPaint() for painting messages
+	// Do not call CMFCPopupMenu::OnPaint() for painting messages
 
 	CRect rect;
 	GetWindowRect(&rect);
 	ScreenToClient(rect);
 	int height = this->m_iLogoWidth;
 
-	rect.DeflateRect(0,0, 0, 0);
+	rect.DeflateRect(0, 0, 0, 0);
 
 	dc.FillSolidRect(rect, RGB(43, 43, 43));
-	//VerticalGradient(dc, rect, HILITE_GRAD_TOP, HILITE_GRAD_BOTTOM, 1);
+	// VerticalGradient(dc, rect, HILITE_GRAD_TOP, HILITE_GRAD_BOTTOM, 1);
 }
-
 
 int CPopupMenuEx::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
@@ -52,8 +47,6 @@ int CPopupMenuEx::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	CRgn rgn1;
 	CRgn rgn2;
 
-
-
 	CPaintDC dc(this);
 	CreateCompatibleDC(dc);
 	dc.BeginPath();
@@ -61,13 +54,11 @@ int CPopupMenuEx::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	dc.MoveTo(16, 0);
 	dc.LineTo(32, 16);
 	dc.LineTo(0, 16);
-	
 
 	dc.EndPath();
 
 	rgn1.CreateFromPath(&dc);
 
-	
 	rgn2.CreateRectRgn(1, 16, w, h);
 	CombineRgn(rgn1, rgn1, rgn2, RGN_OR);
 
@@ -76,7 +67,6 @@ int CPopupMenuEx::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	rgn2.Detach();
 
 	ReleaseDC(&dc);
-
 
 	return 0;
 }

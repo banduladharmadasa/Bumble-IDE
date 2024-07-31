@@ -11,31 +11,27 @@
 
 IMPLEMENT_DYNAMIC(CNewFolderNameDlg, CBumbleDialog)
 
-CNewFolderNameDlg::CNewFolderNameDlg(CWnd* pParent /*=nullptr*/)
+CNewFolderNameDlg::CNewFolderNameDlg(CWnd *pParent /*=nullptr*/)
 	: CBumbleDialog(CNewFolderNameDlg::IDD, pParent)
 {
-
 }
 
 CNewFolderNameDlg::~CNewFolderNameDlg()
 {
 }
 
-void CNewFolderNameDlg::DoDataExchange(CDataExchange* pDX)
+void CNewFolderNameDlg::DoDataExchange(CDataExchange *pDX)
 {
 	CBumbleDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDOK, m_btnOK);
 	DDX_Control(pDX, IDCANCEL, m_btnCancel);
 }
 
-
 BEGIN_MESSAGE_MAP(CNewFolderNameDlg, CBumbleDialog)
-	ON_BN_CLICKED(IDOK, &CNewFolderNameDlg::OnBnClickedOk)
+ON_BN_CLICKED(IDOK, &CNewFolderNameDlg::OnBnClickedOk)
 END_MESSAGE_MAP()
 
-
 // CNewFolderNameDlg message handlers
-
 
 BOOL CNewFolderNameDlg::OnInitDialog()
 {
@@ -43,12 +39,10 @@ BOOL CNewFolderNameDlg::OnInitDialog()
 
 	// TODO:  Add extra initialization here
 
-
 	GetDlgItem(IDC_NEW_FOLDER_NAME)->SetWindowTextW(L"New Folder");
-	return TRUE;  // return TRUE unless you set the focus to a control
-				  // EXCEPTION: OCX Property Pages should return FALSE
+	return TRUE; // return TRUE unless you set the focus to a control
+				 // EXCEPTION: OCX Property Pages should return FALSE
 }
-
 
 void CNewFolderNameDlg::OnBnClickedOk()
 {
@@ -57,13 +51,13 @@ void CNewFolderNameDlg::OnBnClickedOk()
 	CString str;
 	GetDlgItem(IDC_NEW_FOLDER_NAME)->GetWindowTextW(str);
 
-	if (str.IsEmpty()) {
+	if (str.IsEmpty())
+	{
 
 		BumbleMessageBox(L"New folder name is empty!");
 		return;
 	}
 
-
-	((CMainFrame*)theApp.GetMainWnd())->SetNewFileOrFolderName(str);
+	((CMainFrame *)theApp.GetMainWnd())->SetNewFileOrFolderName(str);
 	CBumbleDialog::OnOK();
 }

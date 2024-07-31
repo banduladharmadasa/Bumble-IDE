@@ -10,30 +10,29 @@
 
 #pragma once
 
-class CHistoryObj  
+class CHistoryObj
 {
 public:
-	CHistoryObj(const CString& strTitle, const CString& strURL, const UINT uiCommand);
+	CHistoryObj(const CString &strTitle, const CString &strURL, const UINT uiCommand);
 	virtual ~CHistoryObj();
 
-	LPCTSTR GetTitle () const
+	LPCTSTR GetTitle() const
 	{
 		return m_strTitle;
 	}
 
-	LPCTSTR GetURL () const
+	LPCTSTR GetURL() const
 	{
 		return m_strURL;
 	}
 
-	UINT GetCommand () const
+	UINT GetCommand() const
 	{
 		return m_uiCommand;
 	}
 
 protected:
-	const CString	m_strTitle;
-	const CString	m_strURL;
-	const UINT		m_uiCommand;
+	const CString m_strTitle;
+	const CString m_strURL;
+	const UINT m_uiCommand;
 };
-

@@ -6,12 +6,11 @@
 #include "CBumbleMessageBox.h"
 #include "afxdialogex.h"
 
-
 // CBumbleMessageBox dialog
 
 IMPLEMENT_DYNAMIC(CBumbleMessageBox, CBumbleDialog)
 
-CBumbleMessageBox::CBumbleMessageBox(const CString& reason, CWnd* pParent /*=nullptr*/)
+CBumbleMessageBox::CBumbleMessageBox(const CString &reason, CWnd *pParent /*=nullptr*/)
 	: CBumbleDialog(IDD_BUMBLE_MSG_BOX, pParent)
 {
 	m_strReason = reason;
@@ -21,7 +20,7 @@ CBumbleMessageBox::~CBumbleMessageBox()
 {
 }
 
-void CBumbleMessageBox::DoDataExchange(CDataExchange* pDX)
+void CBumbleMessageBox::DoDataExchange(CDataExchange *pDX)
 {
 	CBumbleDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDOK, m_btnOk);
@@ -29,15 +28,10 @@ void CBumbleMessageBox::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDCANCEL, m_btnCanel);
 }
 
-
-
-
 BEGIN_MESSAGE_MAP(CBumbleMessageBox, CBumbleDialog)
 END_MESSAGE_MAP()
 
-
 // CBumbleMessageBox message handlers
-
 
 BOOL CBumbleMessageBox::OnInitDialog()
 {

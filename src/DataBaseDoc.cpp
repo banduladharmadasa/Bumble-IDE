@@ -5,7 +5,6 @@
 #include "AceEditor.h"
 #include "DataBaseDoc.h"
 
-
 // CDataBaseDoc
 
 IMPLEMENT_DYNCREATE(CDataBaseDoc, CDocument)
@@ -25,10 +24,8 @@ CDataBaseDoc::~CDataBaseDoc()
 {
 }
 
-
 BEGIN_MESSAGE_MAP(CDataBaseDoc, CDocument)
 END_MESSAGE_MAP()
-
 
 // CDataBaseDoc diagnostics
 
@@ -39,7 +36,7 @@ void CDataBaseDoc::AssertValid() const
 }
 
 #ifndef _WIN32_WCE
-void CDataBaseDoc::Dump(CDumpContext& dc) const
+void CDataBaseDoc::Dump(CDumpContext &dc) const
 {
 	CDocument::Dump(dc);
 }
@@ -49,7 +46,7 @@ void CDataBaseDoc::Dump(CDumpContext& dc) const
 #ifndef _WIN32_WCE
 // CDataBaseDoc serialization
 
-void CDataBaseDoc::Serialize(CArchive& ar)
+void CDataBaseDoc::Serialize(CArchive &ar)
 {
 	if (ar.IsStoring())
 	{
@@ -61,6 +58,5 @@ void CDataBaseDoc::Serialize(CArchive& ar)
 	}
 }
 #endif
-
 
 // CDataBaseDoc commands

@@ -6,7 +6,7 @@
 #include "ServerManager.h"
 #include "MainFrm.h"
 #include "BuiltInServer.h"
-//#include "DatabaseManager.h"
+// #include "DatabaseManager.h"
 
 // CServerManager
 
@@ -23,13 +23,10 @@ CServerManager::~CServerManager()
 
 BOOL CServerManager::Start(const CString &path)
 {
-	if(!m_pCurrentServer)
+	if (!m_pCurrentServer)
 		m_pCurrentServer = new CBuiltInServer();
 
-
 	return m_pCurrentServer->Start(path);
-
-
 }
 
 void CServerManager::Stop()
@@ -40,6 +37,5 @@ void CServerManager::Stop()
 void CServerManager::SetCurrentServer(CWebServer *pServer)
 {
 }
-
 
 // CServerManager member functions

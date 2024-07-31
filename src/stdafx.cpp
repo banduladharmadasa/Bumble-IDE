@@ -2,10 +2,10 @@
 #include "stdafx.h"
 #include "resource.h"
 
-void VerticalGradient(HDC hDC, const RECT& GradientFill, COLORREF rgbTop, COLORREF rgbBottom, int deflation)
+void VerticalGradient(HDC hDC, const RECT &GradientFill, COLORREF rgbTop, COLORREF rgbBottom, int deflation)
 {
 
-	GRADIENT_RECT gradientRect = { 0, 1 };
+	GRADIENT_RECT gradientRect = {0, 1};
 	TRIVERTEX triVertext[2] = {
 		GradientFill.left,
 		GradientFill.top,
@@ -18,15 +18,14 @@ void VerticalGradient(HDC hDC, const RECT& GradientFill, COLORREF rgbTop, COLORR
 		GetRValue(rgbBottom) << 8,
 		GetGValue(rgbBottom) << 8,
 		GetBValue(rgbBottom) << 8,
-		0
-	};
+		0};
 	::GradientFill(hDC, triVertext, 2, &gradientRect, 1, GRADIENT_FILL_RECT_V);
 }
 
 int BumbleMessageBox(LPCWSTR caption, UINT nType, UINT nIDHelp)
 {
-	CBumbleMessageBox* dlg = new CBumbleMessageBox(caption, NULL);
-	
+	CBumbleMessageBox *dlg = new CBumbleMessageBox(caption, NULL);
+
 	int result = dlg->DoModal();
 	delete dlg;
 

@@ -1,6 +1,5 @@
 #pragma once
 
-
 // CStaticEx
 
 class CStaticEx : public CStatic
@@ -16,5 +15,3 @@ protected:
 public:
 	afx_msg void OnPaint();
 };
-
-

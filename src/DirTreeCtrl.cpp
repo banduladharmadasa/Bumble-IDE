@@ -1,7 +1,7 @@
-// DirTreeCtrl.cpp: 
-// 
+// DirTreeCtrl.cpp:
+//
 // wrapped CTreeCtrl to select and or display folders and files (optional )
-// 
+//
 
 #include "stdafx.h"
 #include "BumbleEdit.h"
@@ -27,9 +27,8 @@ static char THIS_FILE[] = __FILE__;
 CFileTreeWnd::CFileTreeWnd()
 {
 
-	m_strRoot = "";      // Auf Leer setzen
+	m_strRoot = ""; // Auf Leer setzen
 	m_filterString = L"*.*";
-
 }
 
 CFileTreeWnd::~CFileTreeWnd()
@@ -37,32 +36,29 @@ CFileTreeWnd::~CFileTreeWnd()
 	m_imgList.Detach();
 }
 
-void CFileTreeWnd::SetFilters(const CString& filters)
+void CFileTreeWnd::SetFilters(const CString &filters)
 {
 	m_filterString = filters;
 	DisplayTree(m_currentPath, TRUE);
 	SetSelPath(m_currentPath);
 }
 
-
-
-
 BEGIN_MESSAGE_MAP(CFileTreeWnd, CTreeCtrl)
-	//{{AFX_MSG_MAP(CFileTreeWnd)
-	ON_NOTIFY_REFLECT(TVN_ITEMEXPANDED, OnItemexpanded)
-	//}}AFX_MSG_MAP
-	ON_NOTIFY_REFLECT(TVN_SELCHANGED, &CFileTreeWnd::OnTvnSelchanged)
-	ON_NOTIFY_REFLECT(NM_CLICK, &CFileTreeWnd::OnNMClick)
-	ON_NOTIFY_REFLECT(NM_DBLCLK, &CFileTreeWnd::OnNMDblclk)
-	ON_NOTIFY_REFLECT(TVN_ENDLABELEDIT, &CFileTreeWnd::OnTvnEndlabeledit)
+//{{AFX_MSG_MAP(CFileTreeWnd)
+ON_NOTIFY_REFLECT(TVN_ITEMEXPANDED, OnItemexpanded)
+//}}AFX_MSG_MAP
+ON_NOTIFY_REFLECT(TVN_SELCHANGED, &CFileTreeWnd::OnTvnSelchanged)
+ON_NOTIFY_REFLECT(NM_CLICK, &CFileTreeWnd::OnNMClick)
+ON_NOTIFY_REFLECT(NM_DBLCLK, &CFileTreeWnd::OnNMDblclk)
+ON_NOTIFY_REFLECT(TVN_ENDLABELEDIT, &CFileTreeWnd::OnTvnEndlabeledit)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// Behandlungsroutinen für Nachrichten CFileTreeWnd 
+// Behandlungsroutinen fï¿½r Nachrichten CFileTreeWnd
 
 BOOL CFileTreeWnd::DisplayTree(LPCTSTR strRoot, BOOL bFiles)
 {
-	DWORD dwStyle = GetStyle();   // read the windowstyle
+	DWORD dwStyle = GetStyle(); // read the windowstyle
 	if (dwStyle & TVS_EDITLABELS)
 	{
 		// Don't allow the user to edit ItemLabels
@@ -77,7 +73,7 @@ BOOL CFileTreeWnd::DisplayTree(LPCTSTR strRoot, BOOL bFiles)
 
 	if (!GetSysImgList())
 		return FALSE;
-	m_bFiles = bFiles;  // if TRUE, Display Path- and Filenames 
+	m_bFiles = bFiles; // if TRUE, Display Path- and Filenames
 	if (strRoot == NULL || strRoot[0] == '\0')
 	{
 		if (!DisplayDrives())
@@ -105,11 +101,11 @@ BOOL CFileTreeWnd::GetSysImgList()
 		m_imgList.Detach();
 
 	hImgList = (HIMAGELIST)SHGetFileInfo(L"C:\\",
-		0,
-		&shFinfo,
-		sizeof(shFinfo),
-		SHGFI_SYSICONINDEX |
-		SHGFI_SMALLICON);
+										 0,
+										 &shFinfo,
+										 sizeof(shFinfo),
+										 SHGFI_SYSICONINDEX |
+											 SHGFI_SMALLICON);
 	if (!hImgList)
 	{
 		m_strError = "Cannot retrieve the Handle of SystemImageList!";
@@ -119,7 +115,7 @@ BOOL CFileTreeWnd::GetSysImgList()
 	m_imgList.m_hImageList = hImgList;
 
 	SetImageList(&m_imgList, TVSIL_NORMAL);
-	return TRUE;   // OK
+	return TRUE; // OK
 }
 
 BOOL CFileTreeWnd::DisplayDrives()
@@ -129,8 +125,8 @@ BOOL CFileTreeWnd::DisplayDrives()
 	// This are the First Items in the TreeCtrl
 	//
 	DeleteAllItems();
-	TCHAR  szDrives[128];
-	TCHAR* pDrive;
+	TCHAR szDrives[128];
+	TCHAR *pDrive;
 
 	if (!GetLogicalDriveStrings(sizeof(szDrives), szDrives))
 	{
@@ -147,14 +143,10 @@ BOOL CFileTreeWnd::DisplayDrives()
 		pDrive += wcslen(pDrive) + 1;
 	}
 
-
 	return TRUE;
-
 }
 
-
-
-template<class Pattern, class Text>
+template <class Pattern, class Text>
 BOOL wildcard(
 	Pattern const pat_begin, Pattern const pat_end,
 	Text text_begin, Text const text_end)
@@ -162,7 +154,7 @@ BOOL wildcard(
 	ptrdiff_t const pat_size = pat_end - pat_begin;
 	ptrdiff_t stackbuf[64];
 	size_t c = sizeof(stackbuf) / sizeof(*stackbuf);
-	ptrdiff_t* p = stackbuf;
+	ptrdiff_t *p = stackbuf;
 	size_t n = 0;
 	p[n++] = 0;
 	while (n > 0 && text_begin != text_end)
@@ -176,22 +168,27 @@ BOOL wildcard(
 			}
 			switch (*(pat_begin + p[i]))
 			{
-			case '?': ++p[i]; break;
+			case '?':
+				++p[i];
+				break;
 			case '*':
 				ptrdiff_t off;
 				off = p[i];
 				while (off < pat_size &&
-					*(pat_begin + off) == '*')
+					   *(pat_begin + off) == '*')
 				{
 					++off;
 				}
 				if (n == c)
 				{
-					ptrdiff_t const* const old = p;
+					ptrdiff_t const *const old = p;
 					c *= 2;
-					if (c == 0) { ++c; }
+					if (c == 0)
+					{
+						++c;
+					}
 					size_t const size = c * sizeof(*p);
-					p = (ptrdiff_t*)realloc(
+					p = (ptrdiff_t *)realloc(
 						old == stackbuf ? NULL : p,
 						size);
 					if (old == stackbuf)
@@ -206,7 +203,10 @@ BOOL wildcard(
 				{
 					++p[i];
 				}
-				else { p[i--] = p[--n]; }
+				else
+				{
+					p[i--] = p[--n];
+				}
 				break;
 			}
 		}
@@ -219,7 +219,7 @@ BOOL wildcard(
 		{
 			--n;
 			while (p[n] != pat_size &&
-				*(pat_begin + p[n]) == '*')
+				   *(pat_begin + p[n]) == '*')
 			{
 				++p[n];
 			}
@@ -229,11 +229,14 @@ BOOL wildcard(
 			}
 		}
 	}
-	if (p != stackbuf) { free(p); }
+	if (p != stackbuf)
+	{
+		free(p);
+	}
 	return success;
 }
 
-BOOL wildcard(char const* const pattern, char const* const text)
+BOOL wildcard(char const *const pattern, char const *const text)
 {
 	return wildcard(
 		pattern,
@@ -242,7 +245,7 @@ BOOL wildcard(char const* const pattern, char const* const text)
 		text + (text ? strlen(text) : 0));
 }
 
-BOOL wildcard(wchar_t const* const pattern, wchar_t const* const text)
+BOOL wildcard(wchar_t const *const pattern, wchar_t const *const text)
 {
 	return wildcard(
 		pattern,
@@ -251,7 +254,7 @@ BOOL wildcard(wchar_t const* const pattern, wchar_t const* const text)
 		text + (text ? wcslen(text) : 0));
 }
 
-BOOL CFileTreeWnd::IsWildcardMatched(const CString& str)
+BOOL CFileTreeWnd::IsWildcardMatched(const CString &str)
 {
 	int nTokenPos = 0;
 	CString strToken = m_filterString.Tokenize(_T(","), nTokenPos);
@@ -259,7 +262,8 @@ BOOL CFileTreeWnd::IsWildcardMatched(const CString& str)
 	while (!strToken.IsEmpty())
 	{
 		// do something with strToken
-		if (wildcard(strToken.Trim(), str)) {
+		if (wildcard(strToken.Trim(), str))
+		{
 
 			return TRUE;
 		}
@@ -276,8 +280,8 @@ void CFileTreeWnd::DisplayPath(HTREEITEM hParent, LPCTSTR strPath)
 	// Displaying the Path in the TreeCtrl
 	//
 	CFileFind find;
-	CString   strPathFiles = strPath;
-	BOOL      bFind;
+	CString strPathFiles = strPath;
+	BOOL bFind;
 	CSortStringArray strDirArray;
 	CSortStringArray strFileArray;
 
@@ -294,15 +298,14 @@ void CFileTreeWnd::DisplayPath(HTREEITEM hParent, LPCTSTR strPath)
 		{
 			strDirArray.Add(find.GetFilePath());
 		}
-		if (!find.IsDirectory() && m_bFiles) {
+		if (!find.IsDirectory() && m_bFiles)
+		{
 
-			if (IsWildcardMatched(find.GetFileName())) {
+			if (IsWildcardMatched(find.GetFileName()))
+			{
 				strFileArray.Add(find.GetFilePath());
 			}
-
 		}
-
-
 	}
 
 	strDirArray.Sort();
@@ -322,18 +325,14 @@ void CFileTreeWnd::DisplayPath(HTREEITEM hParent, LPCTSTR strPath)
 		for (int i = 0; i < strFileArray.GetSize(); i++)
 		{
 			HTREEITEM hItem = AddItem(hParent, strFileArray.GetAt(i));
-
 		}
 	}
 
 	SetRedraw(TRUE);
-
-
 }
 
 void CFileTreeWnd::DisplayPath(HTREEITEM hParent, LPCTSTR strPath, LPCTSTR strExt)
 {
-
 }
 
 HTREEITEM CFileTreeWnd::AddItem(HTREEITEM hParent, LPCTSTR strPath)
@@ -341,16 +340,16 @@ HTREEITEM CFileTreeWnd::AddItem(HTREEITEM hParent, LPCTSTR strPath)
 	// Adding the Item to the TreeCtrl with the current Icons
 	SHFILEINFO shFinfo;
 	int iIcon, iIconSel;
-	CString    strTemp = strPath;
+	CString strTemp = strPath;
 
 	if (strTemp.Right(1) != '\\')
 		strTemp += "\\";
 	if (!SHGetFileInfo(strTemp,
-		0,
-		&shFinfo,
-		sizeof(shFinfo),
-		SHGFI_ICON |
-		SHGFI_SMALLICON))
+					   0,
+					   &shFinfo,
+					   sizeof(shFinfo),
+					   SHGFI_ICON |
+						   SHGFI_SMALLICON))
 	{
 		m_strError = "Error Gettting SystemFileInfo!";
 		return NULL;
@@ -363,11 +362,11 @@ HTREEITEM CFileTreeWnd::AddItem(HTREEITEM hParent, LPCTSTR strPath)
 	DestroyIcon(shFinfo.hIcon);
 
 	if (!SHGetFileInfo(strTemp,
-		0,
-		&shFinfo,
-		sizeof(shFinfo),
-		SHGFI_ICON | SHGFI_OPENICON |
-		SHGFI_SMALLICON))
+					   0,
+					   &shFinfo,
+					   sizeof(shFinfo),
+					   SHGFI_ICON | SHGFI_OPENICON |
+						   SHGFI_SMALLICON))
 	{
 		m_strError = "Error Gettting SystemFileInfo!";
 		return NULL;
@@ -395,7 +394,7 @@ LPCTSTR CFileTreeWnd::GetSubPath(LPCTSTR strPath)
 	// e.g. C:\temp\readme.txt
 	// the result = readme.txt
 	static CString strTemp;
-	int     iPos;
+	int iPos;
 
 	strTemp = strPath;
 	if (strTemp.Right(1) == '\\')
@@ -413,8 +412,8 @@ BOOL CFileTreeWnd::FindSubDir(LPCTSTR strPath)
 	// Are there subDirs ?
 	//
 	CFileFind find;
-	CString   strTemp = strPath;
-	BOOL      bFind;
+	CString strTemp = strPath;
+	BOOL bFind;
 
 	if (strTemp[strTemp.GetLength() - 1] == '\\')
 		strTemp += "*.*";
@@ -422,7 +421,6 @@ BOOL CFileTreeWnd::FindSubDir(LPCTSTR strPath)
 		strTemp += "\\*.*";
 
 	bFind = find.FindFile(strTemp);
-
 
 	while (bFind)
 	{
@@ -434,21 +432,19 @@ BOOL CFileTreeWnd::FindSubDir(LPCTSTR strPath)
 		}
 		if (!find.IsDirectory() && m_bFiles && !find.IsHidden())
 			return TRUE;
-
 	}
 
 	return FALSE;
-
 }
 
-void CFileTreeWnd::OnItemexpanded(NMHDR* pNMHDR, LRESULT* pResult)
+void CFileTreeWnd::OnItemexpanded(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	NM_TREEVIEW* pNMTreeView = (NM_TREEVIEW*)pNMHDR;
+	NM_TREEVIEW *pNMTreeView = (NM_TREEVIEW *)pNMHDR;
 	CString strPath;
 
 	if (pNMTreeView->itemNew.state & TVIS_EXPANDED)
 	{
-		//UINT uTest = TVIS_EXPANDEDONCE;
+		// UINT uTest = TVIS_EXPANDEDONCE;
 		ExpandItem(pNMTreeView->itemNew.hItem, TVE_EXPAND);
 		/*
 		//
@@ -469,7 +465,7 @@ void CFileTreeWnd::OnItemexpanded(NMHDR* pNMHDR, LRESULT* pResult)
 	else
 	{
 		//
-		// Delete the Items, but leave one there, for 
+		// Delete the Items, but leave one there, for
 		// expanding the item next time
 		//
 		HTREEITEM hChild = GetChildItem(pNMTreeView->itemNew.hItem);
@@ -506,7 +502,6 @@ CString CFileTreeWnd::GetFullPath(HTREEITEM hItem)
 	strReturn.TrimRight('\\');
 
 	return strReturn;
-
 }
 
 void CFileTreeWnd::SetSelPathCurrent(DWORD command, BOOL val)
@@ -514,8 +509,8 @@ void CFileTreeWnd::SetSelPathCurrent(DWORD command, BOOL val)
 	wchar_t system_buffer[MAX_PATH];
 	system_buffer[0] = 0;
 
-
-	if (command == ID_SELECTFILTER_NOFILTER) {
+	if (command == ID_SELECTFILTER_NOFILTER)
+	{
 		DisplayDrives();
 		return;
 	}
@@ -524,7 +519,8 @@ void CFileTreeWnd::SetSelPathCurrent(DWORD command, BOOL val)
 	{
 	case ID_SELECTFILTER_BUMBLEEDIT:
 	{
-		if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_MYDOCUMENTS, NULL, SHGFP_TYPE_CURRENT, system_buffer))) {
+		if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_MYDOCUMENTS, NULL, SHGFP_TYPE_CURRENT, system_buffer)))
+		{
 
 			m_currentPath = system_buffer;
 			m_currentPath.Append(L"\\Bumble Projects");
@@ -534,7 +530,8 @@ void CFileTreeWnd::SetSelPathCurrent(DWORD command, BOOL val)
 
 	case ID_SELECTFILTER_DESKTOP:
 	{
-		if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_DESKTOP, NULL, SHGFP_TYPE_CURRENT, system_buffer))) {
+		if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_DESKTOP, NULL, SHGFP_TYPE_CURRENT, system_buffer)))
+		{
 			m_currentPath = system_buffer;
 		}
 	}
@@ -542,14 +539,16 @@ void CFileTreeWnd::SetSelPathCurrent(DWORD command, BOOL val)
 
 	case ID_SELECTFILTER_DOCUMENT:
 	{
-		if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_MYDOCUMENTS, NULL, SHGFP_TYPE_CURRENT, system_buffer))) {
+		if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_MYDOCUMENTS, NULL, SHGFP_TYPE_CURRENT, system_buffer)))
+		{
 			m_currentPath = system_buffer;
 		}
 	}
 	break;
 	case ID_SELECTFILTER_PROGRAMFILES:
 	{
-		if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_PROGRAM_FILES, NULL, SHGFP_TYPE_CURRENT, system_buffer))) {
+		if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_PROGRAM_FILES, NULL, SHGFP_TYPE_CURRENT, system_buffer)))
+		{
 			m_currentPath = system_buffer;
 		}
 	}
@@ -557,19 +556,20 @@ void CFileTreeWnd::SetSelPathCurrent(DWORD command, BOOL val)
 
 	case ID_SELECTFILTER_PROGRAMFILES32980:
 	{
-		if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_PROGRAM_FILESX86, NULL, SHGFP_TYPE_CURRENT, system_buffer))) {
+		if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_PROGRAM_FILESX86, NULL, SHGFP_TYPE_CURRENT, system_buffer)))
+		{
 			m_currentPath = system_buffer;
 		}
 	}
 	break;
-
 
 	default:
 
 		break;
 	}
 
-	if (PathIsDirectory(m_currentPath)) {
+	if (PathIsDirectory(m_currentPath))
+	{
 		DeleteAllItems();
 		DisplayTree(m_currentPath, TRUE);
 		SetSelPath(m_currentPath);
@@ -580,10 +580,10 @@ BOOL CFileTreeWnd::SetSelPath(LPCTSTR strPath)
 {
 	// Setting the Selection in the Tree
 	HTREEITEM hParent = TVI_ROOT;
-	int       iLen = wcslen(strPath) + 2;
-	TCHAR* pszPath = new TCHAR[iLen];
-	TCHAR* pPath = pszPath;
-	BOOL      bRet = FALSE;
+	int iLen = wcslen(strPath) + 2;
+	TCHAR *pszPath = new TCHAR[iLen];
+	TCHAR *pPath = pszPath;
+	BOOL bRet = FALSE;
 
 	if (!IsValidPath(strPath))
 	{
@@ -606,14 +606,14 @@ BOOL CFileTreeWnd::SetSelPath(LPCTSTR strPath)
 			SetRedraw(FALSE);
 			pszPath[i] = '\0';
 			hParent = SearchSiblingItem(hParent, pPath);
-			if (!hParent)  // Not found!
+			if (!hParent) // Not found!
 				break;
 			else
 			{
 				// Info:
-				// the notification OnItemExpanded 
-				// will not called every time 
-				// after the call Expand. 
+				// the notification OnItemExpanded
+				// will not called every time
+				// after the call Expand.
 				// You must call Expand with TVE_COLLAPSE | TVE_COLLAPSERESET
 				// to Reset the TVIS_EXPANDEDONCE Flag
 
@@ -623,7 +623,7 @@ BOOL CFileTreeWnd::SetSelPath(LPCTSTR strPath)
 				{
 					Expand(hParent, TVE_EXPAND);
 					Expand(hParent, TVE_COLLAPSE | TVE_COLLAPSERESET);
-					InsertItem(L"", hParent); // insert a blank child-item
+					InsertItem(L"", hParent);	 // insert a blank child-item
 					Expand(hParent, TVE_EXPAND); // now, expand send a notification
 				}
 				else
@@ -647,11 +647,10 @@ BOOL CFileTreeWnd::SetSelPath(LPCTSTR strPath)
 
 	SetRedraw(TRUE);
 
-	//Expand the selection
+	// Expand the selection
 	HTREEITEM hItem;
 	hItem = GetFirstVisibleItem();
 	Expand(hItem, TVE_EXPAND);
-
 
 	return bRet;
 }
@@ -659,7 +658,7 @@ BOOL CFileTreeWnd::SetSelPath(LPCTSTR strPath)
 HTREEITEM CFileTreeWnd::SearchSiblingItem(HTREEITEM hItem, LPCTSTR strText)
 {
 	HTREEITEM hFound = GetChildItem(hItem);
-	CString   strTemp;
+	CString strTemp;
 	while (hFound)
 	{
 		strTemp = GetItemText(hFound);
@@ -671,7 +670,6 @@ HTREEITEM CFileTreeWnd::SearchSiblingItem(HTREEITEM hItem, LPCTSTR strText)
 
 	return NULL;
 }
-
 
 void CFileTreeWnd::ExpandItem(HTREEITEM hItem, UINT nCode)
 {
@@ -696,9 +694,9 @@ BOOL CFileTreeWnd::IsValidPath(LPCTSTR strPath)
 	// This function check the Pathname
 
 	HTREEITEM hChild;
-	CString   strItem;
-	CString   strTempPath = strPath;
-	BOOL      bFound = FALSE;
+	CString strItem;
+	CString strTempPath = strPath;
+	BOOL bFound = FALSE;
 	CFileFind find;
 
 	hChild = GetChildItem(TVI_ROOT);
@@ -727,25 +725,18 @@ BOOL CFileTreeWnd::IsValidPath(LPCTSTR strPath)
 	return FALSE;
 }
 
-
-void CFileTreeWnd::OnTvnSelchanged(NMHDR* pNMHDR, LRESULT* pResult)
+void CFileTreeWnd::OnTvnSelchanged(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMTREEVIEW pNMTreeView = reinterpret_cast<LPNMTREEVIEW>(pNMHDR);
 	// TODO: Add your control notification handler code here
 
-
-
 	*pResult = 0;
 }
 
-
-
-void CFileTreeWnd::OnNMClick(NMHDR* pNMHDR, LRESULT* pResult)
+void CFileTreeWnd::OnNMClick(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	// TODO: Add your control notification handler code here
 	*pResult = 0;
-
-
 
 	HTREEITEM hItem;
 	CPoint ptMouse;
@@ -759,15 +750,10 @@ void CFileTreeWnd::OnNMClick(NMHDR* pNMHDR, LRESULT* pResult)
 	if (hItem == NULL)
 		return;
 
-
-
 	m_currentPath = GetFullPath(hItem);
-
-
 }
 
-
-void CFileTreeWnd::OnNMDblclk(NMHDR* pNMHDR, LRESULT* pResult)
+void CFileTreeWnd::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	// TODO: Add your control notification handler code here
 	*pResult = 0;
@@ -786,37 +772,32 @@ void CFileTreeWnd::OnNMDblclk(NMHDR* pNMHDR, LRESULT* pResult)
 
 	CString str = GetFullPath(hItem);
 	theApp.OpenFile(str);
-
-
 }
 
-
-
-
-
-void CFileTreeWnd::OnTvnEndlabeledit(NMHDR* pNMHDR, LRESULT* pResult)
+void CFileTreeWnd::OnTvnEndlabeledit(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMTVDISPINFO pTVDispInfo = reinterpret_cast<LPNMTVDISPINFO>(pNMHDR);
 	// TODO: Add your control notification handler code here
 	*pResult = 0;
 
 	CString itemText = pTVDispInfo->item.pszText;
-	if (itemText.IsEmpty()) {
+	if (itemText.IsEmpty())
+	{
 		return;
 	}
 
-	CFileBrowserDockPane* pParent = (CFileBrowserDockPane*)GetParent();
+	CFileBrowserDockPane *pParent = (CFileBrowserDockPane *)GetParent();
 
-	if (!pParent) {
+	if (!pParent)
+	{
 		return;
 	}
 
 	CString oldName = pParent->GetSelectedPath();
 	CString rootName(oldName);
 
-	
-
-	if (PathCchRemoveFileSpec(&rootName.GetBuffer()[0], rootName.GetLength()) != S_OK) {
+	if (PathCchRemoveFileSpec(&rootName.GetBuffer()[0], rootName.GetLength()) != S_OK)
+	{
 		theApp.ThrowLastError(L"Unable to rename the file");
 
 		return;
@@ -827,10 +808,5 @@ void CFileTreeWnd::OnTvnEndlabeledit(NMHDR* pNMHDR, LRESULT* pResult)
 	newName.Append(L"\\");
 	newName.Append(itemText);
 
-	
 	theApp.OnAfterFileRenamed(oldName, newName, pResult);
-	
-	
-	
-
 }

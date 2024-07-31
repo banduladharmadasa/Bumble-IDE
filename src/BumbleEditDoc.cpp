@@ -24,7 +24,6 @@ BOOL CBumbleEditDoc::OnNewDocument()
 	if (!CRichEditDoc::OnNewDocument())
 		return FALSE;
 
-
 	return TRUE;
 }
 
@@ -32,10 +31,8 @@ CBumbleEditDoc::~CBumbleEditDoc()
 {
 }
 
-
 BEGIN_MESSAGE_MAP(CBumbleEditDoc, CRichEditDoc)
 END_MESSAGE_MAP()
-
 
 // CBumbleEditDoc diagnostics
 
@@ -46,7 +43,7 @@ void CBumbleEditDoc::AssertValid() const
 }
 
 #ifndef _WIN32_WCE
-void CBumbleEditDoc::Dump(CDumpContext& dc) const
+void CBumbleEditDoc::Dump(CDumpContext &dc) const
 {
 	CRichEditDoc::Dump(dc);
 }
@@ -56,25 +53,18 @@ void CBumbleEditDoc::Dump(CDumpContext& dc) const
 #ifndef _WIN32_WCE
 // CBumbleEditDoc serialization
 
-void CBumbleEditDoc::Serialize(CArchive& ar)
+void CBumbleEditDoc::Serialize(CArchive &ar)
 {
 	if (ar.IsStoring())
 	{
-
 	}
 	else
 	{
-
-
 	}
-
-
 }
 #endif
 
-
 // CBumbleEditDoc commands
-
 
 BOOL CBumbleEditDoc::OnOpenDocument(LPCTSTR lpszPathName)
 {
@@ -82,13 +72,14 @@ BOOL CBumbleEditDoc::OnOpenDocument(LPCTSTR lpszPathName)
 		return FALSE;
 
 	// TODO:  Add your specialized creation code here
-	CBumbleEditView* pView = NULL;
+	CBumbleEditView *pView = NULL;
 	POSITION pos = GetFirstViewPosition();
-	if (pos == NULL) {
+	if (pos == NULL)
+	{
 		return FALSE;
 	}
 
-	pView = (CBumbleEditView*)GetNextView(pos);
+	pView = (CBumbleEditView *)GetNextView(pos);
 	pView->OpenFile(lpszPathName);
 
 	theApp.AddDirToWatch(lpszPathName);
@@ -96,8 +87,7 @@ BOOL CBumbleEditDoc::OnOpenDocument(LPCTSTR lpszPathName)
 	return TRUE;
 }
 
-
-std::string to_utf8(const wchar_t* buffer, int len)
+std::string to_utf8(const wchar_t *buffer, int len)
 {
 	int nChars = ::WideCharToMultiByte(
 		CP_UTF8,
@@ -108,7 +98,8 @@ std::string to_utf8(const wchar_t* buffer, int len)
 		0,
 		NULL,
 		NULL);
-	if (nChars == 0) return "";
+	if (nChars == 0)
+		return "";
 
 	std::string newbuffer;
 	newbuffer.resize(nChars);
@@ -117,7 +108,7 @@ std::string to_utf8(const wchar_t* buffer, int len)
 		0,
 		buffer,
 		len,
-		const_cast<char*>(newbuffer.c_str()),
+		const_cast<char *>(newbuffer.c_str()),
 		nChars,
 		NULL,
 		NULL);
@@ -125,7 +116,7 @@ std::string to_utf8(const wchar_t* buffer, int len)
 	return newbuffer;
 }
 
-std::string to_utf8(const std::wstring& str)
+std::string to_utf8(const std::wstring &str)
 {
 	return to_utf8(str.c_str(), (int)str.size());
 }
@@ -133,8 +124,7 @@ std::string to_utf8(const std::wstring& str)
 BOOL CBumbleEditDoc::OnSaveDocument(LPCTSTR lpszPathName)
 {
 	theApp.IgnoreNextDirectoryWatch();
-	CBumbleEditView*  view = ((CBumbleEditView*)m_viewList.GetHead());
-
+	CBumbleEditView *view = ((CBumbleEditView *)m_viewList.GetHead());
 
 	CString content = view->GetContent();
 	std::ofstream saveFile;
@@ -150,7 +140,6 @@ BOOL CBumbleEditDoc::OnSaveDocument(LPCTSTR lpszPathName)
 	return TRUE;
 }
 
-
 void CBumbleEditDoc::OnCloseDocument()
 {
 	// TODO: Add your specialized code here and/or call the base class
@@ -164,17 +153,18 @@ UINT CBumbleEditDoc::GetUniqueDocID()
 
 void CBumbleEditDoc::Reload()
 {
-	CBumbleEditView* pView = NULL;
+	CBumbleEditView *pView = NULL;
 	POSITION pos = GetFirstViewPosition();
-	if (pos != NULL) {
-		pView = (CBumbleEditView*)GetNextView(pos);
+	if (pos != NULL)
+	{
+		pView = (CBumbleEditView *)GetNextView(pos);
 		pView->GetCodeEditor()->Reload();
 	}
 }
 
-CRichEditCntrItem* CBumbleEditDoc::CreateClientItem(REOBJECT* preo) const
+CRichEditCntrItem *CBumbleEditDoc::CreateClientItem(REOBJECT *preo) const
 {
-	return new CTextAppCntrItem(preo, const_cast<CBumbleEditDoc*>(this));
+	return new CTextAppCntrItem(preo, const_cast<CBumbleEditDoc *>(this));
 }
 
 void CBumbleEditDoc::OnFileSaveCopyAs()
@@ -182,7 +172,6 @@ void CBumbleEditDoc::OnFileSaveCopyAs()
 	if (!DoSave(NULL, FALSE))
 		TRACE(traceAppMsg, 0, "Warning: File save-as failed.\n");
 }
-
 
 // Save the document data to a file
 // lpszPathName = path name where to save document file
@@ -196,7 +185,7 @@ BOOL CBumbleEditDoc::DoSave(LPCTSTR lpszPathName, BOOL bReplace)
 
 	if (newName.IsEmpty())
 	{
-		CDocTemplate* pTemplate = GetDocTemplate();
+		CDocTemplate *pTemplate = GetDocTemplate();
 		ASSERT(pTemplate != NULL);
 
 		newName = m_strPathName;
@@ -225,19 +214,18 @@ BOOL CBumbleEditDoc::DoSave(LPCTSTR lpszPathName, BOOL bReplace)
 			{
 				ASSERT(strExt[0] == '.');
 
-				int nSemi;                       //added
-				if (nSemi = strExt.Find(';'))    //added
-				strExt = strExt.Left(nSemi);     //added
+				int nSemi;						 // added
+				if (nSemi = strExt.Find(';'))	 // added
+					strExt = strExt.Left(nSemi); // added
 
 				newName += strExt;
 			}
-
 		}
 
 		if (!AfxGetApp()->DoPromptFileName(newName,
-			bReplace ? AFX_IDS_SAVEFILE : AFX_IDS_SAVEFILECOPY,
-			OFN_HIDEREADONLY | OFN_PATHMUSTEXIST, FALSE, pTemplate))
-			return FALSE;       // don't even attempt to save
+										   bReplace ? AFX_IDS_SAVEFILE : AFX_IDS_SAVEFILECOPY,
+										   OFN_HIDEREADONLY | OFN_PATHMUSTEXIST, FALSE, pTemplate))
+			return FALSE; // don't even attempt to save
 	}
 
 	CWaitCursor wait;
@@ -251,10 +239,10 @@ BOOL CBumbleEditDoc::DoSave(LPCTSTR lpszPathName, BOOL bReplace)
 			{
 				CFile::Remove(newName);
 			}
-				CATCH_ALL(e)
+			CATCH_ALL(e)
 			{
 				TRACE0("Warning: failed to delete file after failed SaveAs.\n");
-				e->Delete();     //modified
+				e->Delete(); // modified
 			}
 			END_CATCH_ALL
 		}
@@ -268,33 +256,31 @@ BOOL CBumbleEditDoc::DoSave(LPCTSTR lpszPathName, BOOL bReplace)
 		OnDocumentEvent(onAfterSaveDocument);
 	}
 
+	CBumbleEditView *pView = (CBumbleEditView *)GetView();
 
-	CBumbleEditView* pView = (CBumbleEditView*)GetView();
+	if (pView)
+	{
 
-	if (pView) {
-
-		
 		pView->GetCodeEditor()->SetLanguageByFileName(newName);
 	}
 
-	return TRUE;        // success
+	return TRUE; // success
 }
 
 HMENU CBumbleEditDoc::GetDefaultMenu()
 {
-	if (!m_hDefaultMenu) {
+	if (!m_hDefaultMenu)
+	{
 		m_hDefaultMenu = ::LoadMenu(AfxGetResourceHandle(), MAKEINTRESOURCE(IDR_TYPE_BUMBLEEDIT));
 	}
 
-	
 	return m_hDefaultMenu;
 }
 
-
 ///
-///Add an extra menu for the selected language
+/// Add an extra menu for the selected language
 ///
-void CBumbleEditDoc::AddExtraMenu(const CString& language)
+void CBumbleEditDoc::AddExtraMenu(const CString &language)
 {
 	/*m_hDefaultMenu = ::LoadMenu(AfxGetResourceHandle(), MAKEINTRESOURCE(IDR_TYPE_BUMBLEEDIT));
 	if (m_hDefaultMenu == NULL)
@@ -312,11 +298,8 @@ void CBumbleEditDoc::AddExtraMenu(const CString& language)
 	frame->DrawMenuBar();*/
 }
 
-void CBumbleEditDoc::LoadXmlConfigFile(const CString& langMode)
+void CBumbleEditDoc::LoadXmlConfigFile(const CString &langMode)
 {
 
 	m_xmlConfigManager.Read(langMode);
 }
-
-
-

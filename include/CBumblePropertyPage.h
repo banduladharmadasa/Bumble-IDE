@@ -1,6 +1,5 @@
 #pragma once
 
-
 // CBumblePropertyPage
 
 class CBumblePropertyPage : public CMFCPropertyPage
@@ -13,11 +12,10 @@ public:
 
 protected:
 	DECLARE_MESSAGE_MAP()
-	CBrush* m_pEditBkBrush;
+	CBrush *m_pEditBkBrush;
 	CRect m_rectLogo;
+
 public:
-	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+	afx_msg HBRUSH OnCtlColor(CDC *pDC, CWnd *pWnd, UINT nCtlColor);
 	afx_msg void OnDestroy();
 };
-
-

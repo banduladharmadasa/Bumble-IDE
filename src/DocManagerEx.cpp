@@ -9,7 +9,6 @@ CDocManagerEx::CDocManagerEx()
 {
 }
 
-
 CDocManagerEx::~CDocManagerEx()
 {
 }
@@ -23,12 +22,11 @@ void CDocManagerEx::AddNewTextDoc()
 		return;
 	}
 
-	CDocTemplate* pTemplate = (CDocTemplate*)m_templateList.GetHead();
+	CDocTemplate *pTemplate = (CDocTemplate *)m_templateList.GetHead();
 
 	ASSERT(pTemplate != NULL);
 	ASSERT_KINDOF(CDocTemplate, pTemplate);
 
 	pTemplate->OpenDocumentFile(NULL);
 	// if returns NULL, the user has already been alerted
-	
 }

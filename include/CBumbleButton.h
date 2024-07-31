@@ -1,6 +1,5 @@
 #pragma once
 
-
 // CBumbleButton
 
 class CBumbleButton : public CMFCButton
@@ -16,5 +15,3 @@ protected:
 public:
 	afx_msg void OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct);
 };
-
-

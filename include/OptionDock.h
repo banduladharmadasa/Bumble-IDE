@@ -49,12 +49,9 @@ protected:
 		idScreenRecorderCodec,
 	};
 
-
-
 protected:
-	CMFCPropertyGridProperty* m_pCmbPropLanguage;
-	CMFCPropertyGridProperty* m_pCmbPropTheme;
-
+	CMFCPropertyGridProperty *m_pCmbPropLanguage;
+	CMFCPropertyGridProperty *m_pCmbPropTheme;
 
 public:
 	afx_msg void OnSize(UINT nType, int cx, int cy);
@@ -64,21 +61,17 @@ public:
 	void AddComponents();
 	void AddTextEditorGroup();
 	void AddCompileGroup();
-	void AddCodecCombo(CMFCPropertyGridProperty* pGroupScnRec);
+	void AddCodecCombo(CMFCPropertyGridProperty *pGroupScnRec);
 	void AddScreenRecorderGroup();
-	void AddFontNamesCombo(CMFCPropertyGridProperty * pGroup);
-	void AddFontSizeCombo(CMFCPropertyGridProperty * pGroup);
+	void AddFontNamesCombo(CMFCPropertyGridProperty *pGroup);
+	void AddFontSizeCombo(CMFCPropertyGridProperty *pGroup);
 
-	void AddYesNoCombo(CMFCPropertyGridProperty * pGroup, const CString & name, size_t val, const CString & prompt, int id);
+	void AddYesNoCombo(CMFCPropertyGridProperty *pGroup, const CString &name, size_t val, const CString &prompt, int id);
 	void AddApplicationGroup();
 
-	void AddThemeCombo(CMFCPropertyGridProperty * pGroup);
-	void AddLanguageCombo(CMFCPropertyGridProperty * pGroup);
-
+	void AddThemeCombo(CMFCPropertyGridProperty *pGroup);
+	void AddLanguageCombo(CMFCPropertyGridProperty *pGroup);
 
 	void SetLanguage(const CString &language);
 	void SetTheme(const CString &theme);
 };
-
-
-

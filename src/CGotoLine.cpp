@@ -11,17 +11,16 @@
 
 IMPLEMENT_DYNAMIC(CGotoLine, CBumbleDialog)
 
-CGotoLine::CGotoLine(CWnd* pParent /*=nullptr*/)
+CGotoLine::CGotoLine(CWnd *pParent /*=nullptr*/)
 	: CBumbleDialog(CGotoLine::IDD, pParent)
 {
-
 }
 
 CGotoLine::~CGotoLine()
 {
 }
 
-void CGotoLine::DoDataExchange(CDataExchange* pDX)
+void CGotoLine::DoDataExchange(CDataExchange *pDX)
 {
 	CBumbleDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_GOTOLINE_LABEL, m_label);
@@ -31,21 +30,19 @@ void CGotoLine::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_GOTOLINE_COL_EDIT, m_edtCol);
 }
 
-
 BEGIN_MESSAGE_MAP(CGotoLine, CBumbleDialog)
-	ON_BN_CLICKED(IDOK, &CGotoLine::OnBnClickedOk)
+ON_BN_CLICKED(IDOK, &CGotoLine::OnBnClickedOk)
 END_MESSAGE_MAP()
 
-
 // CGotoLine message handlers
-
 
 void CGotoLine::OnBnClickedOk()
 {
 	CString temp;
 	m_edtGototLine.GetWindowTextW(temp);
 
-	if (temp.IsEmpty()) {
+	if (temp.IsEmpty())
+	{
 		return;
 	}
 
@@ -53,34 +50,34 @@ void CGotoLine::OnBnClickedOk()
 
 	m_edtCol.GetWindowTextW(temp);
 
-	if (temp.IsEmpty()) {
+	if (temp.IsEmpty())
+	{
 		temp = L"1";
 	}
 	int col = _wtoi(temp);
 
-	
-	CCodeEditor* pCodeEditor = theApp.GetActiveCodeEditor();
-	if (pCodeEditor) {
+	CCodeEditor *pCodeEditor = theApp.GetActiveCodeEditor();
+	if (pCodeEditor)
+	{
 		pCodeEditor->OnGoToLine(line, col);
 	}
-	
 
 	CDialog::OnOK();
 }
-
 
 BOOL CGotoLine::OnInitDialog()
 {
 	CBumbleDialog::OnInitDialog();
 
-	CCodeEditor* pCodeEditor = theApp.GetActiveCodeEditor();
+	CCodeEditor *pCodeEditor = theApp.GetActiveCodeEditor();
 
-	if (pCodeEditor) {
-		
+	if (pCodeEditor)
+	{
+
 		CString tmp = pCodeEditor->GetGoToLineInfo();
 		m_label.SetWindowTextW(tmp);
 	}
 
-	return TRUE;  // return TRUE unless you set the focus to a control
-				  // EXCEPTION: OCX Property Pages should return FALSE
+	return TRUE; // return TRUE unless you set the focus to a control
+				 // EXCEPTION: OCX Property Pages should return FALSE
 }

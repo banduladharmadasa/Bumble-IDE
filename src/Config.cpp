@@ -4,26 +4,23 @@
 
 CConfig::CConfig()
 {
-	
-	
 }
-
 
 CConfig::~CConfig()
 {
 }
 
-void CConfig::SetTheme(const CString & theme)
+void CConfig::SetTheme(const CString &theme)
 {
 	theApp.WriteProfileStringW(L"Profile", L"Theme", theme);
 }
 
 CString CConfig::GetTheme()
 {
-	return  theApp.GetProfileStringW(L"Profile", L"Theme", L"Tomorrow");
+	return theApp.GetProfileStringW(L"Profile", L"Theme", L"Tomorrow");
 }
 
-void CConfig::SetFontName(const CString & name)
+void CConfig::SetFontName(const CString &name)
 {
 	theApp.WriteProfileStringW(L"Profile", L"Font Name", name);
 }
@@ -158,7 +155,6 @@ void CConfig::SetEnableEmmet(int val)
 	theApp.WriteProfileInt(L"Profile", L"Enable Emmet", val);
 }
 
-
 int CConfig::GetEnableAutoCompletion()
 {
 	return theApp.GetProfileIntW(L"Profile", L"Enable Auto Completion", 1);
@@ -179,13 +175,12 @@ void CConfig::SetEnableWordWrap(int val)
 	theApp.WriteProfileInt(L"Profile", L"Enable Word Wrap", val);
 }
 
-
 int CConfig::GetEnableWordWrap()
 {
 	return theApp.GetProfileIntW(L"Profile", L"Enable Word Wrap", 0);
 }
 
-void CConfig::SetCgiBinPath(const CString& val)
+void CConfig::SetCgiBinPath(const CString &val)
 {
 	theApp.WriteProfileStringW(L"Profile", L"CGI Bin Path", val);
 }
@@ -205,7 +200,7 @@ int CConfig::GetListeningPort()
 	return theApp.GetProfileInt(L"Profile", L"Listening Port", 8080);
 }
 
-void CConfig::SetCgiPattern(const CString& val)
+void CConfig::SetCgiPattern(const CString &val)
 {
 	theApp.WriteProfileStringW(L"Profile", L"CGI Pattern", val);
 }
@@ -215,7 +210,7 @@ CString CConfig::GetCGIPattern()
 	return theApp.GetProfileStringW(L"Profile", L"CGI Pattern", L"**.cgi$|**.pl$|**.php$");
 }
 
-void CConfig::SetIndexFiles(const CString& val)
+void CConfig::SetIndexFiles(const CString &val)
 {
 	theApp.WriteProfileStringW(L"Profile", L"Index Files", val);
 }
@@ -225,7 +220,7 @@ CString CConfig::GetIndexFiles()
 	return theApp.GetProfileStringW(L"Profile", L"Index Files", L"index.xhtml,index.html,index.htm,index.cgi,index.shtml,index.php");
 }
 
-void CConfig::SetRootDirectory(const CString& val)
+void CConfig::SetRootDirectory(const CString &val)
 {
 	theApp.WriteProfileStringW(L"Profile", L"Root Directory", val);
 }
@@ -235,7 +230,7 @@ CString CConfig::GetRootDirectory()
 	return theApp.GetProfileStringW(L"Profile", L"Root Directory", L"");
 }
 
-void CConfig::SetScreenRecorderSaveLocation(const CString& val)
+void CConfig::SetScreenRecorderSaveLocation(const CString &val)
 {
 	theApp.WriteProfileStringW(L"Profile", L"Screen Recorder Save Location", val);
 }
@@ -245,7 +240,7 @@ CString CConfig::GetScreenRecorderSaveLocation()
 	return theApp.GetProfileStringW(L"Profile", L"Screen Recorder Save Location", L"");
 }
 
-void CConfig::SetScreenRecorderFileFormat(const CString& val)
+void CConfig::SetScreenRecorderFileFormat(const CString &val)
 {
 	theApp.WriteProfileStringW(L"Profile", L"Screen Recorder File Format", val);
 }
@@ -255,7 +250,7 @@ CString CConfig::GetScreenRecorderFileFormat()
 	return theApp.GetProfileStringW(L"Profile", L"Screen Recorder File Format", L"wmv");
 }
 
-void CConfig::SetScreenRecorderCodec(const CString& val)
+void CConfig::SetScreenRecorderCodec(const CString &val)
 {
 	theApp.WriteProfileStringW(L"Profile", L"Screen Recorder Codec", val);
 }
@@ -264,7 +259,3 @@ CString CConfig::GetScreenRecorderCodec()
 {
 	return theApp.GetProfileStringW(L"Profile", L"Screen Recorder Codec", L"");
 }
-
-
-
-

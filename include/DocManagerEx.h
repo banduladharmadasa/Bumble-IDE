@@ -7,4 +7,3 @@ public:
 	~CDocManagerEx();
 	void AddNewTextDoc();
 };
-

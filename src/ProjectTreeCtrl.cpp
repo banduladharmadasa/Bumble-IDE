@@ -14,26 +14,19 @@ using namespace std;
 IMPLEMENT_DYNAMIC(CMyProjectTreeCtrl, CTreeCtrl)
 
 CMyProjectTreeCtrl::CMyProjectTreeCtrl()
-	:m_bFiles(TRUE)
+	: m_bFiles(TRUE)
 {
-
 }
 
 CMyProjectTreeCtrl::~CMyProjectTreeCtrl()
 {
 }
 
-
 BEGIN_MESSAGE_MAP(CMyProjectTreeCtrl, CTreeCtrl)
-	ON_WM_CREATE()
+ON_WM_CREATE()
 END_MESSAGE_MAP()
 
-
-
 // CMyProjectTreeCtrl message handlers
-
-
-
 
 void CMyProjectTreeCtrl::Recurse(LPCTSTR pstr)
 {
@@ -61,13 +54,8 @@ void CMyProjectTreeCtrl::Recurse(LPCTSTR pstr)
 		if (finder.IsDirectory())
 		{
 			CString str = finder.GetFilePath();
-			//TRACE(str);
-			//TRACE(L"\n");
-
-			
-			
-
-			
+			// TRACE(str);
+			// TRACE(L"\n");
 
 			tvInsertStruct.hParent = hRootItem;
 			tvInsertStruct.hInsertAfter = TVI_LAST;
@@ -77,14 +65,11 @@ void CMyProjectTreeCtrl::Recurse(LPCTSTR pstr)
 
 			HTREEITEM hItem = InsertItem(&tvInsertStruct);
 			ASSERT(hItem);
-			 //SetItemData(hItem, (DWORD_PTR)pElement);
-			if (!hItem) {
+			// SetItemData(hItem, (DWORD_PTR)pElement);
+			if (!hItem)
+			{
 				break;
 			}
-
-			
-
-
 
 			Recurse(str);
 		}
@@ -93,15 +78,14 @@ void CMyProjectTreeCtrl::Recurse(LPCTSTR pstr)
 	finder.Close();
 }
 
-
 void CMyProjectTreeCtrl::DisplayPath(HTREEITEM hParent, LPCTSTR strPath)
 {
 	//
 	// Displaying the Path in the TreeCtrl
 	//
 	CFileFind find;
-	CString   strPathFiles = strPath;
-	BOOL      bFind;
+	CString strPathFiles = strPath;
+	BOOL bFind;
 	CSortStringArray strDirArray;
 	CSortStringArray strFileArray;
 
@@ -118,15 +102,14 @@ void CMyProjectTreeCtrl::DisplayPath(HTREEITEM hParent, LPCTSTR strPath)
 		{
 			strDirArray.Add(find.GetFilePath());
 		}
-		if (!find.IsDirectory() && m_bFiles) {
+		if (!find.IsDirectory() && m_bFiles)
+		{
 
-			if (IsWildcardMatched(find.GetFileName())) {
+			if (IsWildcardMatched(find.GetFileName()))
+			{
 				strFileArray.Add(find.GetFilePath());
 			}
-
 		}
-
-
 	}
 
 	strDirArray.Sort();
@@ -146,15 +129,11 @@ void CMyProjectTreeCtrl::DisplayPath(HTREEITEM hParent, LPCTSTR strPath)
 		for (int i = 0; i < strFileArray.GetSize(); i++)
 		{
 			HTREEITEM hItem = AddItem(hParent, strFileArray.GetAt(i));
-
 		}
 	}
 
 	SetRedraw(TRUE);
-
-
 }
-
 
 int CMyProjectTreeCtrl::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
@@ -162,37 +141,32 @@ int CMyProjectTreeCtrl::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;
 
 	// TODO:  Add your specialized creation code here
-	if (!GetSysImgList()) {
-
+	if (!GetSysImgList())
+	{
 	}
 
 	return 0;
 }
 
-
-void CMyProjectTreeCtrl::DisplaySubPath(const CString& path, const CString& filter, const CString& category)
+void CMyProjectTreeCtrl::DisplaySubPath(const CString &path, const CString &filter, const CString &category)
 {
 	m_filterString = filter;
 	tvInsertStruct.hParent = hRootItem;
 	tvInsertStruct.hInsertAfter = TVI_LAST;
 
-
 	CString str = CString(category);
 	LPWSTR cutJobNameTemp = str.GetBuffer();
-	
+
 	tvInsertStruct.item.pszText = cutJobNameTemp;
 	tvInsertStruct.item.mask = TVIF_TEXT;
 
 	HTREEITEM hItem = InsertItem(&tvInsertStruct);
 	ASSERT(hItem);
 
-
 	DisplayPath(hItem, path);
 }
 
-
-
-BOOL CMyProjectTreeCtrl::IsWildcardMatched(const CString& str)
+BOOL CMyProjectTreeCtrl::IsWildcardMatched(const CString &str)
 {
 	int nTokenPos = 0;
 	CString strToken = m_filterString.Tokenize(_T(","), nTokenPos);
@@ -200,7 +174,8 @@ BOOL CMyProjectTreeCtrl::IsWildcardMatched(const CString& str)
 	while (!strToken.IsEmpty())
 	{
 		// do something with strToken
-		if (wildcard(strToken.Trim(), str)) {
+		if (wildcard(strToken.Trim(), str))
+		{
 
 			return TRUE;
 		}
@@ -211,13 +186,12 @@ BOOL CMyProjectTreeCtrl::IsWildcardMatched(const CString& str)
 	return FALSE;
 }
 
-
 HTREEITEM CMyProjectTreeCtrl::AddItem(HTREEITEM hParent, LPCTSTR strPath)
 {
 	// Adding the Item to the TreeCtrl with the current Icons
 	SHFILEINFO shFinfo = {0};
 	int iIcon, iIconSel;
-	CString    strTemp = strPath;
+	CString strTemp = strPath;
 
 	if (strTemp.Right(1) != '\\')
 		strTemp += "\\";
@@ -255,7 +229,6 @@ HTREEITEM CMyProjectTreeCtrl::AddItem(HTREEITEM hParent, LPCTSTR strPath)
 	return InsertItem(GetSubPath(strTemp), iIcon, iIconSel, hParent);
 }
 
-
 LPCTSTR CMyProjectTreeCtrl::GetSubPath(LPCTSTR strPath)
 {
 	//
@@ -263,7 +236,7 @@ LPCTSTR CMyProjectTreeCtrl::GetSubPath(LPCTSTR strPath)
 	// e.g. C:\temp\readme.txt
 	// the result = readme.txt
 	static CString strTemp;
-	int     iPos;
+	int iPos;
 
 	strTemp = strPath;
 	if (strTemp.Right(1) == '\\')
@@ -281,8 +254,8 @@ BOOL CMyProjectTreeCtrl::FindSubDir(LPCTSTR strPath)
 	// Are there subDirs ?
 	//
 	CFileFind find;
-	CString   strTemp = strPath;
-	BOOL      bFind;
+	CString strTemp = strPath;
+	BOOL bFind;
 
 	if (strTemp[strTemp.GetLength() - 1] == '\\')
 		strTemp += "*.*";
@@ -290,7 +263,6 @@ BOOL CMyProjectTreeCtrl::FindSubDir(LPCTSTR strPath)
 		strTemp += "\\*.*";
 
 	bFind = find.FindFile(strTemp);
-
 
 	while (bFind)
 	{
@@ -302,14 +274,10 @@ BOOL CMyProjectTreeCtrl::FindSubDir(LPCTSTR strPath)
 		}
 		if (!find.IsDirectory() && m_bFiles && !find.IsHidden())
 			return TRUE;
-
 	}
 
 	return FALSE;
-
 }
-
-
 
 BOOL CMyProjectTreeCtrl::GetSysImgList()
 {
@@ -320,11 +288,11 @@ BOOL CMyProjectTreeCtrl::GetSysImgList()
 		m_imgList.Detach();
 
 	hImgList = (HIMAGELIST)SHGetFileInfo(L"C:\\",
-		0,
-		&shFinfo,
-		sizeof(shFinfo),
-		SHGFI_SYSICONINDEX |
-		SHGFI_SMALLICON);
+										 0,
+										 &shFinfo,
+										 sizeof(shFinfo),
+										 SHGFI_SYSICONINDEX |
+											 SHGFI_SMALLICON);
 	if (!hImgList)
 	{
 		BumbleMessageBox(L"Cannot retrieve the Handle of System Image List!");
@@ -334,5 +302,5 @@ BOOL CMyProjectTreeCtrl::GetSysImgList()
 	m_imgList.m_hImageList = hImgList;
 
 	SetImageList(&m_imgList, TVSIL_NORMAL);
-	return TRUE;   // OK
+	return TRUE; // OK
 }

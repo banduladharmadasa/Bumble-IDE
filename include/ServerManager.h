@@ -19,5 +19,3 @@ protected:
 public:
 	void SetCurrentServer(CWebServer *pServer);
 };
-
-

@@ -1,6 +1,5 @@
 #pragma once
 
-
 // CMenuBarEx
 
 class CMenuBarEx : public CMFCMenuBar
@@ -14,5 +13,3 @@ public:
 protected:
 	DECLARE_MESSAGE_MAP()
 };
-
-

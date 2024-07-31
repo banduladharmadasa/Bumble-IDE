@@ -5,14 +5,12 @@
 #include "BumbleEdit.h"
 #include "GenaricWebView.h"
 
-
 // CGenaricWebView
 
 IMPLEMENT_DYNCREATE(CGenaricWebView, CBumbleEditView)
 
 CGenaricWebView::CGenaricWebView()
 {
-
 }
 
 CGenaricWebView::~CGenaricWebView()
@@ -22,15 +20,13 @@ CGenaricWebView::~CGenaricWebView()
 BEGIN_MESSAGE_MAP(CGenaricWebView, CBumbleEditView)
 END_MESSAGE_MAP()
 
-
 // CGenaricWebView drawing
 
-void CGenaricWebView::OnDraw(CDC* pDC)
+void CGenaricWebView::OnDraw(CDC *pDC)
 {
-	CBumbleEditDoc* pDoc = GetDocument();
+	CBumbleEditDoc *pDoc = GetDocument();
 	// TODO: add draw code here
 }
-
 
 // CGenaricWebView diagnostics
 
@@ -41,12 +37,10 @@ void CGenaricWebView::AssertValid() const
 }
 
 #ifndef _WIN32_WCE
-void CGenaricWebView::Dump(CDumpContext& dc) const
+void CGenaricWebView::Dump(CDumpContext &dc) const
 {
 	CBumbleEditView::Dump(dc);
 }
 
 #endif
 #endif //_DEBUG
-
-

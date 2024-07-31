@@ -5,7 +5,6 @@
 #include "BumbleEdit.h"
 #include "SettingsDoc.h"
 
-
 // CSettingsDoc
 
 IMPLEMENT_DYNCREATE(CSettingsDoc, CDocument)
@@ -26,10 +25,8 @@ CSettingsDoc::~CSettingsDoc()
 {
 }
 
-
 BEGIN_MESSAGE_MAP(CSettingsDoc, CDocument)
 END_MESSAGE_MAP()
-
 
 // CSettingsDoc diagnostics
 
@@ -40,7 +37,7 @@ void CSettingsDoc::AssertValid() const
 }
 
 #ifndef _WIN32_WCE
-void CSettingsDoc::Dump(CDumpContext& dc) const
+void CSettingsDoc::Dump(CDumpContext &dc) const
 {
 	CDocument::Dump(dc);
 }
@@ -50,7 +47,7 @@ void CSettingsDoc::Dump(CDumpContext& dc) const
 #ifndef _WIN32_WCE
 // CSettingsDoc serialization
 
-void CSettingsDoc::Serialize(CArchive& ar)
+void CSettingsDoc::Serialize(CArchive &ar)
 {
 	if (ar.IsStoring())
 	{
@@ -62,6 +59,5 @@ void CSettingsDoc::Serialize(CArchive& ar)
 	}
 }
 #endif
-
 
 // CSettingsDoc commands

@@ -12,7 +12,6 @@ IMPLEMENT_DYNAMIC(CSourceFolderList, CVSListBox)
 
 CSourceFolderList::CSourceFolderList()
 {
-
 }
 
 CSourceFolderList::~CSourceFolderList()
@@ -49,46 +48,35 @@ void CSourceFolderList::OnBrowse()
 		// release buffer
 		strBuffer.ReleaseBuffer();
 	}
-	catch (CException * e)
+	catch (CException *e)
 	{
 		e->ReportError();
 		e->Delete();
 	}
 
+	CWnd *pParent = GetParent();
 
-	CWnd* pParent = GetParent();
-
-	if (!pParent) {
+	if (!pParent)
+	{
 		return;
 	}
 
-
-	CTabSource* _pParent = (CTabSource*)pParent;
-
-	
+	CTabSource *_pParent = (CTabSource *)pParent;
 }
 
-int CSourceFolderList::OnGetImage(LV_ITEM* pItem) 
+int CSourceFolderList::OnGetImage(LV_ITEM *pItem)
 {
-	return 2; 
+	return 2;
 }
-
-
-
 
 BEGIN_MESSAGE_MAP(CSourceFolderList, CVSListBox)
-	ON_WM_CREATE()
-	
-	//ON_NOTIFY_REFLECT(LVN_ITEMCHANGED, &CSourceFolderList::OnLvnItemchangedList1)
+ON_WM_CREATE()
+
+// ON_NOTIFY_REFLECT(LVN_ITEMCHANGED, &CSourceFolderList::OnLvnItemchangedList1)
 
 END_MESSAGE_MAP()
 
-
-
 // CSourceFolderList message handlers
-
-
-
 
 int CSourceFolderList::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
@@ -96,7 +84,7 @@ int CSourceFolderList::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;
 
 	// TODO:  Add your specialized creation code here
-	
+
 	VERIFY(m_checkLCImgList.Create(IDB_CHECKBOXES, 16, 4, RGB(255, 0, 255)));
 	m_pWndList->SetImageList(&m_checkLCImgList, LVSIL_SMALL);
 
@@ -104,8 +92,5 @@ int CSourceFolderList::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	SetStandardButtons(AFX_VSLISTBOX_BTN_NEW | AFX_VSLISTBOX_BTN_DELETE);
 	EnableBrowseButton();
 
-	
-
 	return 0;
 }
-

@@ -13,11 +13,8 @@ public:
 	virtual void Start() override;
 	virtual void Stop() override;
 	CString RunMySqlD(const CString &csExecute);
-	//int Test(void);
-
+	// int Test(void);
 
 protected:
 	HANDLE m_mySqlHandle;
 };
-
-

@@ -12,7 +12,6 @@ IMPLEMENT_DYNCREATE(CHtmlNativeView, CGenaricWebView)
 
 CHtmlNativeView::CHtmlNativeView()
 {
-
 }
 
 CHtmlNativeView::~CHtmlNativeView()
@@ -20,19 +19,17 @@ CHtmlNativeView::~CHtmlNativeView()
 }
 
 BEGIN_MESSAGE_MAP(CHtmlNativeView, CGenaricWebView)
-	ON_COMMAND(ID_DEBUG_RUN, &CHtmlNativeView::OnDebugRun)
-	ON_COMMAND(ID_DEBUG_REFRESH, &CHtmlNativeView::OnDebugRefresh)
+ON_COMMAND(ID_DEBUG_RUN, &CHtmlNativeView::OnDebugRun)
+ON_COMMAND(ID_DEBUG_REFRESH, &CHtmlNativeView::OnDebugRefresh)
 END_MESSAGE_MAP()
-
 
 // CHtmlNativeView drawing
 
-void CHtmlNativeView::OnDraw(CDC* pDC)
+void CHtmlNativeView::OnDraw(CDC *pDC)
 {
-	CAvailEditDoc* pDoc = GetDocument();
+	CAvailEditDoc *pDoc = GetDocument();
 	// TODO: add draw code here
 }
-
 
 // CHtmlNativeView diagnostics
 
@@ -43,27 +40,25 @@ void CHtmlNativeView::AssertValid() const
 }
 
 #ifndef _WIN32_WCE
-void CHtmlNativeView::Dump(CDumpContext& dc) const
+void CHtmlNativeView::Dump(CDumpContext &dc) const
 {
 	CGenaricWebView::Dump(dc);
 }
 #endif
 #endif //_DEBUG
 
-
 // CHtmlNativeView message handlers
-
 
 void CHtmlNativeView::OnDebugRun()
 {
 	CString pathName = GetDocument()->GetPathName();
 
-	if (!GetDocument()->DoFileSave()) {
+	if (!GetDocument()->DoFileSave())
+	{
 		return;
 	}
 
 	pathName = GetDocument()->GetPathName();
-
 
 	m_codeEditor.Eval(L" var logWindow = window.open()");
 
@@ -76,12 +71,12 @@ void CHtmlNativeView::OnDebugRun()
 	m_codeEditor.Eval(fileName);
 }
 
-
 void CHtmlNativeView::OnDebugRefresh()
 {
 	CString pathName = GetDocument()->GetPathName();
 
-	if (!GetDocument()->DoFileSave()) {
+	if (!GetDocument()->DoFileSave())
+	{
 		return;
 	}
 

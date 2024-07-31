@@ -9,7 +9,5 @@ public:
 	CZoomSlider(UINT nID, int nWidth = 100);
 	virtual ~CZoomSlider();
 
-	virtual void OnDraw(CDC* pDC);
+	virtual void OnDraw(CDC *pDC);
 };
-
-

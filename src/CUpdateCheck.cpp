@@ -16,7 +16,6 @@ CUpdateCheck::~CUpdateCheck()
 {
 }
 
-
 CString getInetError(DWORD err)
 {
 	HANDLE h = ::GetModuleHandle(_T("WinINet.dll"));
@@ -24,13 +23,13 @@ CString getInetError(DWORD err)
 	{ /* got module */
 		LPTSTR p;
 		if (::FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER |
-			FORMAT_MESSAGE_FROM_HMODULE,
-			(LPCVOID)h,
-			err,
-			0, // default language
-			(LPTSTR)&p,
-			0,
-			NULL) != 0)
+								FORMAT_MESSAGE_FROM_HMODULE,
+							(LPCVOID)h,
+							err,
+							0, // default language
+							(LPTSTR)&p,
+							0,
+							NULL) != 0)
 		{ /* format succeeded */
 			CString s(p);
 			s.Replace(_T("\r\n"), _T(""));
@@ -43,19 +42,19 @@ CString getInetError(DWORD err)
 	return s;
 } // getInetError
 
-BOOL  CUpdateCheck::HasNewVerson()
+BOOL CUpdateCheck::HasNewVerson()
 {
 	CInternetSession session;
 
-	CHttpFile* pHttpFile = NULL;
+	CHttpFile *pHttpFile = NULL;
 	try
 	{
-		pHttpFile = (CHttpFile*)session.OpenURL(_T("http://hexonianlabs.com/downloads/newversion.php"));
+		pHttpFile = (CHttpFile *)session.OpenURL(_T("http://hexonianlabs.com/downloads/newversion.php"));
 	}
 	catch (CInternetException *ex)
 	{
-		//CString s = getInetError(ex->m_dwError);
-		
+		// CString s = getInetError(ex->m_dwError);
+
 		return FALSE;
 	}
 	if (pHttpFile != NULL)
@@ -66,13 +65,9 @@ BOOL  CUpdateCheck::HasNewVerson()
 
 		CString version(LPSTR(data.GetData()));
 
-		//BumbleMessageBox(str);
+		// BumbleMessageBox(str);
 		return (theApp.GetCurrentVersion().Compare(version) != 0);
- 	}
+	}
 }
-
-
-
-
 
 // CUpdateCheck member functions

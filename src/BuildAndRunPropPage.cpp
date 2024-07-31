@@ -18,11 +18,10 @@ CBuildAndRunPropPage::~CBuildAndRunPropPage()
 {
 }
 
-void CBuildAndRunPropPage::DoDataExchange(CDataExchange* pDX)
+void CBuildAndRunPropPage::DoDataExchange(CDataExchange *pDX)
 {
 	CMFCPropertyPage::DoDataExchange(pDX);
 }
-
 
 BEGIN_MESSAGE_MAP(CBuildAndRunPropPage, CMFCPropertyPage)
 END_MESSAGE_MAP()

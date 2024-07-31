@@ -1,6 +1,5 @@
 #pragma once
 
-
 // CRenameDialog dialog
 
 class CRenameDialog : public CBumbleDialog
@@ -8,16 +7,19 @@ class CRenameDialog : public CBumbleDialog
 	DECLARE_DYNAMIC(CRenameDialog)
 
 public:
-	CRenameDialog(CWnd* pParent = nullptr);   // standard constructor
+	CRenameDialog(CWnd *pParent = nullptr); // standard constructor
 	virtual ~CRenameDialog();
 
 // Dialog Data
 #ifdef AFX_DESIGN_TIME
-	enum { IDD = IDD_RENAME };
+	enum
+	{
+		IDD = IDD_RENAME
+	};
 #endif
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	virtual void DoDataExchange(CDataExchange *pDX); // DDX/DDV support
 
 	DECLARE_MESSAGE_MAP()
 public:

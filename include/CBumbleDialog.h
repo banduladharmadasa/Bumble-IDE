@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 
-
 enum class SysMenuButtonType
 {
 	MinMaxButton = 0,
@@ -18,48 +17,43 @@ struct SysMenuButton
 	Gdiplus::Bitmap *bitmap;
 };
 
-
-
 // CBumbleDialog dialog
 
-class CBumbleDialog: public CDialog
+class CBumbleDialog : public CDialog
 {
 	DECLARE_DYNAMIC(CBumbleDialog)
 
 public:
-	CBumbleDialog(UINT nIDTemplate, CWnd* pParentWnd = NULL);   // standard constructor
+	CBumbleDialog(UINT nIDTemplate, CWnd *pParentWnd = NULL); // standard constructor
 	virtual ~CBumbleDialog();
 
 // Dialog Data
 #ifdef AFX_DESIGN_TIME
-	enum { IDD = IDD_CBumbleDialog };
+	enum
+	{
+		IDD = IDD_CBumbleDialog
+	};
 #endif
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	virtual void DoDataExchange(CDataExchange *pDX); // DDX/DDV support
 
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnPaint();
-	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+	afx_msg HBRUSH OnCtlColor(CDC *pDC, CWnd *pWnd, UINT nCtlColor);
 	afx_msg void OnDestroy();
 
 protected:
-	CBrush* m_pEditBkBrush;
+	CBrush *m_pEditBkBrush;
 	CRect m_rectLogo;
-public:
-	
 
+public:
 	virtual LRESULT WindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 	BOOL LoadCaptionButtonsIcons(UINT nID);
 	virtual BOOL OnInitDialog();
 
 protected:
-
-
-	
-	
-	
 	std::vector<SysMenuButton> m_sysMenuButtons;
 
 	SysMenuButton m_minMaxButton;
@@ -67,11 +61,9 @@ protected:
 	SysMenuButton m_closeButton;
 
 	CImageList m_CaptionButtonIconst;
-	CSize	   m_CaptionButtonSize;
-	
-public:
-	
+	CSize m_CaptionButtonSize;
 
+public:
 	afx_msg void OnNcMouseMove(UINT nHitTest, CPoint point);
 	afx_msg void OnNcMouseLeave();
 	afx_msg void OnNcLButtonUp(UINT nHitTest, CPoint point);

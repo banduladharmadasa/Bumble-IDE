@@ -13,12 +13,11 @@
 #define new DEBUG_NEW
 #endif
 
-
 // CTextAppCntrItem implementation
 
 IMPLEMENT_SERIAL(CTextAppCntrItem, CRichEditCntrItem, 0)
 
-CTextAppCntrItem::CTextAppCntrItem(REOBJECT* preo, CBumbleEditDoc* pContainer)
+CTextAppCntrItem::CTextAppCntrItem(REOBJECT *preo, CBumbleEditDoc *pContainer)
 	: CRichEditCntrItem(preo, pContainer)
 {
 	// TODO: add one-time construction code here
@@ -29,7 +28,6 @@ CTextAppCntrItem::~CTextAppCntrItem()
 	// TODO: add cleanup code here
 }
 
-
 // CTextAppCntrItem diagnostics
 
 #ifdef _DEBUG
@@ -38,9 +36,8 @@ void CTextAppCntrItem::AssertValid() const
 	CRichEditCntrItem::AssertValid();
 }
 
-void CTextAppCntrItem::Dump(CDumpContext& dc) const
+void CTextAppCntrItem::Dump(CDumpContext &dc) const
 {
 	CRichEditCntrItem::Dump(dc);
 }
 #endif
-

@@ -1,8 +1,6 @@
 #pragma once
 
-
 // CBuildAndRunPropPage dialog
-
 class CBuildAndRunPropPage : public CMFCPropertyPage
 {
 	DECLARE_DYNCREATE(CBuildAndRunPropPage)
@@ -13,14 +11,15 @@ public:
 	~CBuildAndRunPropPage();
 
 	// Dialog Data
-	enum { IDD = IDD_BUILDANDRUNPROPPAGE };
-
+	enum
+	{
+		IDD = IDD_BUILDANDRUNPROPPAGE
+	};
 	// Overrides
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	virtual void DoDataExchange(CDataExchange *pDX); // DDX/DDV support
 
-// Implementation
+	// Implementation
 protected:
 	DECLARE_MESSAGE_MAP()
 };
-

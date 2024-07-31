@@ -1,4 +1,4 @@
-// SortStringArray.h: Schnittstelle für die Klasse CSortStringArray.
+// SortStringArray.h: Schnittstelle fï¿½r die Klasse CSortStringArray.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -9,13 +9,13 @@
 #pragma once
 #endif // _MSC_VER >= 1000
 
-class CSortStringArray : public CStringArray  
+class CSortStringArray : public CStringArray
 {
 public:
 	void Sort();
-private: 
-	BOOL CompareAndSwap( int pos );
 
+private:
+	BOOL CompareAndSwap(int pos);
 };
 
 #endif // !defined(AFX_SORTSTRINGARRAY_H__64C6B322_B44E_11D2_955E_204C4F4F5020__INCLUDED_)

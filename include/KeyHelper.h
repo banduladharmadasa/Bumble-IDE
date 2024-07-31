@@ -6,7 +6,7 @@
 // All rights reserved.
 //
 // This source code can be used, distributed or modified
-// only under terms and conditions 
+// only under terms and conditions
 // of the accompanying license agreement.
 //*******************************************************************************
 
@@ -21,7 +21,6 @@
 #pragma once
 #endif // _MSC_VER >= 1000
 
-
 class CBCGKeyHelper : public CObject
 {
 public:
@@ -29,16 +28,16 @@ public:
 	CBCGKeyHelper(LPACCEL lpAccel);
 	virtual ~CBCGKeyHelper();
 
-// Operations:
+	// Operations:
 public:
-	void Format (CString& str) const;
+	void Format(CString &str) const;
 
 protected:
-	void AddVirtKeyStr (CString& str, UINT uiVirtKey, BOOL bLast = FALSE) const;
+	void AddVirtKeyStr(CString &str, UINT uiVirtKey, BOOL bLast = FALSE) const;
 
-// Atttributes:
+	// Atttributes:
 public:
-	void SetAccelerator (LPACCEL lpAccel)
+	void SetAccelerator(LPACCEL lpAccel)
 	{
 		m_lpAccel = lpAccel;
 	}

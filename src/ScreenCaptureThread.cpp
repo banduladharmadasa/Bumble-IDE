@@ -6,7 +6,6 @@
 #include "BumbleEdit.h"
 #include "BumbleEditView.h"
 
-
 #include <mfapi.h>
 #include <mfidl.h>
 #include <Mfreadwrite.h>
@@ -21,9 +20,8 @@ using namespace Gdiplus;
 
 IMPLEMENT_DYNCREATE(CScreenCaptureThread, CWinThread)
 
-CScreenCaptureThread::CScreenCaptureThread() :
-	m_bRunning(FALSE),
-	m_rect(0, 0, 640, 480)
+CScreenCaptureThread::CScreenCaptureThread() : m_bRunning(FALSE),
+											   m_rect(0, 0, 640, 480)
 {
 	m_bAutoDelete = FALSE;
 
@@ -31,7 +29,7 @@ CScreenCaptureThread::CScreenCaptureThread() :
 	m_videoEncodingFormat = MFVideoFormat_WMV3;
 	m_videoInputFormat = MFVideoFormat_RGB32;
 
-	 bitmapData = new Gdiplus::BitmapData;
+	bitmapData = new Gdiplus::BitmapData;
 }
 
 CScreenCaptureThread::~CScreenCaptureThread()
@@ -45,14 +43,14 @@ void CScreenCaptureThread::OnStopMessageReceived(WPARAM wparam, LPARAM lparam)
 	m_bRunning = FALSE;
 }
 
-void CScreenCaptureThread::AddMessage(const CString& str, AppMessageType type)
+void CScreenCaptureThread::AddMessage(const CString &str, AppMessageType type)
 {
-	CString* pStr = new CString(str);
-	if (!theApp.PostThreadMessageW(ID_MSG_FROM_SHELL, type, (LPARAM)pStr)) {
+	CString *pStr = new CString(str);
+	if (!theApp.PostThreadMessageW(ID_MSG_FROM_SHELL, type, (LPARAM)pStr))
+	{
 		delete pStr;
 	}
 }
-
 
 BOOL CScreenCaptureThread::InitInstance()
 {
@@ -72,20 +70,19 @@ int CScreenCaptureThread::ExitInstance()
 	return CWinThread::ExitInstance();
 }
 
-
-
-void CScreenCaptureThread::Start(const CRect& rc)
+void CScreenCaptureThread::Start(const CRect &rc)
 {
 	m_bRunning = TRUE;
 	AddMessage(L"Screen capturing process started\n", AppMessageType_Info);
 
-	if (m_bRunning) {
+	if (m_bRunning)
+	{
 
-		//CaptureSingleFrame(rc);
+		// CaptureSingleFrame(rc);
 	}
 
 	AddMessage(L"Screen capturing process terminated\n", AppMessageType_Info);
-	//AfxEndThread(0);
+	// AfxEndThread(0);
 
 	m_rect = rc;
 	MakeVideo();
@@ -93,14 +90,12 @@ void CScreenCaptureThread::Start(const CRect& rc)
 
 BEGIN_MESSAGE_MAP(CScreenCaptureThread, CWinThread)
 
-	ON_THREAD_MESSAGE(ID_UITHREADTOCAPTURE_SENDSTOPMESSAGE, &CScreenCaptureThread::OnStopMessageReceived)
+ON_THREAD_MESSAGE(ID_UITHREADTOCAPTURE_SENDSTOPMESSAGE, &CScreenCaptureThread::OnStopMessageReceived)
 
 END_MESSAGE_MAP()
 
-
-
-
-template <class T> void SafeRelease(T** ppT)
+template <class T>
+void SafeRelease(T **ppT)
 {
 	if (*ppT)
 	{
@@ -109,17 +104,15 @@ template <class T> void SafeRelease(T** ppT)
 	}
 }
 
-
-
-HRESULT CScreenCaptureThread::InitializeSinkWriter(IMFSinkWriter** ppWriter, DWORD* pStreamIndex)
+HRESULT CScreenCaptureThread::InitializeSinkWriter(IMFSinkWriter **ppWriter, DWORD *pStreamIndex)
 {
 	*ppWriter = NULL;
 	*pStreamIndex = NULL;
 
-	IMFSinkWriter* pSinkWriter = NULL;
-	IMFMediaType* pMediaTypeOut = NULL;
-	IMFMediaType* pMediaTypeIn = NULL;
-	DWORD           streamIndex;
+	IMFSinkWriter *pSinkWriter = NULL;
+	IMFMediaType *pMediaTypeOut = NULL;
+	IMFMediaType *pMediaTypeIn = NULL;
+	DWORD streamIndex;
 
 	HRESULT hr = MFCreateSinkWriterFromURL(L"output.wmv", NULL, NULL, &pSinkWriter);
 
@@ -215,7 +208,7 @@ HRESULT CScreenCaptureThread::InitializeSinkWriter(IMFSinkWriter** ppWriter, DWO
 	return hr;
 }
 
-HRESULT CScreenCaptureThread::WriteFrame(IMFSinkWriter* pWriter, DWORD streamIndex, const LONGLONG& rtStart)
+HRESULT CScreenCaptureThread::WriteFrame(IMFSinkWriter *pWriter, DWORD streamIndex, const LONGLONG &rtStart)
 {
 
 	int height = GetSystemMetrics(SM_CYSCREEN);
@@ -227,26 +220,19 @@ HRESULT CScreenCaptureThread::WriteFrame(IMFSinkWriter* pWriter, DWORD streamInd
 
 	CaptureScreen(graphics, rc);
 
-
-	
-
-	//Lock the whole bitmap so we can read pixel data easily.
+	// Lock the whole bitmap so we can read pixel data easily.
 	Gdiplus::Rect rect(0, 0, width, height);
 	bitmap.LockBits(&rect, Gdiplus::ImageLockModeRead, PixelFormat32bppARGB, bitmapData);
-	auto* pixels = static_cast<unsigned*>(bitmapData->Scan0);
+	auto *pixels = static_cast<unsigned *>(bitmapData->Scan0);
 	bitmap.UnlockBits(bitmapData);
 
-
-
-
-
-	IMFSample* pSample = NULL;
-	IMFMediaBuffer* pBuffer = NULL;
+	IMFSample *pSample = NULL;
+	IMFMediaBuffer *pBuffer = NULL;
 
 	const LONG cbWidth = 4 * VIDEO_WIDTH;
 	const DWORD cbBuffer = cbWidth * VIDEO_HEIGHT;
 
-	BYTE* pData = NULL;
+	BYTE *pData = NULL;
 
 	// Create a new memory buffer.
 	HRESULT hr = MFCreateMemoryBuffer(cbBuffer, &pBuffer);
@@ -259,23 +245,18 @@ HRESULT CScreenCaptureThread::WriteFrame(IMFSinkWriter* pWriter, DWORD streamInd
 	if (SUCCEEDED(hr))
 	{
 		hr = MFCopyImage(
-			pData,                      
+			pData,
 			cbWidth,
-			(BYTE*)(DWORD*)pixels, 
+			(BYTE *)(DWORD *)pixels,
 			cbWidth,
-			cbWidth,  
-			VIDEO_HEIGHT
-		);
+			cbWidth,
+			VIDEO_HEIGHT);
 	}
-
-
-
 
 	if (pBuffer)
 	{
 		pBuffer->Unlock();
 	}
-
 
 	if (SUCCEEDED(hr))
 	{
@@ -311,15 +292,15 @@ HRESULT CScreenCaptureThread::WriteFrame(IMFSinkWriter* pWriter, DWORD streamInd
 }
 
 #include <memory>
-Gdiplus::Status HBitmapToBitmap(HBITMAP source, Gdiplus::PixelFormat pixel_format, Gdiplus::Bitmap** result_out)
+Gdiplus::Status HBitmapToBitmap(HBITMAP source, Gdiplus::PixelFormat pixel_format, Gdiplus::Bitmap **result_out)
 {
-	BITMAP source_info = { 0 };
+	BITMAP source_info = {0};
 	if (!::GetObject(source, sizeof(source_info), &source_info))
 		return Gdiplus::GenericError;
 
 	Gdiplus::Status s;
 
-	std::unique_ptr< Gdiplus::Bitmap > target(new Gdiplus::Bitmap(source_info.bmWidth, source_info.bmHeight, pixel_format));
+	std::unique_ptr<Gdiplus::Bitmap> target(new Gdiplus::Bitmap(source_info.bmWidth, source_info.bmHeight, pixel_format));
 	if (!target.get())
 		return Gdiplus::OutOfMemory;
 	if ((s = target->GetLastStatus()) != Gdiplus::Ok)
@@ -346,18 +327,14 @@ Gdiplus::Status HBitmapToBitmap(HBITMAP source, Gdiplus::PixelFormat pixel_forma
 	return Gdiplus::Ok;
 }
 
-
-
-
-void CScreenCaptureThread::CaptureScreen(Gdiplus::Graphics& graphics, const CRect& rc)
+void CScreenCaptureThread::CaptureScreen(Gdiplus::Graphics &graphics, const CRect &rc)
 {
 	HDC desktopDC = ::GetDC(0);
 	HDC memdc = 0;
 	HBITMAP hBitmap;
 
-
-
-	if (!desktopDC) {
+	if (!desktopDC)
+	{
 		return;
 	}
 
@@ -370,19 +347,11 @@ void CScreenCaptureThread::CaptureScreen(Gdiplus::Graphics& graphics, const CRec
 
 	graphics.DrawImage(&_bitmap, Rect(0, 0, rc.Width(), rc.Height()));
 
-
-
-
-
 	SelectObject(memdc, hOldBitmap);
 	DeleteObject(memdc);
 	DeleteObject(hBitmap);
 	ReleaseDC(0, desktopDC);
-
 }
-
-
-
 
 void CScreenCaptureThread::MakeVideo()
 {
@@ -404,13 +373,10 @@ void CScreenCaptureThread::MakeVideo()
 	VIDEO_FPS = 20;
 	VIDEO_FRAME_DURATION = 50 * 1000 * 1000 / VIDEO_FPS;
 
-	
-
-
 	HRESULT hr = MFStartup(MF_VERSION);
 	if (SUCCEEDED(hr))
 	{
-		IMFSinkWriter* pSinkWriter = NULL;
+		IMFSinkWriter *pSinkWriter = NULL;
 		DWORD stream;
 
 		hr = InitializeSinkWriter(&pSinkWriter, &stream);
@@ -419,23 +385,21 @@ void CScreenCaptureThread::MakeVideo()
 			// Send frames to the sink writer.
 			LONGLONG rtStart = 0;
 
-
 			while (m_bRunning)
 			{
 				MSG msg;
 
 				if (::PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
 				{
-					if ((msg.message == WM_CHAR)) {
-
+					if ((msg.message == WM_CHAR))
+					{
 					}
-					else if ((msg.message == WM_COMMAND) && (msg.wParam == ID_ACTION_STOP)) {
+					else if ((msg.message == WM_COMMAND) && (msg.wParam == ID_ACTION_STOP))
+					{
 						m_bRunning = FALSE;
 						AddMessage(L"Capture Process is stopping..\n", AppMessageType_Info);
 					}
-
 				}
-
 
 				Sleep(50);
 
@@ -445,10 +409,7 @@ void CScreenCaptureThread::MakeVideo()
 					break;
 				}
 				rtStart += VIDEO_FRAME_DURATION;
-
-				
 			}
-
 		}
 		if (SUCCEEDED(hr))
 		{
@@ -459,6 +420,4 @@ void CScreenCaptureThread::MakeVideo()
 	}
 
 	ExitInstance();
-	
-
 }

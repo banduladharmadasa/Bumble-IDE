@@ -1,6 +1,5 @@
 #pragma once
 
-
 // CStatusBarEx
 
 class CStatusBarEx : public CMFCRibbonStatusBar
@@ -10,14 +9,9 @@ class CStatusBarEx : public CMFCRibbonStatusBar
 public:
 	CStatusBarEx();
 	virtual ~CStatusBarEx();
-	
 
 protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
-
-
 };
-
-

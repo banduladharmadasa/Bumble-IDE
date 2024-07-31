@@ -12,26 +12,19 @@
 IMPLEMENT_DYNCREATE(CInsertNumberAt, CBumblePropertyPage)
 
 CInsertNumberAt::CInsertNumberAt()
-	:CBumblePropertyPage(CInsertNumberAt::IDD)
+	: CBumblePropertyPage(CInsertNumberAt::IDD)
 {
-
 }
 
 CInsertNumberAt::~CInsertNumberAt()
 {
 }
 
-
 BEGIN_MESSAGE_MAP(CInsertNumberAt, CBumblePropertyPage)
-	ON_WM_CREATE()
+ON_WM_CREATE()
 END_MESSAGE_MAP()
 
-
-
 // CInsertNumberAt message handlers
-
-
-
 
 int CInsertNumberAt::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
@@ -43,22 +36,19 @@ int CInsertNumberAt::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	return 0;
 }
 
-void CInsertNumberAt::DoDataExchange(CDataExchange* pDX)
+void CInsertNumberAt::DoDataExchange(CDataExchange *pDX)
 {
 	DDX_Control(pDX, IDC_START_NUMBER, m_edtInitNumber);
 	DDX_Control(pDX, IDC_INCREMENT_BY, m_edtInc);
 	DDX_Control(pDX, IDC_LEADING_ZEROS, m_edtLeadingZeros);
-	
 }
-
 
 BOOL CInsertNumberAt::OnSetActive()
 {
 	// TODO: Add your specialized code here and/or call the base class
-	
+
 	return CBumblePropertyPage::OnSetActive();
 }
-
 
 void CInsertNumberAt::OnOK()
 {
@@ -78,8 +68,6 @@ void CInsertNumberAt::OnOK()
 
 	m_edtLeadingZeros.GetWindowTextW(temp);
 	pad = _wtoi(temp);
-
-	
 
 	theApp.GetActiveCodeEditor()->InsertMultiLineNumber(start, inc, pad, fmt);
 

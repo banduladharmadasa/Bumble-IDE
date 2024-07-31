@@ -12,14 +12,13 @@ IMPLEMENT_DYNAMIC(CProjectTree, CTreeCtrl)
 
 CProjectTree::CProjectTree()
 {
-
 }
 
 CProjectTree::~CProjectTree()
 {
 }
 
-HTREEITEM FindItem(const CString& name, CTreeCtrl& tree, HTREEITEM hRoot)
+HTREEITEM FindItem(const CString &name, CTreeCtrl &tree, HTREEITEM hRoot)
 {
 	// check whether the current item is the searched one
 	CString text = tree.GetItemText(hRoot);
@@ -44,7 +43,6 @@ HTREEITEM FindItem(const CString& name, CTreeCtrl& tree, HTREEITEM hRoot)
 	return NULL;
 }
 
-
 void CProjectTree::CreateBitmapForExtension(const CString &extension)
 {
 	/*CBitmap bmp;
@@ -53,31 +51,32 @@ void CProjectTree::CreateBitmapForExtension(const CString &extension)
 
 	}*/
 
-	//Gdiplus::Bitmap bmp(16, 16);
+	// Gdiplus::Bitmap bmp(16, 16);
 
-	//Gdiplus::Graphics g(&bmp);
+	// Gdiplus::Graphics g(&bmp);
 
-	//g.FillRectangle(&Gdiplus::SolidBrush(Gdiplus::Color::Red), 0, 0, 16, 16);
+	// g.FillRectangle(&Gdiplus::SolidBrush(Gdiplus::Color::Red), 0, 0, 16, 16);
 
-	//HBITMAP hSourceBmp;
-	//bmp.GetHBITMAP(Gdiplus::Color::Red,&hSourceBmp);
+	// HBITMAP hSourceBmp;
+	// bmp.GetHBITMAP(Gdiplus::Color::Red,&hSourceBmp);
 
-	//CBitmap destBitmap;
-	//destBitmap.Attach(CopyImage(hSourceBmp, IMAGE_BITMAP, 0, 0, 0));
+	// CBitmap destBitmap;
+	// destBitmap.Attach(CopyImage(hSourceBmp, IMAGE_BITMAP, 0, 0, 0));
 
-	//m_imgList.Add(&destBitmap, RGB(255, 0, 0));
+	// m_imgList.Add(&destBitmap, RGB(255, 0, 0));
 
-	//CString str = langToExtensionMap[extension];
+	// CString str = langToExtensionMap[extension];
 
-	//InitLangToExtensionMap();
+	// InitLangToExtensionMap();
 }
-
 
 BOOL CProjectTree::AlreadyExists(const CString &file)
 {
-	for (auto it : m_fileMap) {
-		if (it.second.CompareNoCase(file) == 0) {
-			
+	for (auto it : m_fileMap)
+	{
+		if (it.second.CompareNoCase(file) == 0)
+		{
+
 			return TRUE;
 		}
 	}
@@ -85,34 +84,34 @@ BOOL CProjectTree::AlreadyExists(const CString &file)
 	return FALSE;
 }
 
-void CProjectTree::AddFile(const CString& file)
+void CProjectTree::AddFile(const CString &file)
 {
-	if (AlreadyExists(file)) {
+	if (AlreadyExists(file))
+	{
 		return;
 	}
 
 	CString extension = PathFindExtension(file);
 
-	if (HTREEITEM item = FindItem(extension, *this, NULL)) {
+	if (HTREEITEM item = FindItem(extension, *this, NULL))
+	{
 		HTREEITEM _item = AddItem(item, file);
 
 		SortChildren(item);
 
-		if (_item) {
+		if (_item)
+		{
 			m_fileMap[_item] = file;
 		}
-		
 
 		return;
 	}
 
 	CreateBitmapForExtension(extension);
-	
+
 	tvInsertStruct.hParent = hRootItem;
 	tvInsertStruct.hInsertAfter = TVI_LAST;
 
-
-	
 	tvInsertStruct.item.pszText = extension.GetBuffer();
 	tvInsertStruct.item.mask = TVIF_TEXT;
 
@@ -124,26 +123,22 @@ void CProjectTree::AddFile(const CString& file)
 	SortChildren(hItem);
 }
 
-
 BEGIN_MESSAGE_MAP(CProjectTree, CTreeCtrl)
-	ON_WM_CREATE()
-	
-	ON_WM_LBUTTONDOWN()
-	ON_WM_KEYDOWN()
-	ON_WM_LBUTTONDBLCLK()
+ON_WM_CREATE()
+
+ON_WM_LBUTTONDOWN()
+ON_WM_KEYDOWN()
+ON_WM_LBUTTONDBLCLK()
 END_MESSAGE_MAP()
 
-
-
 // CProjectTree message handlers
-
 
 HTREEITEM CProjectTree::AddItem(HTREEITEM hParent, LPCTSTR strPath)
 {
 	// Adding the Item to the TreeCtrl with the current Icons
-	SHFILEINFO shFinfo = { 0 };
-	
-	CString    strTemp = strPath;
+	SHFILEINFO shFinfo = {0};
+
+	CString strTemp = strPath;
 
 	if (strTemp.Right(1) != '\\')
 		strTemp += "\\";
@@ -164,7 +159,7 @@ LPCTSTR CProjectTree::GetSubPath(LPCTSTR strPath)
 	// e.g. C:\temp\readme.txt
 	// the result = readme.txt
 	static CString strTemp;
-	int     iPos;
+	int iPos;
 
 	strTemp = strPath;
 	if (strTemp.Right(1) == '\\')
@@ -181,8 +176,8 @@ int CProjectTree::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	if (CTreeCtrl::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
-
-	if(m_imgList.Create(16, 16, ILC_MASK | ILC_COLOR32, 0, 4)) {
+	if (m_imgList.Create(16, 16, ILC_MASK | ILC_COLOR32, 0, 4))
+	{
 
 		CBitmap bmp;
 		BOOL bResult = bmp.LoadBitmapW(IDB_CHECKBOX);
@@ -193,10 +188,8 @@ int CProjectTree::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	SetImageList(&m_imgList, TVSIL_NORMAL);
 	AddProject(L"My Project");
 
-
 	return 0;
 }
-
 
 void CProjectTree::AddProject(const CString &projectName)
 {
@@ -204,73 +197,54 @@ void CProjectTree::AddProject(const CString &projectName)
 	tvInsertStruct.hParent = hRootItem;
 	tvInsertStruct.hInsertAfter = TVI_LAST;
 
-
 	CString name(projectName);
 	tvInsertStruct.item.pszText = name.GetBuffer();
 	tvInsertStruct.item.mask = TVIF_TEXT;
-	
 
 	HTREEITEM hItem = InsertItem(projectName, 4, 5, NULL);
 	ASSERT(hItem);
-
 }
-
-
 
 void CProjectTree::OnLButtonDown(UINT nFlags, CPoint point)
 {
 	// TODO: Add your message handler code here and/or call default
 	theApp.GetMainWnd()->PostMessageW(WM_LBUTTONDOWN, MK_LBUTTON, MAKELPARAM(point.y, point.x));
 
-
-	
-
-
 	CTreeCtrl::OnLButtonDown(nFlags, point);
 }
-
 
 void CProjectTree::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
 	// TODO: Add your message handler code here and/or call default
 
-	
-
-
-
 	CTreeCtrl::OnKeyDown(nChar, nRepCnt, nFlags);
 }
 
-
-BOOL CProjectTree::PreTranslateMessage(MSG* pMsg)
+BOOL CProjectTree::PreTranslateMessage(MSG *pMsg)
 {
 	// TODO: Add your specialized code here and/or call the base class
-	if ((pMsg->message == WM_KEYDOWN) && (pMsg->wParam == VK_ESCAPE)) {
+	if ((pMsg->message == WM_KEYDOWN) && (pMsg->wParam == VK_ESCAPE))
+	{
 		theApp.GetMainWnd()->PostMessageW(WM_LBUTTONDOWN, MK_LBUTTON, MAKELPARAM(0, 0));
 	}
 
-
-
-
-
 	return CTreeCtrl::PreTranslateMessage(pMsg);
 }
-
 
 void CProjectTree::OnLButtonDblClk(UINT nFlags, CPoint point)
 {
 	// TODO: Add your message handler code here and/or call default
 	HTREEITEM selectedItem = HitTest(point, &nFlags);
 
-	if (selectedItem) {
+	if (selectedItem)
+	{
 
 		CString file = m_fileMap[selectedItem];
 
-		if (PathFileExists(file)) {
+		if (PathFileExists(file))
+		{
 			theApp.OpenDocumentFile(file);
 		}
-
-
 	}
 
 	CTreeCtrl::OnLButtonDblClk(nFlags, point);

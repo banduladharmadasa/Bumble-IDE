@@ -10,21 +10,20 @@ class CFileBrowserDockPane : public CDockablePane
 public:
 	CFileBrowserDockPane();
 	virtual ~CFileBrowserDockPane();
-	
+
 	CFileBrowserOptionWnd *GetOptWnd();
-	void SetFilters(const CString& filters);
+	void SetFilters(const CString &filters);
 	CString GetSelectedPath();
 
-	CEdit* PrepareItemForRename();
+	CEdit *PrepareItemForRename();
 
-	
-	void AddNewFileItem(const CString& name);
+	void AddNewFileItem(const CString &name);
 	void DeleteItemFromTree();
-	
+
 protected:
 	DECLARE_MESSAGE_MAP()
 
-	//CFileBrowserWnd	m_wndFileBrowser;
+	// CFileBrowserWnd	m_wndFileBrowser;
 
 	CFileTreeWnd m_treeCtrl;
 	CFileBrowserOptionWnd m_wndOptions;
@@ -36,8 +35,6 @@ protected:
 public:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnSize(UINT nType, int cx, int cy);
-	afx_msg void OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);
+	afx_msg void OnContextMenu(CWnd * /*pWnd*/, CPoint /*point*/);
 	afx_msg void OnFileOpen();
 };
-
-

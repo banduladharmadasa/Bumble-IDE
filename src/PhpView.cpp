@@ -12,7 +12,6 @@ IMPLEMENT_DYNCREATE(CPhpView, CGenaricWebView)
 
 CPhpView::CPhpView()
 {
-
 }
 
 CPhpView::~CPhpView()
@@ -20,22 +19,20 @@ CPhpView::~CPhpView()
 }
 
 BEGIN_MESSAGE_MAP(CPhpView, CGenaricWebView)
-	ON_COMMAND(ID_SERVERTYPE_BUILTIN, &CPhpView::OnServerTypeBuiltIn)
-	ON_COMMAND(ID_SERVERTYPE_PHP, &CPhpView::OnServerTypePhp)
-	ON_COMMAND(ID_SERVERTYPE_EXTERNAL, &CPhpView::OnServerTypeExternal)
-	ON_COMMAND(ID_DEBUG_RUN, &CPhpView::OnDebugRun)
-	ON_COMMAND(ID_DEBUG_REFRESH, &CPhpView::OnDebugRefresh)
+ON_COMMAND(ID_SERVERTYPE_BUILTIN, &CPhpView::OnServerTypeBuiltIn)
+ON_COMMAND(ID_SERVERTYPE_PHP, &CPhpView::OnServerTypePhp)
+ON_COMMAND(ID_SERVERTYPE_EXTERNAL, &CPhpView::OnServerTypeExternal)
+ON_COMMAND(ID_DEBUG_RUN, &CPhpView::OnDebugRun)
+ON_COMMAND(ID_DEBUG_REFRESH, &CPhpView::OnDebugRefresh)
 END_MESSAGE_MAP()
-
 
 // CPhpView drawing
 
-void CPhpView::OnDraw(CDC* pDC)
+void CPhpView::OnDraw(CDC *pDC)
 {
-	CAvailEditDoc* pDoc = GetDocument();
+	CAvailEditDoc *pDoc = GetDocument();
 	// TODO: add draw code here
 }
-
 
 // CPhpView diagnostics
 
@@ -46,28 +43,24 @@ void CPhpView::AssertValid() const
 }
 
 #ifndef _WIN32_WCE
-void CPhpView::Dump(CDumpContext& dc) const
+void CPhpView::Dump(CDumpContext &dc) const
 {
 	CGenaricWebView::Dump(dc);
 }
 #endif
 #endif //_DEBUG
 
-
 // CPhpView message handlers
-
 
 void CPhpView::OnServerTypeBuiltIn()
 {
 	// TODO: Add your command handler code here
 }
 
-
 void CPhpView::OnServerTypePhp()
 {
 	// TODO: Add your command handler code here
 }
-
 
 void CPhpView::OnServerTypeExternal()
 {
@@ -78,12 +71,12 @@ void CPhpView::OnDebugRun()
 {
 	CString pathName = GetDocument()->GetPathName();
 
-	if (!GetDocument()->DoFileSave()) {
+	if (!GetDocument()->DoFileSave())
+	{
 		return;
 	}
 
 	pathName = GetDocument()->GetPathName();
-
 
 	m_codeEditor.Eval(L" var logWindow = window.open()");
 
@@ -94,15 +87,14 @@ void CPhpView::OnDebugRun()
 	fileName.Append(L"'");
 
 	m_codeEditor.Eval(fileName);
-
-
 }
 
 void CPhpView::OnDebugRefresh()
 {
 	CString pathName = GetDocument()->GetPathName();
 
-	if (!GetDocument()->DoFileSave()) {
+	if (!GetDocument()->DoFileSave())
+	{
 		return;
 	}
 
@@ -114,6 +106,4 @@ void CPhpView::OnDebugRefresh()
 	fileName.Append(L"'");
 
 	m_codeEditor.Eval(fileName);
-
 }
-

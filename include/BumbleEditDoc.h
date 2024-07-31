@@ -10,12 +10,12 @@ public:
 	CBumbleEditDoc();
 	virtual ~CBumbleEditDoc();
 #ifndef _WIN32_WCE
-	virtual void Serialize(CArchive& ar);   // overridden for document i/o
+	virtual void Serialize(CArchive &ar); // overridden for document i/o
 #endif
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 #ifndef _WIN32_WCE
-	virtual void Dump(CDumpContext& dc) const;
+	virtual void Dump(CDumpContext &dc) const;
 #endif
 #endif
 
@@ -30,17 +30,16 @@ public:
 	UINT GetUniqueDocID();
 	void Reload();
 
-	
-	virtual CRichEditCntrItem * CreateClientItem(REOBJECT * preo = NULL) const override;
+	virtual CRichEditCntrItem *CreateClientItem(REOBJECT *preo = NULL) const override;
 	void OnFileSaveCopyAs();
 
 	BOOL DoSave(LPCTSTR lpszPathName, BOOL bReplace) override;
-	
-	void AddExtraMenu(const CString& language);
+
+	void AddExtraMenu(const CString &language);
 
 	void LoadXmlConfigFile(const CString &langMode);
+
 protected:
-	
 	virtual HMENU GetDefaultMenu();
 	HMENU m_hDefaultMenu;
 
@@ -50,8 +49,8 @@ private:
 	CLanguageSpecificConfigManager m_xmlConfigManager;
 };
 
-//Make a unique ID for each document instance to help 
-//Plugin DLLs to recognize correct document to deliver the 
-//processed content. The value of this identifier is copied 
-//in each instance at the constructor of the CDocument derived class
+// Make a unique ID for each document instance to help
+// Plugin DLLs to recognize correct document to deliver the
+// processed content. The value of this identifier is copied
+// in each instance at the constructor of the CDocument derived class
 static UINT docId = 0;

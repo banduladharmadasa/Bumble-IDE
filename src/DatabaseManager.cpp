@@ -4,7 +4,7 @@
 #include "stdafx.h"
 #include "AceEditor.h"
 #include "DatabaseManager.h"
-//#include "MySqlConnection.h"
+// #include "MySqlConnection.h"
 
 // CDatabaseManager
 
@@ -31,6 +31,5 @@ void CDatabaseManager::Start()
 void CDatabaseManager::Stop()
 {
 }
-
 
 // CDatabaseManager member functions

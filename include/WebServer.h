@@ -13,5 +13,3 @@ public:
 	virtual BOOL Start(const CString &path) = 0;
 	virtual void Stop() = 0;
 };
-
-

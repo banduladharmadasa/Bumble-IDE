@@ -5,14 +5,12 @@
 #include "BumbleEdit.h"
 #include "SettingsFormView.h"
 
-
 // CSettingsFormView
 
 IMPLEMENT_DYNCREATE(CSettingsFormView, CFormView)
 
-CSettingsFormView::CSettingsFormView() :CFormView(IDD_SETTINGSVIEW)
+CSettingsFormView::CSettingsFormView() : CFormView(IDD_SETTINGSVIEW)
 {
-
 }
 
 CSettingsFormView::~CSettingsFormView()
@@ -20,12 +18,9 @@ CSettingsFormView::~CSettingsFormView()
 }
 
 BEGIN_MESSAGE_MAP(CSettingsFormView, CFormView)
-	ON_WM_CREATE()
-	ON_WM_SIZE()
+ON_WM_CREATE()
+ON_WM_SIZE()
 END_MESSAGE_MAP()
-
-
-
 
 // CSettingsFormView diagnostics
 
@@ -36,7 +31,7 @@ void CSettingsFormView::AssertValid() const
 }
 
 #ifndef _WIN32_WCE
-void CSettingsFormView::Dump(CDumpContext& dc) const
+void CSettingsFormView::Dump(CDumpContext &dc) const
 {
 	CFormView::Dump(dc);
 }
@@ -44,10 +39,9 @@ void CSettingsFormView::Dump(CDumpContext& dc) const
 #endif
 #endif //_DEBUG
 
-
 // CSettingsFormView message handlers
 
-void CSettingsFormView::DoDataExchange(CDataExchange * pDX)
+void CSettingsFormView::DoDataExchange(CDataExchange *pDX)
 {
 }
 
@@ -58,24 +52,12 @@ int CSettingsFormView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	// TODO:  Add your specialized creation code here
 
-
-
-	
-
 	return 0;
 }
-
 
 void CSettingsFormView::OnSize(UINT nType, int cx, int cy)
 {
 	CFormView::OnSize(nType, cx, cy);
 
 	// TODO: Add your message handler code here
-
-
 }
-
-
-
-
-

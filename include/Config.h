@@ -5,8 +5,6 @@ public:
 	CConfig();
 	~CConfig();
 
-
-	
 	void SetTheme(const CString &theme);
 	CString GetTheme();
 	void SetFontName(const CString &name);
@@ -42,28 +40,23 @@ public:
 	void SetEnableWordWrap(int val);
 	int GetEnableWordWrap();
 
-	//Server
+	// Server
 	void SetCgiBinPath(const CString &val);
 	CString GetCgiBinPath();
 	void SetListeningPort(int val);
 	int GetListeningPort();
-	void SetCgiPattern(const CString& val);
+	void SetCgiPattern(const CString &val);
 	CString GetCGIPattern();
-	void SetIndexFiles(const CString& val);
+	void SetIndexFiles(const CString &val);
 	CString GetIndexFiles();
-	void SetRootDirectory(const CString& val);
+	void SetRootDirectory(const CString &val);
 	CString GetRootDirectory();
 
-	//Screen Capture
+	// Screen Capture
 	void SetScreenRecorderSaveLocation(const CString &val);
 	CString GetScreenRecorderSaveLocation();
-	void SetScreenRecorderFileFormat(const CString& val);
+	void SetScreenRecorderFileFormat(const CString &val);
 	CString GetScreenRecorderFileFormat();
-	void SetScreenRecorderCodec(const CString& val);
+	void SetScreenRecorderCodec(const CString &val);
 	CString GetScreenRecorderCodec();
-
-
-	
-	
 };
-

@@ -5,46 +5,37 @@
 #include "BumbleEdit.h"
 #include "CBumbleButton.h"
 
-
 // CBumbleButton
 
 IMPLEMENT_DYNAMIC(CBumbleButton, CMFCButton)
 
 CBumbleButton::CBumbleButton()
 {
-	
+
 	SetFaceColor(RGB(255, 224, 136), true);
 	SetTextColor(RGB(0, 0, 0));
 	this->SetTextHotColor(RGB(255, 100, 0));
 	m_nFlatStyle = FlatStyle::BUTTONSTYLE_SEMIFLAT;
 
 	this->m_bDrawFocus = FALSE;
-	
-	
 }
 
 CBumbleButton::~CBumbleButton()
 {
 }
 
-
 BEGIN_MESSAGE_MAP(CBumbleButton, CMFCButton)
-	ON_WM_DRAWITEM()
+ON_WM_DRAWITEM()
 END_MESSAGE_MAP()
 
-
-
 // CBumbleButton message handlers
-
-
-
 
 void CBumbleButton::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)
 {
 	// TODO: Add your message handler code here and/or call default
 
 	/*CMFCButton::OnDrawItem(nIDCtl, lpDrawItemStruct);*/
-	//if (nIDCtl == IDC_BUTTON_COLOR)
+	// if (nIDCtl == IDC_BUTTON_COLOR)
 	//{
 	/*CDC dc;
 
@@ -81,7 +72,6 @@ void CBumbleButton::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)
 
 	dc.Detach();*/
 	//}
-
 
 	CMFCButton::OnDrawItem(nIDCtl, lpDrawItemStruct);
 }

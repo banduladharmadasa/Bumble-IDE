@@ -3,12 +3,12 @@
 
 #pragma comment(lib, "wmvcore.lib")
 
-HRESULT GetCodecNames(IWMCodecInfo3* pCodecInfo, REFGUID inType, CMFCPropertyGridProperty* pProp)
+HRESULT GetCodecNames(IWMCodecInfo3 *pCodecInfo, REFGUID inType, CMFCPropertyGridProperty *pProp)
 {
 
-	DWORD   cCodecs = 0;
-	WCHAR* pwszCodecName = NULL;
-	DWORD   cchCodecName = 0;
+	DWORD cCodecs = 0;
+	WCHAR *pwszCodecName = NULL;
+	DWORD cchCodecName = 0;
 
 	HRESULT hr = pCodecInfo->GetCodecInfoCount(inType, &cCodecs);
 	if (SUCCEEDED(hr))
@@ -23,17 +23,15 @@ HRESULT GetCodecNames(IWMCodecInfo3* pCodecInfo, REFGUID inType, CMFCPropertyGri
 
 	for (DWORD dwCodecIndex = 0; dwCodecIndex < cCodecs; dwCodecIndex++)
 	{
-	
-	
+
 		hr = pCodecInfo->GetCodecName(inType, dwCodecIndex,
-			NULL, &cchCodecName);
+									  NULL, &cchCodecName);
 		if (FAILED(hr))
 		{
 			printf("Could not get the size of the codec name. ");
 			return hr;
 		}
 
-	
 		pwszCodecName = new WCHAR[cchCodecName];
 		if (pwszCodecName == NULL)
 		{
@@ -42,7 +40,7 @@ HRESULT GetCodecNames(IWMCodecInfo3* pCodecInfo, REFGUID inType, CMFCPropertyGri
 		}
 
 		hr = pCodecInfo->GetCodecName(inType, dwCodecIndex,
-			pwszCodecName, &cchCodecName);
+									  pwszCodecName, &cchCodecName);
 		if (FAILED(hr))
 		{
 			delete[] pwszCodecName;
@@ -50,12 +48,7 @@ HRESULT GetCodecNames(IWMCodecInfo3* pCodecInfo, REFGUID inType, CMFCPropertyGri
 			return hr;
 		}
 
-          
-								
-
 		pProp->AddOption(pwszCodecName);
-
-
 
 		delete[] pwszCodecName;
 		pwszCodecName = NULL;

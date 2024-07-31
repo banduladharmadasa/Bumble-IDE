@@ -1,6 +1,5 @@
 #pragma once
 
-
 // CGotoLine dialog
 
 class CGotoLine : public CBumbleDialog
@@ -8,15 +7,16 @@ class CGotoLine : public CBumbleDialog
 	DECLARE_DYNAMIC(CGotoLine)
 
 public:
-	CGotoLine(CWnd* pParent = nullptr);   // standard constructor
+	CGotoLine(CWnd *pParent = nullptr); // standard constructor
 	virtual ~CGotoLine();
 
-
-	enum { IDD = IDD_GOTOLINE };
-
+	enum
+	{
+		IDD = IDD_GOTOLINE
+	};
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	virtual void DoDataExchange(CDataExchange *pDX); // DDX/DDV support
 
 	DECLARE_MESSAGE_MAP()
 public:

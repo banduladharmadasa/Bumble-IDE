@@ -1,6 +1,5 @@
 #pragma once
 
-
 // CNewFolderNameDlg dialog
 
 class CNewFolderNameDlg : public CBumbleDialog
@@ -8,16 +7,18 @@ class CNewFolderNameDlg : public CBumbleDialog
 	DECLARE_DYNAMIC(CNewFolderNameDlg)
 
 public:
-	CNewFolderNameDlg(CWnd* pParent = nullptr);   // standard constructor
+	CNewFolderNameDlg(CWnd *pParent = nullptr); // standard constructor
 	virtual ~CNewFolderNameDlg();
 
-// Dialog Data
+	// Dialog Data
 
-	enum { IDD = IDD_NEW_FOLDER_NAME };
-
+	enum
+	{
+		IDD = IDD_NEW_FOLDER_NAME
+	};
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	virtual void DoDataExchange(CDataExchange *pDX); // DDX/DDV support
 
 	DECLARE_MESSAGE_MAP()
 public:

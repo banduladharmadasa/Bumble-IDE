@@ -11,11 +11,9 @@
 
 // CFindResultWnd dialog
 
-
-CFindResultWnd::CFindResultWnd(CWnd* pParent /*=nullptr*/)
+CFindResultWnd::CFindResultWnd(CWnd *pParent /*=nullptr*/)
 	: CDHtmlDialog(CFindResultWnd::IDD, 0, pParent)
 {
-
 }
 
 CFindResultWnd::~CFindResultWnd()
@@ -27,17 +25,16 @@ void CFindResultWnd::AddResults(LPCWSTR args)
 	CString _str(args);
 	_str.Replace(L"'", L"\\'");
 	CString str;
-	
+
 	str.Format(L"var v = document.getElementById('find-results');\nv.innerHTML +='%s';", _str);
 	Eval(str);
 
-	((CDockablePane*)GetParent())->ShowPane(TRUE, 0, TRUE);
+	((CDockablePane *)GetParent())->ShowPane(TRUE, 0, TRUE);
 
-	if (((CDockablePane*)GetParent())->IsAutoHideMode()) {
-		((CDockablePane*)GetParent())->ToggleAutoHide();
+	if (((CDockablePane *)GetParent())->IsAutoHideMode())
+	{
+		((CDockablePane *)GetParent())->ToggleAutoHide();
 	}
-	
-
 }
 
 void CFindResultWnd::ClearResult()
@@ -46,7 +43,7 @@ void CFindResultWnd::ClearResult()
 	Eval(str);
 }
 
-void CFindResultWnd::DoDataExchange(CDataExchange* pDX)
+void CFindResultWnd::DoDataExchange(CDataExchange *pDX)
 {
 	CDHtmlDialog::DoDataExchange(pDX);
 }
@@ -55,13 +52,11 @@ BOOL CFindResultWnd::OnInitDialog()
 {
 	CDHtmlDialog::OnInitDialog();
 
-
 	LoadFromResource(IDR_HTML_CFINDRESULTWND);
-	return TRUE;  // return TRUE  unless you set the focus to a control
-
+	return TRUE; // return TRUE  unless you set the focus to a control
 }
 
-//HRESULT CFindResultWnd::OnMouseOverElement(IHTMLElement* phtmlElement)
+// HRESULT CFindResultWnd::OnMouseOverElement(IHTMLElement* phtmlElement)
 //{
 //	IHTMLStyle* phtmlStyle;
 //	phtmlElement->get_style(&phtmlStyle);
@@ -77,9 +72,9 @@ BOOL CFindResultWnd::OnInitDialog()
 //	}
 //	m_spCurrElement = phtmlElement;
 //	return S_OK;
-//}
+// }
 //
-//HRESULT CFindResultWnd::OnMouseOutElement(IHTMLElement* phtmlElement)
+// HRESULT CFindResultWnd::OnMouseOutElement(IHTMLElement* phtmlElement)
 //{
 //	IHTMLStyle* phtmlStyle;
 //	phtmlElement->get_style(&phtmlStyle);
@@ -94,50 +89,50 @@ BOOL CFindResultWnd::OnInitDialog()
 //	}
 //	m_spCurrElement = NULL;
 //	return S_OK;
-//}
+// }
 
-STDMETHODIMP_(HRESULT __stdcall) CFindResultWnd::ShowContextMenu(DWORD dwID, POINT* ppt, IUnknown* pcmdtReserved, IDispatch* pdispReserved)
+STDMETHODIMP_(HRESULT __stdcall)
+CFindResultWnd::ShowContextMenu(DWORD dwID, POINT *ppt, IUnknown *pcmdtReserved, IDispatch *pdispReserved)
 {
 	GetParent()->PostMessage(WM_CONTEXTMENU, (WPARAM)this->m_hWnd, MAKELPARAM(ppt->x, ppt->y));
 
-	
 	return S_OK;
 }
 
 BEGIN_MESSAGE_MAP(CFindResultWnd, CDHtmlDialog)
-	ON_WM_CONTEXTMENU()
+ON_WM_CONTEXTMENU()
 END_MESSAGE_MAP()
 
 BEGIN_DHTML_EVENT_MAP(CFindResultWnd)
-	DHTML_EVENT_CLASS(DISPID_HTMLELEMENTEVENTS_ONCLICK, _T("find-result-anchor"), OnClickAnchorTag)
-	DHTML_EVENT_CLASS(DISPID_HTMLELEMENTEVENTS_ONCLICK, _T("hyperace-match"), OnClickAnchorTag)
+DHTML_EVENT_CLASS(DISPID_HTMLELEMENTEVENTS_ONCLICK, _T("find-result-anchor"), OnClickAnchorTag)
+DHTML_EVENT_CLASS(DISPID_HTMLELEMENTEVENTS_ONCLICK, _T("hyperace-match"), OnClickAnchorTag)
 END_DHTML_EVENT_MAP()
-
-
 
 // CFindResultWnd message handlers
 
-
-HRESULT CFindResultWnd::OnClickAnchorTag(IHTMLElement* pElement)
+HRESULT CFindResultWnd::OnClickAnchorTag(IHTMLElement *pElement)
 {
-	//Get the line number and column number of the target 
-	//line
+	// Get the line number and column number of the target
+	// line
 
 	CComVariant attr;
 	BSTR _className;
 	pElement->get_className(&_className);
 	CString className = _className;
-	IHTMLElement* pTargetEl = nullptr;
-	if (className.Compare(L"hyperace-match") == 0) {
-		if (S_OK != pElement->get_parentElement(&pTargetEl)) {
+	IHTMLElement *pTargetEl = nullptr;
+	if (className.Compare(L"hyperace-match") == 0)
+	{
+		if (S_OK != pElement->get_parentElement(&pTargetEl))
+		{
 
 			return S_OK;
 		}
 	}
-	else {
+	else
+	{
 		pTargetEl = pElement;
 	}
-	
+
 	pTargetEl->getAttribute(L"ln", 0, &attr);
 	CString strLn = attr.bstrVal;
 	pTargetEl->getAttribute(L"col", 0, &attr);
@@ -145,23 +140,24 @@ HRESULT CFindResultWnd::OnClickAnchorTag(IHTMLElement* pElement)
 	pTargetEl->getAttribute(L"uniqueDocId", 0, &attr);
 	CString strUniqueDocId = attr.bstrVal;
 
-	CView* pView = nullptr;// = ((CMainFrame*)theApp.GetMainWnd())->GetActiveView();
-
+	CView *pView = nullptr; // = ((CMainFrame*)theApp.GetMainWnd())->GetActiveView();
 
 	POSITION posDocTemplate = theApp.GetFirstDocTemplatePosition();
 	while (NULL != posDocTemplate)
 	{
-		CDocTemplate* pDocTemplate = theApp.GetNextDocTemplate(posDocTemplate);
+		CDocTemplate *pDocTemplate = theApp.GetNextDocTemplate(posDocTemplate);
 		POSITION posDoc = pDocTemplate->GetFirstDocPosition();
 		while (NULL != posDoc)
 		{
-			CDocument* pDoc = pDocTemplate->GetNextDoc(posDoc);
-			if (pDoc) {
-				UINT id = ((CBumbleEditDoc*)pDoc)->GetUniqueDocID();
+			CDocument *pDoc = pDocTemplate->GetNextDoc(posDoc);
+			if (pDoc)
+			{
+				UINT id = ((CBumbleEditDoc *)pDoc)->GetUniqueDocID();
 				CString strID;
 				strID.Format(L"%u", id);
 
-				if (strID.Compare(strUniqueDocId) == 0) {
+				if (strID.Compare(strUniqueDocId) == 0)
+				{
 					POSITION pos = pDoc->GetFirstViewPosition();
 					pView = pDoc->GetNextView(pos);
 					break;
@@ -170,36 +166,33 @@ HRESULT CFindResultWnd::OnClickAnchorTag(IHTMLElement* pElement)
 		}
 	}
 
+	if (pView)
+	{
+		if (pView->IsKindOf(RUNTIME_CLASS(CBumbleEditView)))
+		{
+			// pView->GetParentFrame()->ActivateFrame();
 
-
-
-	if (pView) {
-		if (pView->IsKindOf(RUNTIME_CLASS(CBumbleEditView))) {
-			//pView->GetParentFrame()->ActivateFrame();
-			
 			CString str;
 			str.Format(L"editor.focus();\neditor.navigateFileEnd();\neditor.scrollToLine(50, true, true, function () {}); \n editor.gotoLine(%s, %s, true); ", strLn, strCol);
-			((CBumbleEditView*)pView)->Eval(str);
-			theApp.GetMainWindow()->ActivateTabByView((CBumbleEditView*)pView);
-			
+			((CBumbleEditView *)pView)->Eval(str);
+			theApp.GetMainWindow()->ActivateTabByView((CBumbleEditView *)pView);
 		}
-
 	}
 
-	
 	return S_OK;
 }
-CComVariant CFindResultWnd::Eval(const CString& exp)
+CComVariant CFindResultWnd::Eval(const CString &exp)
 {
 	CComPtr<IHTMLDocument2> pIDoc2;
-	if (SUCCEEDED(this->GetDHtmlDocument(&pIDoc2)))  //Uses CDHtmlDialog as 'this'
+	if (SUCCEEDED(this->GetDHtmlDocument(&pIDoc2))) // Uses CDHtmlDialog as 'this'
 	{
 		CStringArray arrArgs;
 		arrArgs.Add(exp);
 		CComVariant varRes = 0;
 		CComVariant _command = L"eval";
 
-		if (CallClientScript(_command.bstrVal, &arrArgs, &varRes)) {
+		if (CallClientScript(_command.bstrVal, &arrArgs, &varRes))
+		{
 			return varRes;
 		}
 	}
@@ -207,26 +200,25 @@ CComVariant CFindResultWnd::Eval(const CString& exp)
 	return 0;
 }
 
-
-BOOL CFindResultWnd::CallClientScript(LPCTSTR pStrFuncName, CStringArray* pArrFuncArgs, CComVariant* pOutVarRes)
+BOOL CFindResultWnd::CallClientScript(LPCTSTR pStrFuncName, CStringArray *pArrFuncArgs, CComVariant *pOutVarRes)
 {
 	BOOL bRes = FALSE;
 	CComVariant vaResult;
 	CComPtr<IHTMLDocument2> pIDoc2;
-	if (SUCCEEDED(this->GetDHtmlDocument(&pIDoc2)))  //Uses CDHtmlDialog as 'this'
+	if (SUCCEEDED(this->GetDHtmlDocument(&pIDoc2))) // Uses CDHtmlDialog as 'this'
 	{
-		//Getting IDispatch for Java Script objects
+		// Getting IDispatch for Java Script objects
 		CComPtr<IDispatch> spScript;
 		if (SUCCEEDED(pIDoc2->get_Script(&spScript)))
 		{
-			//Find dispid for given function in the object
+			// Find dispid for given function in the object
 			CComBSTR bstrMember(pStrFuncName);
 			DISPID dispid = NULL;
 			if (SUCCEEDED(spScript->GetIDsOfNames(IID_NULL, &bstrMember, 1, LOCALE_USER_DEFAULT, &dispid)))
 			{
 				const int arraySize = pArrFuncArgs ? pArrFuncArgs->GetSize() : 0;
 
-				//Putting parameters  
+				// Putting parameters
 				DISPPARAMS dispparams;
 				memset(&dispparams, 0, sizeof dispparams);
 				dispparams.cArgs = arraySize;
@@ -242,15 +234,15 @@ BOOL CFindResultWnd::CallClientScript(LPCTSTR pStrFuncName, CStringArray* pArrFu
 
 				EXCEPINFO excepInfo;
 				memset(&excepInfo, 0, sizeof excepInfo);
-				UINT nArgErr = (UINT)-1;  // initialize to invalid arg
+				UINT nArgErr = (UINT)-1; // initialize to invalid arg
 
-				//Call JavaScript function         
+				// Call JavaScript function
 				if (SUCCEEDED(spScript->Invoke(dispid, IID_NULL, 0, DISPATCH_METHOD, &dispparams, &vaResult, &excepInfo, &nArgErr)))
 				{
-					//Done!
+					// Done!
 					bRes = TRUE;
 				}
-				//Free mem
+				// Free mem
 				delete[] dispparams.rgvarg;
 			}
 		}
@@ -267,15 +259,11 @@ void CFindResultWnd::copyContent()
 	BOOL bRes = FALSE;
 	CComVariant vaResult;
 	CComPtr<IHTMLDocument2> pIDoc2;
-	if (SUCCEEDED(this->GetDHtmlDocument(&pIDoc2)))  //Uses CDHtmlDialog as 'this'
+	if (SUCCEEDED(this->GetDHtmlDocument(&pIDoc2))) // Uses CDHtmlDialog as 'this'
 	{
 		VARIANT v;
 		v.bstrVal = L"";
 		VARIANT_BOOL b;
 		pIDoc2->execCommand(L"copy", true, v, &b);
 	}
-
-		
-	
 }
-

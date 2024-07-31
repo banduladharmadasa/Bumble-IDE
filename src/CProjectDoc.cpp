@@ -5,7 +5,6 @@
 #include "BumbleEdit.h"
 #include "CProjectDoc.h"
 
-
 // CProjectDoc
 
 IMPLEMENT_DYNCREATE(CProjectDoc, CDocument)
@@ -25,10 +24,8 @@ CProjectDoc::~CProjectDoc()
 {
 }
 
-
 BEGIN_MESSAGE_MAP(CProjectDoc, CDocument)
 END_MESSAGE_MAP()
-
 
 // CProjectDoc diagnostics
 
@@ -39,7 +36,7 @@ void CProjectDoc::AssertValid() const
 }
 
 #ifndef _WIN32_WCE
-void CProjectDoc::Dump(CDumpContext& dc) const
+void CProjectDoc::Dump(CDumpContext &dc) const
 {
 	CDocument::Dump(dc);
 }
@@ -49,7 +46,7 @@ void CProjectDoc::Dump(CDumpContext& dc) const
 #ifndef _WIN32_WCE
 // CProjectDoc serialization
 
-void CProjectDoc::Serialize(CArchive& ar)
+void CProjectDoc::Serialize(CArchive &ar)
 {
 	if (ar.IsStoring())
 	{
@@ -61,6 +58,5 @@ void CProjectDoc::Serialize(CArchive& ar)
 	}
 }
 #endif
-
 
 // CProjectDoc commands

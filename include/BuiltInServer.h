@@ -1,7 +1,7 @@
 #pragma once
 #include "WebServer.h"
-// CBuiltInServer command target
 
+// CBuiltInServer command target
 struct mg_connection;
 
 class CBuiltInServer : public CWebServer
@@ -12,12 +12,7 @@ public:
 
 protected:
 	CString m_documentRoot;
-
-	static int ExampleHandler(mg_connection * conn, void * cbdata);
-
+	static int ExampleHandler(mg_connection *conn, void *cbdata);
 	BOOL Start(const CString &path);
-
 	void Stop();
 };
-
-

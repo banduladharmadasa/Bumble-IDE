@@ -19,28 +19,22 @@ CBumblePropertySheet::~CBumblePropertySheet()
 {
 }
 
-
 BEGIN_MESSAGE_MAP(CBumblePropertySheet, CMFCPropertySheet)
-	ON_WM_PAINT()
-	ON_WM_CTLCOLOR()
-	ON_WM_DESTROY()
-	ON_WM_NCHITTEST()
-	ON_WM_NCMOUSEMOVE()
-	ON_WM_NCMOUSELEAVE()
-	ON_WM_NCLBUTTONUP()
-	ON_WM_NCLBUTTONDOWN()
-	ON_WM_SIZE()
-	ON_WM_NCHITTEST()
+ON_WM_PAINT()
+ON_WM_CTLCOLOR()
+ON_WM_DESTROY()
+ON_WM_NCHITTEST()
+ON_WM_NCMOUSEMOVE()
+ON_WM_NCMOUSELEAVE()
+ON_WM_NCLBUTTONUP()
+ON_WM_NCLBUTTONDOWN()
+ON_WM_SIZE()
+ON_WM_NCHITTEST()
 END_MESSAGE_MAP()
-
-
 
 // CBumblePropertySheet message handlers
 
-
-
-
-HBRUSH CBumblePropertySheet::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
+HBRUSH CBumblePropertySheet::OnCtlColor(CDC *pDC, CWnd *pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CMFCPropertySheet::OnCtlColor(pDC, pWnd, nCtlColor);
 
@@ -52,17 +46,14 @@ HBRUSH CBumblePropertySheet::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 		pDC->SetTextColor(RGB(0, 0, 0));
 		break;
 
-
 	default:
 		pDC->SetBkColor(RGB(43, 43, 43));
 		pDC->SetTextColor(RGB(255, 255, 255));
 		break;
 	}
 
-
 	return (HBRUSH)(m_pEditBkBrush->GetSafeHandle());
 }
-
 
 void CBumblePropertySheet::OnDestroy()
 {
@@ -70,8 +61,6 @@ void CBumblePropertySheet::OnDestroy()
 
 	delete m_pEditBkBrush;
 }
-
-
 
 LRESULT CBumblePropertySheet::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -82,9 +71,7 @@ LRESULT CBumblePropertySheet::WindowProc(UINT message, WPARAM wParam, LPARAM lPa
 	case WM_NCACTIVATE:
 	{
 
-
 		CWindowDC dc(this);
-
 
 		CRect rcClient, rcWindow;
 		GetClientRect(rcClient);
@@ -94,7 +81,6 @@ LRESULT CBumblePropertySheet::WindowProc(UINT message, WPARAM wParam, LPARAM lPa
 		rcClient.OffsetRect(-rcWindow.TopLeft());
 		rcWindow.OffsetRect(-rcWindow.TopLeft());
 
-
 		dc.ExcludeClipRect(rcClient);
 
 		/*if (m_bMouseOverCloseBtn)
@@ -103,7 +89,6 @@ LRESULT CBumblePropertySheet::WindowProc(UINT message, WPARAM wParam, LPARAM lPa
 			rgn.CreateRectRgnIndirect(m_closeBtnRect);
 			dc.SelectClipRgn(&rgn);
 		}*/
-
 
 		dc.IntersectClipRect(rcWindow);
 
@@ -116,8 +101,6 @@ LRESULT CBumblePropertySheet::WindowProc(UINT message, WPARAM wParam, LPARAM lPa
 		HBITMAP hBitmap = CreateCompatibleBitmap(dc, rcWindow.Width(), rcWindow.Height());
 		SelectObject(hdcMem, hBitmap);
 
-
-
 		int width = rcWindow.Width();
 		int height = rcWindow.Height();
 
@@ -125,7 +108,8 @@ LRESULT CBumblePropertySheet::WindowProc(UINT message, WPARAM wParam, LPARAM lPa
 		g.SetSmoothingMode(SmoothingModeAntiAlias);
 		g.FillRectangle(&SolidBrush(Color(255, 200, 106)), Rect(rcWindow.left, rcWindow.top, width, height));
 
-		for (auto& it : m_sysMenuButtons) {
+		for (auto &it : m_sysMenuButtons)
+		{
 
 			Rect _rc(it.boundingRect.left, it.boundingRect.top, it.boundingRect.Width(), it.boundingRect.Height());
 
@@ -150,18 +134,14 @@ LRESULT CBumblePropertySheet::WindowProc(UINT message, WPARAM wParam, LPARAM lPa
 				break;
 			}
 
-
-			if (it.btnState != SBS_DISABLED) {
+			if (it.btnState != SBS_DISABLED)
+			{
 				it.btnState = SYSBUTTONSTATES::SBS_NORMAL;
 				g.DrawImage(it.bitmap, _rc);
 			}
 		}
 
-
-
-
-
-		//Draw caption
+		// Draw caption
 		Gdiplus::Font font(L"Arial", 10);
 		PointF origin(0.0f, 0.0f);
 		SolidBrush blackBrush(Color(255, 0, 0, 0));
@@ -178,9 +158,6 @@ LRESULT CBumblePropertySheet::WindowProc(UINT message, WPARAM wParam, LPARAM lPa
 
 		DrawIconEx(hdcMem, 8, (int)(1.0 + ((capHeight - 16) / 2.0)), hIcon, 16, 16, 0, NULL, DI_NORMAL);
 
-
-
-
 		BitBlt(dc, -1, -1, rcWindow.Width(), rcWindow.Height(), hdcMem, 0, 0, SRCCOPY);
 
 		DeleteObject(hBitmap);
@@ -188,7 +165,6 @@ LRESULT CBumblePropertySheet::WindowProc(UINT message, WPARAM wParam, LPARAM lPa
 		DeleteDC(dc);
 
 		return 0;
-
 	}
 
 	break;
@@ -198,7 +174,6 @@ LRESULT CBumblePropertySheet::WindowProc(UINT message, WPARAM wParam, LPARAM lPa
 
 	return CMFCPropertySheet::WindowProc(message, wParam, lParam);
 }
-
 
 BOOL CBumblePropertySheet::LoadCaptionButtonsIcons(UINT nID)
 {
@@ -246,7 +221,7 @@ BOOL CBumblePropertySheet::LoadCaptionButtonsIcons(UINT nID)
 		m_CaptionButtonSize.cy = bm.bmHeight;
 
 		m_CaptionButtonIconst.Create(m_CaptionButtonSize.cx,
-			m_CaptionButtonSize.cy, nFlags, 0, 3);
+									 m_CaptionButtonSize.cy, nFlags, 0, 3);
 		m_CaptionButtonIconst.Add(&bmp, RGB(255, 0, 255));
 
 		return true;
@@ -254,7 +229,6 @@ BOOL CBumblePropertySheet::LoadCaptionButtonsIcons(UINT nID)
 
 	return false;
 }
-
 
 BOOL CBumblePropertySheet::OnInitDialog()
 {
@@ -264,22 +238,19 @@ BOOL CBumblePropertySheet::OnInitDialog()
 
 	LoadCaptionButtonsIcons(IDB_CAPTION_BTNS);
 
-
-
 	ModifyStyle(WS_SYSMENU, 0);
 
 	HRESULT hResult;
 	m_minMaxButton.btnState = SBS_DISABLED;
 	m_minMaxButton.hotColor = Color::Orange;
 	m_minMaxButton.buttonType = SysMenuButtonType::MinMaxButton;
-	//HRESULT hResult = LoadBitmapFromPNG(IDB_MAXIMIZE_16_16, &m_minMaxButton.bitmap, NULL);
+	// HRESULT hResult = LoadBitmapFromPNG(IDB_MAXIMIZE_16_16, &m_minMaxButton.bitmap, NULL);
 	m_sysMenuButtons.push_back(m_minMaxButton);
-
 
 	m_restoreButton.btnState = SBS_DISABLED;
 	m_restoreButton.hotColor = Color::Orange;
 	m_restoreButton.buttonType = SysMenuButtonType::RestoreButton;
-	//hResult = LoadBitmapFromPNG(IDB_RESTORE, &m_restoreButton.bitmap, NULL);
+	// hResult = LoadBitmapFromPNG(IDB_RESTORE, &m_restoreButton.bitmap, NULL);
 	m_sysMenuButtons.push_back(m_restoreButton);
 
 	m_closeButton.btnState = SBS_NORMAL;
@@ -290,44 +261,37 @@ BOOL CBumblePropertySheet::OnInitDialog()
 
 	RepositionSysMenuButtons();
 
-	
-	
 	ReplacePushButtons(IDOK);
 	ReplacePushButtons(IDCANCEL);
-	
-	
-	
 
-
-	return TRUE;  // return TRUE unless you set the focus to a control
-				  // EXCEPTION: OCX Property Pages should return FALSE
+	return TRUE; // return TRUE unless you set the focus to a control
+				 // EXCEPTION: OCX Property Pages should return FALSE
 }
-
 
 void CBumblePropertySheet::ReplacePushButtons(UINT nID)
 {
-	CMFCButton* btnOld = (CMFCButton*)GetDlgItem(nID);
-	if (!btnOld) {
+	CMFCButton *btnOld = (CMFCButton *)GetDlgItem(nID);
+	if (!btnOld)
+	{
 		return;
 	}
 
 	CString str;
 	btnOld->GetWindowTextW(str);
 
-
-	CBumbleButton* btnNew = new CBumbleButton();
+	CBumbleButton *btnNew = new CBumbleButton();
 	CRect rc;
 	btnOld->GetWindowRect(rc);
 	btnOld->DestroyWindow();
 
 	ScreenToClient(rc);
 
-	if (nID == IDOK) {
+	if (nID == IDOK)
+	{
 		rc.MoveToX(rc.left + 5);
 	}
 	btnNew->Create(str, WS_CHILD | WS_VISIBLE | WS_TABSTOP | BS_PUSHBUTTON, rc, this, nID);
 }
-
 
 void CBumblePropertySheet::OnNcMouseMove(UINT nHitTest, CPoint point)
 {
@@ -336,24 +300,22 @@ void CBumblePropertySheet::OnNcMouseMove(UINT nHitTest, CPoint point)
 	CRect rcWindow;
 	GetWindowRect(&rcWindow);
 
-
 	CPoint pt(point.x - rcWindow.left, point.y - rcWindow.top);
-	for (auto& it : m_sysMenuButtons) {
+	for (auto &it : m_sysMenuButtons)
+	{
 
-		if (it.boundingRect.PtInRect(pt)) {
-			if (it.btnState != SYSBUTTONSTATES::SBS_DISABLED) {
+		if (it.boundingRect.PtInRect(pt))
+		{
+			if (it.btnState != SYSBUTTONSTATES::SBS_DISABLED)
+			{
 				it.btnState = SBS_HOT;
 				SendMessage(WM_NCPAINT);
 			}
-
 		}
 	}
 
-
-
 	CMFCPropertySheet::OnNcMouseMove(nHitTest, point);
 }
-
 
 void CBumblePropertySheet::OnNcMouseLeave()
 {
@@ -364,7 +326,6 @@ void CBumblePropertySheet::OnNcMouseLeave()
 	CMFCPropertySheet::OnNcMouseLeave();
 }
 
-
 void CBumblePropertySheet::OnNcLButtonUp(UINT nHitTest, CPoint point)
 {
 	// TODO: Add your message handler code here and/or call default
@@ -372,37 +333,36 @@ void CBumblePropertySheet::OnNcLButtonUp(UINT nHitTest, CPoint point)
 	CMFCPropertySheet::OnNcLButtonUp(nHitTest, point);
 }
 
-
 void CBumblePropertySheet::OnNcLButtonDown(UINT nHitTest, CPoint point)
 {
 	CRect rcWindow;
 	GetWindowRect(&rcWindow);
 
-
 	CPoint pt(point.x - rcWindow.left, point.y - rcWindow.top);
-	for (auto& it : m_sysMenuButtons) {
+	for (auto &it : m_sysMenuButtons)
+	{
 
-		if (it.boundingRect.PtInRect(pt)) {
-			if (it.btnState != SYSBUTTONSTATES::SBS_DISABLED) {
+		if (it.boundingRect.PtInRect(pt))
+		{
+			if (it.btnState != SYSBUTTONSTATES::SBS_DISABLED)
+			{
 				it.btnState = SBS_PUSHED;
 				SendMessage(WM_NCPAINT);
 			}
-
 		}
 	}
 
 	CMFCPropertySheet::OnNcLButtonDown(nHitTest, point);
 }
 
-
 void CBumblePropertySheet::OnSize(UINT nType, int cx, int cy)
 {
 	CMFCPropertySheet::OnSize(nType, cx, cy);
 
-	if (this->GetSafeHwnd()) {
+	if (this->GetSafeHwnd())
+	{
 		RepositionSysMenuButtons();
 	}
-
 }
 
 void CBumblePropertySheet::RepositionSysMenuButtons()
@@ -411,27 +371,28 @@ void CBumblePropertySheet::RepositionSysMenuButtons()
 	GetWindowRect(&rc);
 	rc.OffsetRect(-rc.TopLeft());
 
-
 	int i = 3;
-	for (auto& it : m_sysMenuButtons) {
+	for (auto &it : m_sysMenuButtons)
+	{
 		it.boundingRect = CRect(0, 8, 16, 16 + 8);
 		it.boundingRect.MoveToX(rc.right - (16 * i) - 8);
 		i--;
 	}
 }
 
-
 LRESULT CBumblePropertySheet::OnNcHitTest(CPoint point)
 {
 	CRect rcWindow;
 	GetWindowRect(&rcWindow);
 
-
 	CPoint pt(point.x - rcWindow.left, point.y - rcWindow.top);
-	for (auto& it : m_sysMenuButtons) {
+	for (auto &it : m_sysMenuButtons)
+	{
 
-		if (it.boundingRect.PtInRect(pt)) {
-			if (((GetAsyncKeyState(VK_LBUTTON) & 0x8000) != 0) && (it.btnState != SBS_DISABLED)) {
+		if (it.boundingRect.PtInRect(pt))
+		{
+			if (((GetAsyncKeyState(VK_LBUTTON) & 0x8000) != 0) && (it.btnState != SBS_DISABLED))
+			{
 
 				switch (it.buttonType)
 				{
@@ -443,7 +404,6 @@ LRESULT CBumblePropertySheet::OnNcHitTest(CPoint point)
 					SendMessage(WM_SYSCOMMAND, SC_MAXIMIZE);
 					break;
 
-
 				case SysMenuButtonType::RestoreButton:
 					SendMessage(WM_SYSCOMMAND, SC_RESTORE);
 					break;
@@ -451,11 +411,8 @@ LRESULT CBumblePropertySheet::OnNcHitTest(CPoint point)
 					break;
 				}
 			}
-
 		}
 	}
-
-
 
 	return CMFCPropertySheet::OnNcHitTest(point);
 }

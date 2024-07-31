@@ -8,8 +8,7 @@ public:
 	CPopupMenuEx();
 	~CPopupMenuEx();
 	DECLARE_MESSAGE_MAP()
-	
+
 	afx_msg void OnPaint();
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 };
-

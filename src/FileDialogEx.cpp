@@ -11,17 +11,16 @@
 IMPLEMENT_DYNAMIC(CFileDialogEx, CFileDialog)
 
 CFileDialogEx::CFileDialogEx(BOOL bOpenFileDialog, LPCTSTR lpszDefExt, LPCTSTR lpszFileName,
-	DWORD dwFlags, LPCTSTR lpszFilter, CWnd* pParentWnd) :
-	CFileDialog(bOpenFileDialog, lpszDefExt, lpszFileName, dwFlags, lpszFilter, pParentWnd)
+							 DWORD dwFlags, LPCTSTR lpszFilter, CWnd *pParentWnd) : CFileDialog(bOpenFileDialog, lpszDefExt, lpszFileName, dwFlags, lpszFilter, pParentWnd)
 {
-	//m_bVistaStyle = TRUE;
+	// m_bVistaStyle = TRUE;
 
-	//AddPushButton(ID_FILE_OPENNETWORKLOCATION, L"Open URL");
+	// AddPushButton(ID_FILE_OPENNETWORKLOCATION, L"Open URL");
 
-	//CNetAddressCtrl *ctrl = new CNetAddressCtrl();
+	// CNetAddressCtrl *ctrl = new CNetAddressCtrl();
 	////AddEditBox(1, L"URL");
 
-	//AddControlItem(0, IDC_NETADDRESS1, L"OK")
+	// AddControlItem(0, IDC_NETADDRESS1, L"OK")
 	//	;
 }
 
@@ -30,17 +29,13 @@ CFileDialogEx::~CFileDialogEx()
 }
 
 BEGIN_MESSAGE_MAP(CFileDialogEx, CFileDialog)
-	ON_COMMAND(1, OnOpenNetworkLocationClicked)
+ON_COMMAND(1, OnOpenNetworkLocationClicked)
 END_MESSAGE_MAP()
-
-
 
 // CFileDialogEx message handlers
 
-
 void CFileDialogEx::OnOpenNetworkLocationClicked()
 {
-	
 }
 
 void CFileDialogEx::OnButtonClicked(DWORD dwIDCtl)
@@ -50,5 +45,3 @@ void CFileDialogEx::OnButtonClicked(DWORD dwIDCtl)
 		int i = 0;
 	}*/
 }
-
-
